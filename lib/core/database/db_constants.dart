@@ -1,0 +1,7 @@
+class DbConstants {
+  DbConstants._() ;
+
+
+
+
+}
