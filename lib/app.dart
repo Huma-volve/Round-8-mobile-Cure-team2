@@ -1,4 +1,5 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
+import 'package:cure_team_2/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,16 +15,17 @@ class MyApp extends StatelessWidget {
       designSize: const Size(428, 926),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        title: 'cure_team_1',
-        initialRoute: Routes.splash,
-        onGenerateRoute: router.generateRoute,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          useMaterial3: true,
+      child: SafeArea(
+        top: false,
+        right: false,
+        left: false,
+        child: MaterialApp(
+          title: 'cure_team_1',
+          initialRoute: Routes.splash,
+          onGenerateRoute: router.generateRoute,
+          theme: AppTheme.lightTheme,
+          debugShowCheckedModeBanner: false,
         ),
-        home: Container(),
-        debugShowCheckedModeBanner: false,
       ),
     );
   }

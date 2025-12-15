@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/extensions/padding.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/core/widgets/app_click.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class AppButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final double borderRadius;
   final bool enabled;
+  final Color borderColor;
   final Widget? icon;
 
   const AppButton({
@@ -23,6 +25,7 @@ class AppButton extends StatelessWidget {
     this.style,
     this.onPressed,
     this.enabled = true,
+    this.borderColor = Colors.transparent,
     this.padding,
     this.icon,
     this.color = AppColors.primary,
@@ -36,6 +39,7 @@ class AppButton extends StatelessWidget {
     TextStyle? style,
     Color? color,
     double? width,
+    Color? borderColor,
     double? height,
     double? borderRadius,
     required VoidCallback? onPressed,
@@ -45,9 +49,10 @@ class AppButton extends StatelessWidget {
         text: text,
         onPressed: onPressed,
         style: style,
-        borderRadius: borderRadius ?? 40,
+        borderColor: borderColor ?? Colors.transparent,
+        borderRadius: borderRadius ?? 7,
         width: width ?? double.infinity,
-        height: height ?? 50,
+        height: height ?? 48,
         color: color ?? AppColors.primary,
         icon: icon,
       );
@@ -64,13 +69,21 @@ class AppButton extends StatelessWidget {
             padding ?? EdgeInsets.symmetric(horizontal: 6.h, vertical: 3.h),
         decoration: BoxDecoration(
           color: color,
+          border: Border.all(color: borderColor),
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        child: Text(text,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            style: style ??
-                AppTextStyles.montserratButton.copyWith(color: Colors.white)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (icon != null) icon!.appPaddingHr(8),
+            Text(text,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: style ??
+                    AppTextStyles.montserratButton
+                        .copyWith(color: Colors.white)),
+          ],
+        ),
       ),
     );
   }

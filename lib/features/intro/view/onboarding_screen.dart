@@ -1,9 +1,11 @@
+import 'package:cure_team_2/core/extensions/navigation.dart';
 import 'package:cure_team_2/core/extensions/padding.dart';
+import 'package:cure_team_2/core/routing/routes.dart';
+import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/features/intro/view/widgets/on_boarding_item.dart';
 import 'package:cure_team_2/features/intro/view/widgets/onboarding_page_indecator.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/widgets/app_button.dart';
 import '../constants/onboarding_constants.dart';
 
@@ -35,12 +37,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-    } else {
-      endOnboarding();
+      return;
     }
+    _endOnboarding();
   }
 
-  void endOnboarding() {}
+  void _endOnboarding() {
+    context.pushReplacementNamed(Routes.login);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +81,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 AppButton(
                     text: isLastPage ? "Get Started" : "Next",
-                    onPressed: _goToNextPage)
+                    onPressed: _goToNextPage).appPaddingAll()
               ],
-            ).appPaddingAll(24),
+            ),
           ),
         );
       },
@@ -88,8 +93,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _skipButton() => Align(
       alignment: AlignmentDirectional.topEnd,
       child: TextButton(
-        onPressed: endOnboarding,
-        child: Text("Skip ", style: AppTextStyles.montserratButton),
+        onPressed: _endOnboarding,
+        child: Text("Skip ", style: AppTextStyles.montserratButton.copyWith(
+          color: AppColors.grey700
+        )),
       ));
 
   @override
