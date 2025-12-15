@@ -18,6 +18,8 @@ dependencies:
   get_it: ^9.2.0
   shared_preferences: ^2.5.4
   flutter_animate: ^4.5.2
+  flutter_svg: ^2.2.3
+  flutter_spinkit: ^5.2.2
 
 dev_dependencies:
   flutter_test:
@@ -27,7 +29,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-flutter_assets:
-  assets_path: assets/
-  output_path: lib/core/constants
-  filename: assets.dart
+
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
+    - family: Georgia
+      fonts:
+        - asset: assets/fonts/georgia.ttf

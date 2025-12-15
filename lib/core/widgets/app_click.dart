@@ -4,19 +4,22 @@ import 'package:flutter_animate/flutter_animate.dart';
 class AppClick extends StatefulWidget {
   final Widget child;
   final GestureTapCallback? onTap;
-  final GestureTapCallback ? onLongPress ;
-  final GestureTapCallback ? onDoubleTap ;
-  final GestureTapCallback ? onSecondaryTap ;
+  final GestureTapCallback? onLongPress;
+  final GestureTapCallback? onDoubleTap;
+  final GestureTapCallback? onSecondaryTap;
 
   const AppClick(
       {required this.child,
-    this.onDoubleTap ,
-    this.onSecondaryTap ,
-    this.onLongPress  , this.onTap, super.key});
+      this.onDoubleTap,
+      this.onSecondaryTap,
+      this.onLongPress,
+      this.onTap,
+      super.key});
 
   @override
   State<AppClick> createState() => _AppClickState();
 }
+
 class _AppClickState extends State<AppClick> {
   bool _isPressed = false;
 

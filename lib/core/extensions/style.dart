@@ -7,35 +7,30 @@ extension ThemeExt on BuildContext {
   ButtonThemeData get buttonTheme => Theme.of(this).buttonTheme;
   AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
   // TextTheme get textTheme => Theme.of(this).textTheme;
-
 }
 
-
 extension CustomColors on ColorScheme {
-  Color get warning => brightness == Brightness.light
-      ? AppColors.warning
-      : AppColors.warning300;
-  Color get onWarning => brightness == Brightness.light
-      ? Colors.white
-      : AppColors.warning900;
+  Color get warning =>
+      brightness == Brightness.light ? AppColors.warning : AppColors.warning300;
+  Color get onWarning =>
+      brightness == Brightness.light ? Colors.white : AppColors.warning900;
   Color get warningContainer => brightness == Brightness.light
       ? AppColors.warning100
       : AppColors.warning700;
   Color get onWarningContainer => brightness == Brightness.light
       ? AppColors.warning900
       : AppColors.warning100;
-  Color get success => brightness == Brightness.light
-      ? AppColors.success
-      : AppColors.success300;
-  Color get onSuccess => brightness == Brightness.light
-      ? Colors.white
-      : AppColors.success900;
+  Color get success =>
+      brightness == Brightness.light ? AppColors.success : AppColors.success300;
+  Color get onSuccess =>
+      brightness == Brightness.light ? Colors.white : AppColors.success900;
   Color get successContainer => brightness == Brightness.light
       ? AppColors.success100
       : AppColors.success700;
   Color get onSuccessContainer => brightness == Brightness.light
       ? AppColors.success900
       : AppColors.success100;
+
   /// grey Scale
   Color get grey => AppColors.grey;
   Color get grey50 => AppColors.grey50;
@@ -49,8 +44,8 @@ extension CustomColors on ColorScheme {
   Color get grey900 => AppColors.grey900;
 }
 
-extension Opacity on Color{
-  Color withAppOpacity(double opacity){
+extension Opacity on Color {
+  Color withAppOpacity(double opacity) {
     return withValues(alpha: opacity);
   }
 }

@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/routing/routes.dart';
 
 class MyApp extends StatelessWidget {
-  final AppRouter router ;
-  const MyApp({super.key , required this.router});
+  final AppRouter router;
+  const MyApp({super.key, required this.router});
 
   @override
   Widget build(BuildContext context) {
