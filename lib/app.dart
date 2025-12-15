@@ -1,3 +1,4 @@
+import 'package:cure_team_2/features/auth/presentation/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: Container(),
+      home: const HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
