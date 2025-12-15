@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextStyles {
+  const AppTextStyles._();
   // ==================== GEORGIA ====================
   static const String _georgia = 'Georgia';
   static TextStyle georgiaH1 = TextStyle(

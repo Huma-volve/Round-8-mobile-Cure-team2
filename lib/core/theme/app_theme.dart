@@ -5,15 +5,33 @@ import 'app_colors.dart';
 class AppTheme {
   const AppTheme._();
 
+  static const AppBarTheme _appBarThemeData = AppBarTheme(
+    centerTitle: true,
+    backgroundColor: Colors.transparent,
+    surfaceTintColor: Colors.transparent,
+
+    elevation: 0,
+  );
+
   /// Light Theme Data
   static ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+    splashFactory: NoSplash.splashFactory,
+    appBarTheme: _appBarThemeData.copyWith(
+        titleTextStyle: const TextStyle(
+      fontFamily: "Georgia",
+      fontSize: 20,
+      color: Colors.black,
+      fontWeight: FontWeight.w400,
+    )),
     colorScheme: _ColorScheme.lightColorScheme,
   );
 
   /// Dark Theme Data
   static ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
+    appBarTheme: _appBarThemeData.copyWith(foregroundColor: Colors.white),
     colorScheme: _ColorScheme.darkColorScheme,
   );
 }

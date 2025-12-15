@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/intro/view/widgets/on_boarding_item.dart';
 
 class OnBoardingConstants {
   const OnBoardingConstants._();
-  static List<OnBoardingItemModel> items = [
+  static final List<OnBoardingItemModel> items = [
     OnBoardingItemModel(
         img: Assets.onBoardingPage1,
         title: "Book Your Appointment Easily",
