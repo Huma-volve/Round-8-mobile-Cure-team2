@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app.dart';
 import 'core/routing/app_router.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Future.wait([
-    InjectionContainer.init() ,
-    SharedPrefHelper.init() ,
+    InjectionContainer.init(),
+    SharedPrefHelper.init(),
     ScreenUtil.ensureScreenSize(),
   ]);
   runApp(MyApp(

@@ -40,46 +40,46 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  // ==================== NOTO SANS JP ====================
-  static const String _notoSansJP = 'Noto Sans JP';
-  static TextStyle notoSansH1 = TextStyle(
-    fontFamily: _notoSansJP,
+  // ==================== MONTSERRAT ====================
+
+  static const String _montserrat = 'Montserrat';
+
+  static TextStyle montserratRegularH1 = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 40.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansH2 = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularH2 = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 32.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansH3 = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularH3 = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 24.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansSubheading = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularSubheading = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 20.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansButton = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularButton = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansCaption = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularCaption = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle notoSansSmallCaption = TextStyle(
-    fontFamily: _notoSansJP,
+  static TextStyle montserratRegularSmallCaption = TextStyle(
+    fontFamily: _montserrat,
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
 
-  // ==================== MONTSERRAT ====================
-  static const String _montserrat = 'Montserrat';
   static TextStyle montserratH1 = TextStyle(
     fontFamily: _montserrat,
     fontSize: 40.sp,
@@ -115,4 +115,17 @@ class AppTextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w500,
   );
+}
+
+class FontWeightHelper {
+  const FontWeightHelper._();
+  static const FontWeight thin = FontWeight.w100;
+  static const FontWeight extraLight = FontWeight.w200;
+  static const FontWeight light = FontWeight.w300;
+  static const FontWeight regular = FontWeight.w400;
+  static const FontWeight medium = FontWeight.w500;
+  static const FontWeight semiBold = FontWeight.w600;
+  static const FontWeight bold = FontWeight.w700;
+  static const FontWeight extraBold = FontWeight.w800;
+  static const FontWeight black = FontWeight.w900;
 }

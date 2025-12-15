@@ -1,16 +1,16 @@
 import 'package:cure_team_2/core/extensions/style.dart';
-import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-
 class AppTheme {
   const AppTheme._();
+
   /// Light Theme Data
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: _ColorScheme.lightColorScheme,
   );
+
   /// Dark Theme Data
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
@@ -18,9 +18,9 @@ class AppTheme {
   );
 }
 
-
 class _ColorScheme {
-  const  _ColorScheme._() ;
+  const _ColorScheme._();
+
   /// Light Color Scheme
   static ColorScheme lightColorScheme = ColorScheme(
     brightness: Brightness.light,
@@ -64,6 +64,7 @@ class _ColorScheme {
     onInverseSurface: AppColors.grey50,
     inversePrimary: AppColors.primary200,
   );
+
   /// Dark Color Scheme
   static ColorScheme darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
@@ -111,4 +112,3 @@ class _ColorScheme {
     inversePrimary: AppColors.primary600,
   );
 }
-

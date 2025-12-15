@@ -1,7 +1,3 @@
 class DbConstants {
-  DbConstants._() ;
-
-
-
-
+  DbConstants._();
 }
