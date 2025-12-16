@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cure_team_2/features/home/presentation/pages/favorite/presentation/pages/favorite_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,14 +11,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
-
   final List<Widget> listPage = [
     const HomePageBody(),
-    const Center(child: Text('Booking Page')),
+    const FavoritePage(),
     const Center(child: Text('Chat Page')),
     const Center(child: Text('Profile Page')),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -318,21 +317,26 @@ class CustomImage extends StatelessWidget {
 }
 
 class CustomListViewHomeVertical extends StatelessWidget {
-  const CustomListViewHomeVertical({super.key});
-
+  const CustomListViewHomeVertical({
+    super.key,
+    // required this.showObject
+  });
+// final   ShowObject showObject;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 6,
+      itemCount: 5,
+      // showObject.show.length,
       itemBuilder: (BuildContext context, int index) {
+// final list=showObject.show[index];
         return const Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: CustomContainer(
             textTitle: 'Robert Johnson',
-            textSubTitle: 'Orthopedic | El-Nasr Hospital',
+            textSubTitle: 'Orthopedic | El-Nasr Hospital', // list: list
           ),
         );
       },
@@ -345,8 +349,9 @@ class CustomContainer extends StatelessWidget {
     super.key,
     required this.textTitle,
     required this.textSubTitle,
+    //required this.list,
   });
-
+// final ModelListView list;
   final String textTitle;
   final String textSubTitle;
 
@@ -385,7 +390,10 @@ class CustomContainer extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        // List<String> listFavorite = [];
+                        // listFavorite.add()
+                      },
                       child: const Icon(
                         Icons.favorite_border,
                         size: 30,
