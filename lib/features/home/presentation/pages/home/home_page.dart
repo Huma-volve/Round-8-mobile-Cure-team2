@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cure_team_2/features/home/presentation/pages/favorite/presentation/pages/favorite_page.dart';
+import 'package:cure_team_2/features/home/presentation/pages/favorite/pages/favorite_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
