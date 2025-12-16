@@ -12,8 +12,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
   final List<Widget> listPage = [
-    const HomePageBody(),
     const FavoritePage(),
+    const HomePageBody(),
     const Center(child: Text('Chat Page')),
     const Center(child: Text('Profile Page')),
   ];

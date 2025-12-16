@@ -36,7 +36,7 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         Image.asset('assets/images/back.png'),
-        const Text('Your Favorite'),
+        const Expanded(child: Text('Your Favorite')),
       ],
     );
   }
