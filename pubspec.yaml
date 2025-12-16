@@ -15,6 +15,7 @@ dependencies:
   bloc: ^8.1.2
   equatable: ^2.0.5
   flutter_screenutil: ^5.9.3
+  cached_network_image: ^3.4.1
   get_it: ^9.2.0
   shared_preferences: ^2.5.4
   flutter_animate: ^4.5.2
@@ -47,3 +48,7 @@ flutter:
     - family: Georgia
       fonts:
         - asset: assets/fonts/georgia.ttf
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/core/constants
+  filename: assets.dart
