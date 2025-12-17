@@ -1,5 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cure_team_2/features/home/presentation/pages/favorite/pages/favorite_page.dart';
+import 'package:cure_team_2/core/extensions/navigation.dart';
+import 'package:cure_team_2/core/routing/routes.dart';
+import 'package:cure_team_2/core/theme/app_colors.dart';
+import 'package:cure_team_2/core/widgets/search_barr.dart';
+import 'package:cure_team_2/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,8 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
   final List<Widget> listPage = [
-    const FavoritePage(),
     const HomePageBody(),
+    const Center(child: Text('Chat booking')),
     const Center(child: Text('Chat Page')),
     const Center(child: Text('Profile Page')),
   ];
@@ -74,40 +78,42 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
-          CustomAppBar(),
-          SizedBox(
+          const CustomAppBarHome(),
+          const SizedBox(
             height: 24,
           ),
-          CustomTextFailed(),
-          SizedBox(
+          const CustomSearchPageBottom(),
+          const SizedBox(
             height: 24,
           ),
           CustomText(
+            onTap: () => context.pushNamed(Routes.specialtiesPage),
             textLarge: 'Specialties',
             textSmall: 'View all',
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          CustomListViewHomeHorizontal(),
-          SizedBox(
+          const CustomListViewHomeHorizontal(),
+          const SizedBox(
             height: 24,
           ),
-          CustomImage(),
-          SizedBox(
+          const CustomImage(),
+          const SizedBox(
             height: 10,
           ),
           CustomText(
+            onTap: () => context.pushNamed(Routes.doctorsPage),
             textLarge: 'Doctors near you',
             textSmall: 'View all',
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
-          CustomListViewHomeVertical()
+          const CustomListViewHomeVertical()
         ],
       ),
     );
@@ -117,34 +123,39 @@ class HomePageBody extends StatelessWidget {
 class CustomText extends StatelessWidget {
   final String textLarge;
   final String textSmall;
-
+  final void Function()? onTap;
   const CustomText({
     super.key,
     required this.textLarge,
     required this.textSmall,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: [
-          Text(
-            textLarge,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
-          ),
-          const Spacer(),
-          Text(textSmall,
-              style: const TextStyle(fontSize: 17, color: Color(0xFF145DB8))),
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Text(
+              textLarge,
+              style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
+            ),
+            const Spacer(),
+            Text(textSmall,
+                style:
+                    const TextStyle(fontSize: 17, color: AppColors.primary600)),
+          ],
+        ),
       ),
     );
   }
 }
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class CustomAppBarHome extends StatelessWidget {
+  const CustomAppBarHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -189,12 +200,15 @@ class CustomAppBar extends StatelessWidget {
             Material(
               elevation: 5,
               borderRadius: BorderRadius.circular(10),
-              child: const SizedBox(
+              child: SizedBox(
                   width: 40,
                   height: 40,
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                    size: 28,
+                  child: InkWell(
+                    onTap: () => context.pushNamed(Routes.favoritePage),
+                    child: const Icon(
+                      Icons.favorite_border_outlined,
+                      size: 28,
+                    ),
                   )),
             ),
             const SizedBox(width: 16),
@@ -217,41 +231,6 @@ class CustomAppBar extends StatelessWidget {
   }
 }
 
-class CustomTextFailed extends StatelessWidget {
-  const CustomTextFailed({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-        height: 64,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: const Color(0xFFF5F6F7),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            Image.asset('assets/images/Vector.png'),
-            const SizedBox(width: 8),
-            const Expanded(
-              child: TextField(
-                textAlignVertical: TextAlignVertical.center,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Search for specialty, doctor',
-                  isCollapsed: true,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class CustomListViewHomeHorizontal extends StatelessWidget {
   const CustomListViewHomeHorizontal({super.key});
 
@@ -260,7 +239,7 @@ class CustomListViewHomeHorizontal extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SizedBox(
-        height: 50,
+        height: 40,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 5,
@@ -269,7 +248,7 @@ class CustomListViewHomeHorizontal extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Container(
                   decoration: BoxDecoration(
-                      border: BoxBorder.all(width: 0.5),
+                      border: Border.all(width: 1, color: AppColors.grey400),
                       borderRadius: BorderRadius.circular(12)),
                   height: 50,
                   child: Align(
@@ -319,9 +298,7 @@ class CustomImage extends StatelessWidget {
 class CustomListViewHomeVertical extends StatelessWidget {
   const CustomListViewHomeVertical({
     super.key,
-    // required this.showObject
   });
-// final   ShowObject showObject;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -329,14 +306,12 @@ class CustomListViewHomeVertical extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 5,
-      // showObject.show.length,
       itemBuilder: (BuildContext context, int index) {
-// final list=showObject.show[index];
         return const Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: CustomContainer(
             textTitle: 'Robert Johnson',
-            textSubTitle: 'Orthopedic | El-Nasr Hospital', // list: list
+            textSubTitle: 'Orthopedic | El-Nasr Hospital',
           ),
         );
       },
@@ -349,26 +324,24 @@ class CustomContainer extends StatelessWidget {
     super.key,
     required this.textTitle,
     required this.textSubTitle,
-    //required this.list,
   });
-// final ModelListView list;
   final String textTitle;
   final String textSubTitle;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      height: 90,
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5),
+        border: Border.all(width: 1, color: AppColors.grey400),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
           Image.asset(
             'assets/images/image1.png',
-            width: 70,
-            height: 70,
+            width: 80,
+            height: 90,
             fit: BoxFit.cover,
           ),
           const SizedBox(width: 10),
@@ -376,11 +349,12 @@ class CustomContainer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const VSpace(5),
                 Text(
                   textTitle,
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Expanded(
@@ -394,17 +368,20 @@ class CustomContainer extends StatelessWidget {
                         // List<String> listFavorite = [];
                         // listFavorite.add()
                       },
-                      child: const Icon(
-                        Icons.favorite_border,
-                        size: 30,
+                      child: const Padding(
+                        padding: EdgeInsets.only(right: 16),
+                        child: Icon(
+                          Icons.favorite_border,
+                          size: 30,
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 const Row(
                   children: [
-                    Icon(Icons.star, color: Colors.amber, size: 18),
+                    Icon(Icons.star, color: AppColors.warning, size: 18),
                     SizedBox(width: 4),
                     Text('4.8'),
                     SizedBox(width: 16),

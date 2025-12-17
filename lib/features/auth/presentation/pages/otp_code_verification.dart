@@ -1,4 +1,6 @@
+import 'package:cure_team_2/core/extensions/navigation.dart';
 import 'package:cure_team_2/core/extensions/padding.dart';
+import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/core/widgets/app_button.dart';
 import 'package:cure_team_2/features/auth/presentation/widgets/otp_cold_down.dart';
@@ -14,19 +16,17 @@ class OtpCodeVerification extends StatelessWidget {
       appBar: AppBar(
         title: const Text("OTP Code Verification"),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            "Code has been send to +02 010 *** **88",
-            textAlign: TextAlign.center,
-            style: AppTextStyles.montserratButton,
-          ).appPaddingVr(72),
-          const PinCode(),
-          const OtpColdDown().appPaddingVr(24),
-          const AppButton(text: "Verify")
-        ],
-      ).appPaddingHr(),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Text(
+          "Code has been send to +02 010 *** **88",
+          textAlign: TextAlign.center,
+          style: AppTextStyles.montserratButton,
+        ).appPaddingVr(72),
+        const PinCode(),
+        const OtpColdDown().appPaddingVr(24),
+        AppButton(
+            text: "Verify", onPressed: () => context.pushNamed(Routes.homePage))
+      ]).appPaddingHr(),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:cure_team_2/features/home/presentation/pages/home/pages/home_page.dart';
 import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
