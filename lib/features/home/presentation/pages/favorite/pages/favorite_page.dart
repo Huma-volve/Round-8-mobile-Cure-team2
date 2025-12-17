@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/extensions/screen_size.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatelessWidget {
@@ -36,7 +37,15 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         Image.asset('assets/images/back.png'),
-        const Expanded(child: Text('Your Favorite')),
+        const Spacer(),
+        const Text(
+          'Your Favorite',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        const Spacer(),
       ],
     );
   }
