@@ -5,8 +5,8 @@ import 'package:cure_team_2/features/tabs/widgets/CustomOutlinedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class myBookingItem extends StatefulWidget {
-  const myBookingItem({
+class MyBookingItem extends StatefulWidget {
+  const MyBookingItem({
     super.key,
     required this.statusOntap,
     required this.statusText,
@@ -14,11 +14,11 @@ class myBookingItem extends StatefulWidget {
   final VoidCallback statusOntap;
   final String statusText;
   @override
-  State<myBookingItem> createState() => _myBookingItemState();
+  State<MyBookingItem> createState() => _MyBookingItemState();
 }
 
-class _myBookingItemState extends State<myBookingItem> {
-  int selectedIndex = -1;
+class _MyBookingItemState extends State<MyBookingItem> {
+  int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -99,20 +99,20 @@ class _myBookingItemState extends State<myBookingItem> {
                 text: 'Cancel',
                 onpressed: () {
                   setState(() {
-                    selectedIndex = 0;
+                    _selectedIndex = 0;
                   });
                 },
-                isSelected: selectedIndex == 0,
+                isSelected: _selectedIndex == 0,
               ),
               SizedBox(width: 10.w),
               CustomOutlinedButton(
                 text: 'Reschedule',
                 onpressed: () {
                   setState(() {
-                    selectedIndex = 1;
+                    _selectedIndex = 1;
                   });
                 },
-                isSelected: selectedIndex == 1,
+                isSelected: _selectedIndex == 1,
               ),
             ],
           ),

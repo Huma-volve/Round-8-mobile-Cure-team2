@@ -48,6 +48,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
 
               /// Date TextField
               AppTextField(
+                borderWidth: 1,
                 borderColor: AppColors.primary,
                 controller: tController,
                 readOnly: true,
@@ -57,7 +58,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
               ),
               SizedBox(height: 16.h),
 
-              /// Calendar (Separated Widget)
+              /// Calendar
               Container(
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -100,5 +101,11 @@ class _BookingappointmentState extends State<Bookingappointment> {
         onPressed: () {},
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    tController.dispose();
+    super.dispose();
   }
 }
