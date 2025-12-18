@@ -8,7 +8,6 @@ import 'package:cure_team_2/features/bookingAppointment/widget/customDocInfo.dar
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({super.key});
@@ -18,17 +17,7 @@ class PaymentMethod extends StatefulWidget {
 }
 
 class _PaymentMethodState extends State<PaymentMethod> {
-  final TextEditingController tController = TextEditingController();
-
-  DateTime? selectedday = DateTime.now();
-  DateTime focusedday = DateTime.now();
   int selectedIndex = -1;
-
-  @override
-  void initState() {
-    super.initState();
-    tController.text = DateFormat('EEEE MMMM d').format(DateTime.now());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +98,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 onTap: () {},
                 child: Container(
                   height: 48.h,
-                  margin: EdgeInsets.all(8),
+                  margin:const EdgeInsets.all(8),
                   width: 364.w,
                   child: DottedBorder(
                     dashPattern: const [11, 11],

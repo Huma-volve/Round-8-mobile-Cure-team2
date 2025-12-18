@@ -16,19 +16,19 @@ class YourAppointment extends StatefulWidget {
 }
 
 class _YourAppointmentState extends State<YourAppointment> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = -1;
     final List<String> times = [
       '9:00 AM',
-      '10:00 AM',
-      '11:00 AM',
-      '12:30 AM',
+      '10:00AM',
+      '11:00AM',
+      '12:30AM',
       '4:00 PM',
       '5:30 PM',
       '7:00 PM',
       '9:00 PM',
-      '10:00 PM',
+      '10:00PM',
     ];
     return Scaffold(
       appBar: const CustomAppBar(title: Text('Your Appointment')),
@@ -160,7 +160,7 @@ class _YourAppointmentState extends State<YourAppointment> {
             AppButton(
               text: 'Reschedule',
               onPressed: () {
-                ShowDialog(context);
+                showCancelDialog(context);
               },
             ),
             SizedBox(height: 24.h),
