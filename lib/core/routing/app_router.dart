@@ -2,6 +2,8 @@ import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/login_screen.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/otp_code_verification.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/signup_screen.dart';
+import 'package:cure_team_2/features/chat/presentation/pages/chat_detail_screen.dart';
+import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
 import 'package:cure_team_2/features/intro/view/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,15 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SignupScreen());
       case Routes.otp:
         return MaterialPageRoute(builder: (_) => const OtpCodeVerification());
+      case Routes.chatList:
+        return MaterialPageRoute(builder: (_) => const ChatListScreen());
+      case Routes.chatDetail:
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+            builder: (_) => ChatDetailScreen(
+                  chatId: args['chatId'],
+                  chatName: args['chatName'],
+                ));
       default:
         return null;
     }
