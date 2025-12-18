@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +22,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
   static TextStyle georgiaSubheading = TextStyle(
+    color: AppColors.secondary900,
     fontFamily: _georgia,
     fontSize: 20.sp,
     fontWeight: FontWeight.w400,

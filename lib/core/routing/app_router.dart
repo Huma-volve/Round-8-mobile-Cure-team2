@@ -6,11 +6,14 @@ import 'package:cure_team_2/features/home/presentation/pages/doctors/presentatio
 import 'package:cure_team_2/features/home/presentation/pages/favorite/pages/favorite_page.dart';
 import 'package:cure_team_2/features/home/presentation/pages/home/pages/home_page.dart';
 import 'package:cure_team_2/features/home/presentation/pages/specialties/presentation/pages/specialties_page.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
 import 'package:cure_team_2/features/intro/view/onboarding_screen.dart';
 import 'package:cure_team_2/features/search/presentation/pages/search_page.dart';
+import 'package:cure_team_2/features/intro/view/splash_screen.dart';
+import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
 import 'package:flutter/material.dart';
-
-import '../../features/intro/view/splash_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -35,6 +38,15 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const DoctorsPage());
       case Routes.specialtiesPage:
         return MaterialPageRoute(builder: (_) => const SpecialtiesPage());
+      case Routes.bookappointment:
+        return MaterialPageRoute(builder: (_) => const Bookingappointment());
+      case Routes.paymentmethod:
+        return MaterialPageRoute(builder: (_) => const PaymentMethod());
+      case Routes.mybooking:
+        return MaterialPageRoute(builder: (_) => const Mybooking());
+      case Routes.yourAppointment:
+        return MaterialPageRoute(builder: (_) => const YourAppointment());
+
       default:
         return null;
     }
