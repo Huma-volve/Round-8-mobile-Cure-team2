@@ -1,18 +1,32 @@
+import 'package:cure_team_2/core/routing/app_router.dart';
+import 'package:cure_team_2/core/theme/app_theme.dart';
+import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRouter router;
+  const MyApp({super.key, required this.router});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'cure_team_1',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: SafeArea(
+        top: false,
+        right: false,
+        left: false,
+        child: MaterialApp(
+          title: 'cure_team_1',
+          home: const Mybooking(),
+          // initialRoute:Routes.navbar,
+          onGenerateRoute: router.generateRoute,
+          theme: AppTheme.lightTheme,
+          debugShowCheckedModeBanner: false,
+        ),
       ),
-      home: Container(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
