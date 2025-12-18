@@ -4,9 +4,15 @@ import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomDoctorInfo extends StatelessWidget {
+class CustomDoctorInfo extends StatefulWidget {
   const CustomDoctorInfo({super.key});
 
+  @override
+  State<CustomDoctorInfo> createState() => _CustomDoctorInfoState();
+}
+
+class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,7 +25,7 @@ class CustomDoctorInfo extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 45,
-                backgroundImage: AssetImage(Assets.doctorphoto,),
+                backgroundImage: AssetImage(Assets.doctorphoto),
               ),
               Positioned(
                 right: 0,
@@ -46,13 +52,23 @@ class CustomDoctorInfo extends StatelessWidget {
               ),
             ],
           ),
-       const   CircleAvatar(
+          CircleAvatar(
             radius: 24,
-            backgroundColor: AppColors.grey,
-            child:  CircleAvatar(
+            backgroundColor: AppColors.grey50,
+            child: CircleAvatar(
               radius: 23.5,
               backgroundColor: Colors.white,
-              child:  Image(image: AssetImage(Assets.fav)),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isSelected = !isSelected;
+                  });
+                },
+                child: Image(
+                  color: isSelected ? AppColors.error : AppColors.grey,
+                  image: AssetImage(Assets.fav),
+                ),
+              ),
             ),
           ),
         ],

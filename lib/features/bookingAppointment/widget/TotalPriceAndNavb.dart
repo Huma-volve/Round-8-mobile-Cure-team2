@@ -5,14 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Totalpriceandnavb extends StatelessWidget {
-  const Totalpriceandnavb({super.key, required this.text,required this.onPressed});
+  const Totalpriceandnavb({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
   final String text;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 12.h),
-      decoration: const BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(
+        border: Border.all(width: 0.5.w, color: AppColors.grey50),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -27,7 +33,7 @@ class Totalpriceandnavb extends StatelessWidget {
                       text: 'price ',
                       style: AppTextStyles.montserratRegularH3,
                     ),
-                    TextSpan(text: '/ ', style: AppTextStyles.georgiaCaption),
+                    TextSpan(text: '\\ ', style: AppTextStyles.georgiaCaption),
                     TextSpan(text: 'hour', style: AppTextStyles.georgiaCaption),
                   ],
                 ),

@@ -32,13 +32,12 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
-      decoration: const BoxDecoration(color: Colors.white),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: const CustomAppBar(title: Text('Book Appointment')),
-        body: SingleChildScrollView(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: const CustomAppBar(title: Text('Book Appointment')),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -135,10 +134,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
             ],
           ),
         ),
-
-        /// Bottom Bar
-        bottomNavigationBar: Totalpriceandnavb(text: 'Continue to Pay', onPressed: () {  },),
       ),
+
+      /// Bottom Bar
+      bottomNavigationBar: Totalpriceandnavb(text: ' Pay', onPressed: () {}),
     );
   }
 }

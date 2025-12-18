@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const Icon(Icons.arrow_back_ios_new),
+      leading: const Icon(Icons.arrow_back_ios_new, size: 20),
       title: title,
       titleTextStyle: AppTextStyles.georgiaSubheading,
     );
