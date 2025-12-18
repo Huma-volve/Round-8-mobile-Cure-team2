@@ -1,6 +1,6 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
-import 'package:cure_team_2/features/tabs/widgets/myBookingItem.dart';
+import 'package:cure_team_2/features/tabs/widgets/MyBookingItem.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,17 +50,17 @@ class _MybookingState extends State<Mybooking> {
               margin: EdgeInsets.only(left: 16.w, right: 16.w),
               child: Column(
                 children: [
-                  myBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
                   SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Completed'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Completed'),
                   SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Canceled'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Canceled'),
                   SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
                   SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Completed'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Completed'),
                   SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Canceled'),
+                  MyBookingItem(statusOntap: () {}, statusText: 'Canceled'),
                   SizedBox(height: 16.h),
                 ],
               ),

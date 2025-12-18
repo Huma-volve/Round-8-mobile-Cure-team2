@@ -1,5 +1,6 @@
 import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
+import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +25,7 @@ class CardItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         margin: EdgeInsets.all(2.h),
         height: 56.h,
         width: 396.w,
@@ -42,7 +43,12 @@ class CardItem extends StatelessWidget {
               height: 24.h,
             ),
             SizedBox(width: 5.w),
-            Text(text),
+            Text(
+              text,
+              style: AppTextStyles.montserratButton.copyWith(
+                color: isSelected ? AppColors.success : AppColors.secondary300,
+              ),
+            ),
             const Spacer(),
             Image.asset(creditName),
             SizedBox(width: 10.w),

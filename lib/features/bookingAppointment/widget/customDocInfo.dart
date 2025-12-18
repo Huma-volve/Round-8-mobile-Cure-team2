@@ -66,7 +66,7 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
                 },
                 child: Image(
                   color: isSelected ? AppColors.error : AppColors.grey,
-                  image: AssetImage(Assets.fav),
+                  image:const AssetImage(Assets.fav),
                 ),
               ),
             ),

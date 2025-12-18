@@ -16,19 +16,20 @@ class YourAppointment extends StatefulWidget {
 }
 
 class _YourAppointmentState extends State<YourAppointment> {
+  int _selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = -1;
     final List<String> times = [
       '9:00 AM',
-      '10:00 AM',
-      '11:00 AM',
-      '12:30 AM',
+      '10:00AM',
+      '11:00AM',
+      '12:30AM',
       '4:00 PM',
       '5:30 PM',
       '7:00 PM',
       '9:00 PM',
-      '10:00 PM',
+      '10:00PM',
     ];
     return Scaffold(
       appBar: const CustomAppBar(title: Text('Your Appointment')),
@@ -42,7 +43,7 @@ class _YourAppointmentState extends State<YourAppointment> {
             Container(
               padding: const EdgeInsets.only(top: 4, bottom: 4),
               decoration: BoxDecoration(
-                color: AppColors.warning100,
+                color: AppColors.warning50,
                 borderRadius: BorderRadius.circular(5),
               ),
 
@@ -52,8 +53,12 @@ class _YourAppointmentState extends State<YourAppointment> {
                 children: [
                   Image.asset(Assets.warningicon),
                   SizedBox(width: 10.w),
-                  const Text(
-                    'Cancellation must be made at least 24 hours in \n advance to receive a refund',
+                  Text(
+                    "Cancellation must be made at least 24 hours in \n"
+                    " advance to receive a refund",
+                    style: AppTextStyles.montserratCaption.copyWith(
+                      color: AppColors.warning,
+                    ),
                   ),
                 ],
               ),
@@ -62,11 +67,18 @@ class _YourAppointmentState extends State<YourAppointment> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(Assets.bookingicon, width: 24.w, height: 24.h),
+                Image.asset(
+                  Assets.bookingicon,
+                  width: 24.w,
+                  height: 24.h,
+                  color: AppColors.secondary600,
+                ),
                 const SizedBox(width: 5),
                 Text(
                   'Monday, July 21 - 11:00 Am',
-                  style: AppTextStyles.montserratButton,
+                  style: AppTextStyles.montserratButton.copyWith(
+                    color: AppColors.secondary600,
+                  ),
                 ),
                 const Spacer(),
                 GestureDetector(
@@ -85,7 +97,7 @@ class _YourAppointmentState extends State<YourAppointment> {
               children: [
                 const CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage(Assets.doctorphoto),
+                  backgroundImage: AssetImage(Assets.boy),
                 ),
                 SizedBox(width: 10.w),
                 Column(
@@ -105,7 +117,7 @@ class _YourAppointmentState extends State<YourAppointment> {
                   ],
                 ),
                 const Spacer(),
-                Image.asset(Assets.chaticon),
+                Image.asset(Assets.chaticon, color: AppColors.secondary600),
               ],
             ),
             SizedBox(height: 16.h),
@@ -126,30 +138,51 @@ class _YourAppointmentState extends State<YourAppointment> {
               ],
             ),
             SizedBox(height: 16.h),
-            const AppTextField(
-              prefix: ImageIcon(AssetImage(Assets.bookingicon)),
+            AppTextField(
+              readOnly: true,
+              prefix: Image.asset(
+                Assets.bookingicon,
+                width: 24.w,
+                height: 24.h,
+                color: AppColors.secondary600,
+              ),
               hintText: 'Monday,July 21',
-              suffix: ImageIcon(AssetImage(Assets.downicon)),
+              suffix: Image.asset(
+                Assets.downicon,
+                width: 24.w,
+                height: 24.h,
+                color: AppColors.secondary600,
+              ),
+              hintStyle: AppTextStyles.montserratButton.copyWith(
+                color: AppColors.secondary600,
+              ),
             ),
             SizedBox(height: 24.h),
             Wrap(
               alignment: WrapAlignment.center,
-              spacing: 55,
+              spacing: 50,
               runSpacing: 10,
               children: List.generate(times.length, (index) {
                 return ChoiceChip(
                   label: Text(
                     times[index],
-                    style: AppTextStyles.montserratSmallCaption,
+                    style: AppTextStyles.montserratSmallCaption.copyWith(
+                      color:
+                          _selectedIndex == index
+                              ? Colors.white
+                              : AppColors.secondary400,
+                    ),
                   ),
-                  selected: selectedIndex == index,
+                  selected: _selectedIndex == index,
                   onSelected: (_) {
                     setState(() {
-                      selectedIndex = index;
+                      _selectedIndex = index;
                     });
                   },
-                  selectedColor: Colors.blue,
-                  backgroundColor: Colors.grey.shade200,
+
+                  selectedColor: AppColors.primary,
+                  backgroundColor: AppColors.grey50,
+                  showCheckmark: false,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -160,7 +193,7 @@ class _YourAppointmentState extends State<YourAppointment> {
             AppButton(
               text: 'Reschedule',
               onPressed: () {
-                ShowDialog(context);
+                showCancelDialog(context);
               },
             ),
             SizedBox(height: 24.h),
@@ -180,4 +213,10 @@ class _YourAppointmentState extends State<YourAppointment> {
       ),
     );
   }
+  // @override
+  // void dispose() {
+
+  //   // TODO: implement dispose
+  //   super.dispose();
+  // }
 }

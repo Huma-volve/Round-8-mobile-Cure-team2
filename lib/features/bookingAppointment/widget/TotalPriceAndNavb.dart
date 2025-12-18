@@ -29,12 +29,14 @@ class Totalpriceandnavb extends StatelessWidget {
               Text.rich(
                 TextSpan(
                   children: [
-                    TextSpan(
-                      text: 'price ',
-                      style: AppTextStyles.montserratRegularH3,
-                    ),
+                    TextSpan(text: 'Price ', style: AppTextStyles.montserratH3),
                     TextSpan(text: '\\ ', style: AppTextStyles.georgiaCaption),
-                    TextSpan(text: 'hour', style: AppTextStyles.georgiaCaption),
+                    TextSpan(
+                      text: 'hour',
+                      style: AppTextStyles.georgiaCaption.copyWith(
+                        color: AppColors.grey,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -43,13 +45,13 @@ class Totalpriceandnavb extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: '350 ',
-                      style: AppTextStyles.montserratRegularH3.copyWith(
+                      style: AppTextStyles.montserratRegularButton.copyWith(
                         color: AppColors.error,
                       ),
                     ),
                     TextSpan(
-                      text: 'EGP',
-                      style: AppTextStyles.montserratRegularH3.copyWith(
+                      text: '\$',
+                      style: AppTextStyles.montserratRegularButton.copyWith(
                         color: AppColors.error,
                       ),
                     ),
@@ -65,7 +67,7 @@ class Totalpriceandnavb extends StatelessWidget {
           AppButton(
             onPressed: onPressed,
             text: text,
-            style: AppTextStyles.montserratH3.copyWith(color: Colors.white),
+            style: AppTextStyles.montserratButton.copyWith(color: Colors.white),
           ),
         ],
       ),
