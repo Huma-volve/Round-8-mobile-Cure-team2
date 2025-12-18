@@ -1,6 +1,7 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
 import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
-          home: const PaymentMethod(),
+          home: const YourAppointment(),
           // initialRoute:Routes.navbar,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,

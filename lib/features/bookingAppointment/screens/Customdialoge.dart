@@ -11,59 +11,62 @@ void ShowDialog(BuildContext context) {
     barrierDismissible: false,
     builder:
         (_) => Center(
-          child: Container(
-            height: 475.h,
-            width: 341.w,
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              height: 475.h,
+              width: 341.w,
 
-            padding: const EdgeInsets.only(
-              top: 32,
-              bottom: 32,
-              left: 48,
-              right: 48,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(48),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(Assets.warningImage, width: 131.w, height: 131.h),
-                SizedBox(height: 32.h),
-                Text(
-                  'Warning!',
-                  style: AppTextStyles.georgiaSubheading.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.warning,
+              padding: const EdgeInsets.only(
+                top: 32,
+                bottom: 32,
+                left: 48,
+                right: 48,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(48),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(Assets.warningImage, width: 131.w, height: 131.h),
+                  SizedBox(height: 32.h),
+                  Text(
+                    'Warning!',
+                    style: AppTextStyles.georgiaSubheading.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.warning,
+                    ),
                   ),
-                ),
-                SizedBox(height: 32.h),
-                Text(
-                  'Cancellation must be made at least\n 24 hours in advance to receive a\n refund!',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.georgiaCaption.copyWith(
-                    color: AppColors.secondary300,
+                  SizedBox(height: 32.h),
+                  Text(
+                    'Cancellation must be made at least\n 24 hours in advance to receive a\n refund!',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.georgiaCaption.copyWith(
+                      color: AppColors.secondary300,
+                    ),
                   ),
-                ),
-                SizedBox(height: 42.h),
-                Text(
-                  'Are you sure?',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.georgiaCaption.copyWith(
-                    color: AppColors.secondary300,
+                  SizedBox(height: 35.h),
+                  Text(
+                    'Are you sure?',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.georgiaCaption.copyWith(
+                      color: AppColors.secondary300,
+                    ),
                   ),
-                ),
-                SizedBox(height: 15),
-                AppButton(
-                  text: " yes,Cancel",
-                  onPressed: () {},
-                  color: Colors.black,
-                  width: 245.w,
-                  height: 48.h,
-                  borderRadius: 50.r,
-                ),
-              ],
+                  SizedBox(height: 13.h),
+                  AppButton(
+                    text: " yes,Cancel",
+                    onPressed: () {},
+                    color: Colors.black,
+                    width: 245.w,
+                    height: 45.h,
+                    borderRadius: 50.r,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
