@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/widgets/app_bar.dart';
 import 'package:cure_team_2/core/widgets/search_barr.dart';
@@ -88,7 +89,7 @@ class CustomListViewDoctorHorizontal extends StatelessWidget {
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Image.asset('assets/images/tens.png'),
+                              child: Image.asset(Assets.gastroenterologistIcon),
                             ),
                             const Text('Dentist'),
                             const SizedBox(

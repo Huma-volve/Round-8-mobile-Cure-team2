@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/extensions/navigation.dart';
 import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
@@ -21,7 +22,7 @@ class CustomSearchPageBottom extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset('assets/images/Vector.png'),
+              Image.asset(Assets.searchIcon),
               const SizedBox(width: 8),
               const Expanded(child: Text('Search for specialty, doctor')),
             ],

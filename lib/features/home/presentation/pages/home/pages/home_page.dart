@@ -261,7 +261,7 @@ class CustomListViewHomeHorizontal extends StatelessWidget {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Image.asset('assets/images/tens.png'),
+                            child: Image.asset(Assets.entIcon),
                           ),
                           const Text('Dentist'),
                           const SizedBox(

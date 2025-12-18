@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/widgets/app_bar.dart';
 import 'package:cure_team_2/core/widgets/spacing.dart';
@@ -91,7 +92,7 @@ class CustomTextField extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset('assets/images/Vector.png'),
+            Image.asset(Assets.searchIcon),
             const SizedBox(width: 8),
             const Expanded(
               child: TextField(

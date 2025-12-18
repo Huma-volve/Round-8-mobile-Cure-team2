@@ -12,34 +12,33 @@ class Assets {
   static const String loginIllustration = "assets/images/login.png";
 
   /// icons
-  static const String googleIcon = "assets/images/google.svg";
-
+  static const String googleIcon = "assets/images/google.png";
+// appBar icons
+  static const String searchIcon = "assets/images/Search.png";
+  static const String locationIcon = "assets/images/Location.png";
   // Navigation
-  static const String homeIcon = "assets/images/home.svg";
-  static const String searchIcon = "assets/images/search.svg";
-  static const String calendarIcon = "assets/images/calendar.svg";
-  static const String locationIcon = 'assets/images/Location.png';
-  static const String chatIcon = "assets/images/chat.svg";
-  static const String profileIcon = "assets/images/profile.svg";
-
+  static const String homeIcon = "assets/images/Home.png";
+  static const String calendarIcon = "assets/images/calendar.png";
+  static const String chatIcon = "assets/images/chat.png";
+  static const String profileIcon = "assets/images/Profile.png";
+  static const String backIcon = "assets/images/back.png";
   // Favorite
-  static const String bannerFavorite = "assets/images/banner_favorite.svg";
-  static const String favoriteIcon = "assets/images/favorite.svg";
-  static const String heartIcon = "assets/images/heart.svg";
+  static const String bannerFavorite = "assets/images/banner_favorite.png";
+  static const String favoriteIcon = "assets/images/favorite.png";
 
   // Specialties
-  static const String cardiologistIcon = "assets/images/cardiologist.svg";
-  static const String dentistIcon = "assets/images/dentist.svg";
-  static const String endocrinologistIcon = "assets/images/endocrinologist.svg";
-  static const String entIcon = "assets/images/ent.svg";
+  static const String cardiologistIcon = "assets/images/Cardiologist.png";
+  static const String dentistIcon = "assets/images/Dentist.png";
+  static const String endocrinologistIcon = "assets/images/Endocrinologist.png";
+  static const String entIcon = "assets/images/ENT.png";
   static const String gastroenterologistIcon =
-      "assets/images/gastroenterologist.svg";
+      "assets/images/Gastroenterologist.png";
   static const String generalPractitionerIcon =
-      "assets/images/general_practitioner.svg";
-  static const String neurologistIcon = "assets/images/neurologist.svg";
-  static const String oncologistIcon = "assets/images/oncologist.svg";
-  static const String ophthalmologistIcon = "assets/images/ophthalmologist.svg";
-  static const String orthopedicIcon = "assets/images/orthopedic.svg";
-  static const String psychiatristIcon = "assets/images/psychiatrist.svg";
-  static const String pulmonologistIcon = "assets/images/pulmonologist.svg";
+      "assets/images/GeneralPractitioner.png";
+  static const String neurologistIcon = "assets/images/Neurologist.png";
+  static const String oncologistIcon = "assets/images/Oncologist.png";
+  static const String ophthalmologistIcon = "assets/images/Ophthalmologist.png";
+  static const String orthopedicIcon = "assets/images/Orthopedic.png";
+  static const String psychiatristIcon = "assets/images/Psychiatrist.png";
+  static const String pulmonologistIcon = "assets/images/pulmonologist.png";
 }

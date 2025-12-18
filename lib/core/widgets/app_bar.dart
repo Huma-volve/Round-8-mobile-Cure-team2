@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       leading: IconButton(
         icon: Image.asset(
-          'assets/images/back.png',
+          Assets.backIcon,
           width: 24,
         ),
         onPressed: () {
