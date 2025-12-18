@@ -1,0 +1,183 @@
+import 'package:cure_team_2/core/constants/assets.dart';
+import 'package:cure_team_2/core/theme/app_colors.dart';
+import 'package:cure_team_2/core/theme/app_text_styles.dart';
+import 'package:cure_team_2/core/widgets/app_button.dart';
+import 'package:cure_team_2/core/widgets/app_text_field.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/Customdialoge.dart';
+import 'package:cure_team_2/features/bookingAppointment/widget/customAppBar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class YourAppointment extends StatefulWidget {
+  const YourAppointment({super.key});
+
+  @override
+  State<YourAppointment> createState() => _YourAppointmentState();
+}
+
+class _YourAppointmentState extends State<YourAppointment> {
+  @override
+  Widget build(BuildContext context) {
+    int selectedIndex = -1;
+    final List<String> times = [
+      '9:00 AM',
+      '10:00 AM',
+      '11:00 AM',
+      '12:30 AM',
+      '4:00 PM',
+      '5:30 PM',
+      '7:00 PM',
+      '9:00 PM',
+      '10:00 PM',
+    ];
+    return Scaffold(
+      appBar: const CustomAppBar(title: Text('Your Appointment')),
+
+      body: Container(
+        margin: EdgeInsets.only(left: 16.w, right: 16.w),
+        width: 396.w,
+        child: Column(
+          children: [
+            SizedBox(height: 20.h),
+            Container(
+              padding: const EdgeInsets.only(top: 4, bottom: 4),
+              decoration: BoxDecoration(
+                color: AppColors.warning100,
+                borderRadius: BorderRadius.circular(5),
+              ),
+
+              // height: 50.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(Assets.warningicon),
+                  SizedBox(width: 10.w),
+                  const Text(
+                    'Cancellation must be made at least 24 hours in \n advance to receive a refund',
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 24.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(Assets.bookingicon, width: 24.w, height: 24.h),
+                const SizedBox(width: 5),
+                Text(
+                  'Monday, July 21 - 11:00 Am',
+                  style: AppTextStyles.montserratButton,
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    'Upcoming',
+                    style: AppTextStyles.montserratCaption.copyWith(
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16.h),
+            Row(
+              children: [
+                const CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage(Assets.doctorphoto),
+                ),
+                SizedBox(width: 10.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Jennifer Miller',
+                      style: AppTextStyles.georgiaSubheading,
+                    ),
+                    SizedBox(height: 8.h),
+                    Text(
+                      ' Psychiatrist',
+                      style: AppTextStyles.montserratButton.copyWith(
+                        color: AppColors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Image.asset(Assets.chaticon),
+              ],
+            ),
+            SizedBox(height: 16.h),
+            Row(
+              children: [
+                Image.asset(
+                  Assets.location,
+                  color: AppColors.grey,
+                  width: 20,
+                  height: 20,
+                ),
+                Text(
+                  '129,El-Nasr Street, Cairo, Egypt ',
+                  style: AppTextStyles.montserratButton.copyWith(
+                    color: AppColors.grey,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16.h),
+            const AppTextField(
+              prefix: ImageIcon(AssetImage(Assets.bookingicon)),
+              hintText: 'Monday,July 21',
+              suffix: ImageIcon(AssetImage(Assets.downicon)),
+            ),
+            SizedBox(height: 24.h),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 55,
+              runSpacing: 10,
+              children: List.generate(times.length, (index) {
+                return ChoiceChip(
+                  label: Text(
+                    times[index],
+                    style: AppTextStyles.montserratSmallCaption,
+                  ),
+                  selected: selectedIndex == index,
+                  onSelected: (_) {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  selectedColor: Colors.blue,
+                  backgroundColor: Colors.grey.shade200,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                );
+              }),
+            ),
+            const Spacer(),
+            AppButton(
+              text: 'Reschedule',
+              onPressed: () {
+                ShowDialog(context);
+              },
+            ),
+            SizedBox(height: 24.h),
+            AppButton(
+              borderRadius: 10,
+              borderColor: AppColors.grey400,
+              text: 'Cancel',
+              style: AppTextStyles.georgiaButton.copyWith(
+                color: AppColors.grey,
+              ),
+              onPressed: () {},
+              color: Colors.white,
+            ),
+            SizedBox(height: 40.h),
+          ],
+        ),
+      ),
+    );
+  }
+}

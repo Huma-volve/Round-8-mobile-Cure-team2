@@ -5,7 +5,7 @@ import '../theme/app_colors.dart';
 extension ThemeExt on BuildContext {
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
   ButtonThemeData get buttonTheme => Theme.of(this).buttonTheme;
-  AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
+  // AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
   // TextTheme get textTheme => Theme.of(this).textTheme;
 }
 
