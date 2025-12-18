@@ -5,6 +5,8 @@ class Routes {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String otp = '/otp';
+  static const String profile = '/profile';
+  static const String editProfile = '/editProfile';
   static const String homePage = '/HomePage';
   static const String searchPage = '/SearchPage';
   static const String favoritePage = '/FavoritePage';
