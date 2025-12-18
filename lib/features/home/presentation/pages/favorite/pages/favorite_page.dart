@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/widgets/app_bar.dart';
 import 'package:cure_team_2/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class FavoritePageBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'assets/images/baner_favorit.png',
+            Assets.bannerFavorite,
             width: MediaQuery.of(context).size.width * 0.5,
             fit: BoxFit.contain,
           ),

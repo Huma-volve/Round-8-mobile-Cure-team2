@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/extensions/navigation.dart';
 import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
@@ -60,14 +61,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
       unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
-            icon: Image.asset('assets/images/Home.png'), label: 'Home'),
+            icon: Image.asset(Assets.homeIcon), label: 'Home'),
         BottomNavigationBarItem(
-            icon: Image.asset('assets/images/calendar-02.png'),
-            label: 'Booking'),
+            icon: Image.asset(Assets.calendarIcon), label: 'Booking'),
         BottomNavigationBarItem(
-            icon: Image.asset('assets/images/chat.png'), label: 'Chat'),
+            icon: Image.asset(Assets.chatIcon), label: 'Chat'),
         BottomNavigationBarItem(
-            icon: Image.asset('assets/images/elements.png'), label: 'Profile'),
+            icon: Image.asset(Assets.profileIcon), label: 'Profile'),
       ],
     );
   }
@@ -186,7 +186,7 @@ class CustomAppBarHome extends StatelessWidget {
                   const Text('Welcome back,ahmed'),
                   Row(
                     children: [
-                      Image.asset('assets/images/Icon.png'),
+                      Image.asset(Assets.locationIcon),
                       const SizedBox(
                         width: 5,
                       ),

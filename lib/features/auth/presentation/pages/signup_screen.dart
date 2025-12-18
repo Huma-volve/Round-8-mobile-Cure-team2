@@ -40,7 +40,7 @@ class SignupScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: AppTextStyles.georgiaH2,
             ).appPaddingVr(),
-            VSpace(24),
+            const VSpace(24),
             const AppTextField(
               hintText: "Full name",
               prefix: Icon(Icons.person),

@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/widgets/app_bar.dart';
 import 'package:cure_team_2/core/widgets/spacing.dart';
@@ -89,21 +90,21 @@ class SpecialtiesPageBody extends StatelessWidget {
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'Pulmonologist',
-                  image: 'assets/images/tens.png',
+                  image: Assets.dentistIcon,
                   horizontal: null,
                 ),
                 const HSpace(16),
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'Psychiatrist',
-                  image: 'assets/images/tens.png',
+                  image: Assets.psychiatristIcon,
                   horizontal: null,
                 ),
                 const HSpace(16),
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'Orthopedic',
-                  image: 'assets/images/tens.png',
+                  image: Assets.orthopedicIcon,
                   horizontal: null,
                 ),
               ],
@@ -117,14 +118,14 @@ class SpecialtiesPageBody extends StatelessWidget {
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'Gastroenterologist',
-                  image: 'assets/images/tens.png',
+                  image: Assets.gastroenterologistIcon,
                   horizontal: null,
                 ),
                 const HSpace(16),
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'General Practitioner',
-                  image: 'assets/images/tens.png',
+                  image: Assets.generalPractitionerIcon,
                   horizontal: null,
                 ),
               ],
@@ -138,7 +139,7 @@ class SpecialtiesPageBody extends StatelessWidget {
                 CustomItemsSpecialties(
                   onTap: () {},
                   text: 'ENT',
-                  image: 'assets/images/tens.png',
+                  image: Assets.entIcon,
                   horizontal: null,
                 ),
               ],
