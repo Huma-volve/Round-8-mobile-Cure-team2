@@ -59,7 +59,9 @@ void ShowDialog(BuildContext context) {
                   SizedBox(height: 13.h),
                   AppButton(
                     text: " yes,Cancel",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     color: Colors.black,
                     width: 245.w,
                     height: 45.h,
