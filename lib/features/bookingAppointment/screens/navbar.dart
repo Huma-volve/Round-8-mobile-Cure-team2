@@ -13,18 +13,23 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  final List<Widget> tabs = [Home(), Mybooking(), Chat(), Profile()];
-  int index = 1;
+  final List<Widget> _tabs = [
+    const Home(),
+    const Mybooking(),
+    const Chat(),
+    const Profile(),
+  ];
+  int _index = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: tabs[index],
+      body: _tabs[_index],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: index,
+        currentIndex: _index,
         onTap: (value) {
           setState(() {
-            index = value;
+            _index = value;
           });
         },
         items: const [

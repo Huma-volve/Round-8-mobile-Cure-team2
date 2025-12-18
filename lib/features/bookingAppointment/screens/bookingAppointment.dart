@@ -31,76 +31,73 @@ class _BookingappointmentState extends State<Bookingappointment> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(color: Colors.white),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: const CustomAppBar(title: Text('Book Appointment')),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CustomDoctorInfo(),
-                SizedBox(height: 16.h),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: const CustomAppBar(title: Text('Book Appointment')),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomDoctorInfo(),
+              SizedBox(height: 16.h),
 
-                Text('Select a day', style: AppTextStyles.georgiaSubheading),
-                SizedBox(height: 16.h),
+              Text('Select a day', style: AppTextStyles.georgiaSubheading),
+              SizedBox(height: 16.h),
 
-                /// Date TextField
-                AppTextField(
-                  borderColor: AppColors.primary,
-                  controller: tController,
-                  readOnly: true,
-                  hintText: 'Select day',
-                  prefix: const ImageIcon(AssetImage(Assets.bookingicon)),
-                  suffix: const ImageIcon(AssetImage(Assets.upicon)),
+              /// Date TextField
+              AppTextField(
+                borderColor: AppColors.primary,
+                controller: tController,
+                readOnly: true,
+                hintText: 'Select day',
+                prefix: const ImageIcon(AssetImage(Assets.bookingicon)),
+                suffix: const ImageIcon(AssetImage(Assets.upicon)),
+              ),
+              SizedBox(height: 16.h),
+
+              /// Calendar (Separated Widget)
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 12,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(24.r),
+                  border: Border.all(width: 1.5.w, color: AppColors.grey50),
                 ),
-                SizedBox(height: 16.h),
+                child: CustomTableCalendar(
+                  selectedDay: selectedday,
+                  focusedDay: focusedday,
+                  onDaySelected: (selected, focused) {
+                    setState(() {
+                      selectedday = selected;
+                      focusedday = focused;
+                    });
 
-                /// Calendar (Separated Widget)
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.white,
-                        blurRadius: 12,
-                        offset: Offset(0, 6),
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(24.r),
-                    border: Border.all(width: 1.5.w, color: AppColors.grey50),
-                  ),
-                  child: CustomTableCalendar(
-                    selectedDay: selectedday,
-                    focusedDay: focusedday,
-                    onDaySelected: (selected, focused) {
-                      setState(() {
-                        selectedday = selected;
-                        focusedday = focused;
-                      });
-
-                      tController.text = DateFormat(
-                        'EEEE MMMM d',
-                      ).format(selected);
-                    },
-                  ),
+                    tController.text = DateFormat(
+                      'EEEE MMMM d',
+                    ).format(selected);
+                  },
                 ),
+              ),
 
-                const SizedBox(height: 12),
+              const SizedBox(height: 12),
 
-                Text('select time', style: AppTextStyles.georgiaSubheading),
-              ],
-            ),
+              Text('select time', style: AppTextStyles.georgiaSubheading),
+            ],
           ),
         ),
+      ),
 
-        /// Bottom Bar
-        bottomNavigationBar: Totalpriceandnavb(
-          text: 'Continue to Pay',
-          onPressed: () {},
-        ),
+      /// Bottom Bar
+      bottomNavigationBar: Totalpriceandnavb(
+        text: 'Continue to Pay',
+        onPressed: () {},
       ),
     );
   }

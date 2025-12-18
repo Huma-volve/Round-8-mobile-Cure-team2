@@ -24,7 +24,7 @@ class CardItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding:const EdgeInsets.all(8),
         margin: EdgeInsets.all(2.h),
         height: 56.h,
         width: 396.w,

@@ -48,7 +48,7 @@ class Totalpriceandnavb extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'EGP',
+                      text: '\$',
                       style: AppTextStyles.montserratRegularH3.copyWith(
                         color: AppColors.error,
                       ),
