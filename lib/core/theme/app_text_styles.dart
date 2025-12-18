@@ -117,7 +117,7 @@ class AppTextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w500,
   );
-  
+
   // Chat Text Styles
   static TextStyle chatTitle = TextStyle(
     fontSize: 16.sp,
@@ -156,4 +156,4 @@ class FontWeightHelper {
   static const FontWeight bold = FontWeight.w700;
   static const FontWeight extraBold = FontWeight.w800;
   static const FontWeight black = FontWeight.w900;
-
+}
