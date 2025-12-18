@@ -31,7 +31,7 @@ extension CustomColors on ColorScheme {
       ? AppColors.success900
       : AppColors.success100;
 
-  /// grey Scale
+  // grey Scale
   Color get grey => AppColors.grey;
   Color get grey50 => AppColors.grey50;
   Color get grey100 => AppColors.grey100;
