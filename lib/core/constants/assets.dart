@@ -23,7 +23,7 @@ class Assets {
   static const String profileIcon = "assets/images/Profile.png";
   static const String backIcon = "assets/images/back.png";
   // Favorite
-  static const String bannerFavorite = "assets/images/banner_favorite.png";
+  static const String bannerFavorite = "assets/images/baner_favorit.png";
   static const String favoriteIcon = "assets/images/favorite.png";
 
   // Specialties

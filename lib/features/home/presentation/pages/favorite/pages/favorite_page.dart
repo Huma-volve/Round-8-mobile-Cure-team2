@@ -1,6 +1,5 @@
-import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/widgets/app_bar.dart';
-import 'package:cure_team_2/core/widgets/spacing.dart';
+import 'package:cure_team_2/features/home/presentation/pages/favorite/pages/widegt/favorite_page_body.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatelessWidget {
@@ -14,33 +13,5 @@ class FavoritePage extends StatelessWidget {
       ),
       body: FavoritePageBody(),
     );
-  }
-}
-
-/// ================= AppBar =================
-
-/// ================= Body =================
-class FavoritePageBody extends StatelessWidget {
-  const FavoritePageBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-        child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            Assets.bannerFavorite,
-            width: MediaQuery.of(context).size.width * 0.5,
-            fit: BoxFit.contain,
-          ),
-          const VSpace(24),
-          const Text('Your favorite!'),
-          const VSpace(10),
-          const Text('Add your favorite to find it easily'),
-        ],
-      ),
-    ));
   }
 }
