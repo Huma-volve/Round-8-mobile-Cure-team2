@@ -23,7 +23,7 @@ class _MybookingState extends State<Mybooking> {
           children: [
             Container(
               alignment: Alignment.bottomLeft,
-              height: 81.h,
+              height: 80.h,
               width: 428.w,
               margin: EdgeInsets.only(left: 24.w),
               child: Text('My Booking', style: AppTextStyles.georgiaSubheading),
@@ -47,7 +47,7 @@ class _MybookingState extends State<Mybooking> {
               alignment: Alignment.bottomLeft,
 
               width: 428.w,
-              margin: EdgeInsets.only(left: 16.w, right: 16.w),
+              margin: EdgeInsets.only(left: 16.w, right: 18.w),
               child: Column(
                 children: [
                   myBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
@@ -59,8 +59,6 @@ class _MybookingState extends State<Mybooking> {
                   myBookingItem(statusOntap: () {}, statusText: 'Upcoming'),
                   SizedBox(height: 16.h),
                   myBookingItem(statusOntap: () {}, statusText: 'Completed'),
-                  SizedBox(height: 16.h),
-                  myBookingItem(statusOntap: () {}, statusText: 'Canceled'),
                   SizedBox(height: 16.h),
                 ],
               ),
@@ -81,7 +79,7 @@ class _MybookingState extends State<Mybooking> {
   }
 }
 
-enum BookingStatus { upcoming, completed, canceled }
+// enum BookingStatus { upcoming, completed, canceled }
 // Color get statusColor {
 //   switch (booking.status) {
 //     case BookingStatus.upcoming:
