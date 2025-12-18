@@ -5,7 +5,7 @@ import '../theme/app_colors.dart';
 extension ThemeExt on BuildContext {
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
   ButtonThemeData get buttonTheme => Theme.of(this).buttonTheme;
-  AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
+  // AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
   // TextTheme get textTheme => Theme.of(this).textTheme;
 }
 
@@ -31,7 +31,7 @@ extension CustomColors on ColorScheme {
       ? AppColors.success900
       : AppColors.success100;
 
-  /// grey Scale
+  // grey Scale
   Color get grey => AppColors.grey;
   Color get grey50 => AppColors.grey50;
   Color get grey100 => AppColors.grey100;
