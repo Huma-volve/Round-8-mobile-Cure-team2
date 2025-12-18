@@ -1,4 +1,4 @@
-import 'package:cure_team_2/core/widgets/profile_tile.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
@@ -30,9 +30,7 @@ class EditProfileScreen extends StatelessWidget {
                 color: Color(0xFF99A2AB),
               ),
               title: 'Seif Mohamed',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
-              ),
+              textStyle: const TextStyle(color: Color(0xFF99A2AB)),
               showArrow: false,
               onTap: () {},
             ),
@@ -48,9 +46,7 @@ class EditProfileScreen extends StatelessWidget {
                 ],
               ),
               title: 'Seifmohamed@gmail.com',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
-              ),
+              textStyle: const TextStyle(color: Color(0xFF99A2AB)),
               showArrow: false,
               onTap: () {},
             ),
@@ -71,9 +67,7 @@ class EditProfileScreen extends StatelessWidget {
                 ],
               ),
               title: '01********',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
-              ),
+              textStyle: const TextStyle(color: Color(0xFF99A2AB)),
               showArrow: false,
               onTap: () {},
             ),
@@ -112,10 +106,7 @@ class _ProfileAvatar extends StatelessWidget {
                   gradient: const LinearGradient(
                     begin: Alignment.bottomRight,
                     end: Alignment.topLeft,
-                    colors: [
-                      Color(0xFF145DB8),
-                      Color(0xFFFFFFFF),
-                    ],
+                    colors: [Color(0xFF145DB8), Color(0xFFFFFFFF)],
                   ),
                 ),
                 child: Padding(
@@ -139,10 +130,7 @@ class _ProfileAvatar extends StatelessWidget {
           ],
         ),
         12.verticalSpace,
-        Text(
-          'Seif Mohamed',
-          style: AppTextStyles.georgiaSubheading,
-        ),
+        Text('Seif Mohamed', style: AppTextStyles.georgiaSubheading),
         4.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +154,7 @@ class _ProfileAvatar extends StatelessWidget {
               size: 20.sp,
             ),
           ],
-        )
+        ),
       ],
     );
   }
@@ -220,14 +208,9 @@ class _DateBox extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              label,
-              style: AppTextStyles.montserratButton,
-            ),
+            Text(label, style: AppTextStyles.montserratButton),
             4.horizontalSpace,
-            const Icon(
-              Icons.keyboard_arrow_down_rounded,
-            ),
+            const Icon(Icons.keyboard_arrow_down_rounded),
           ],
         ),
       ),

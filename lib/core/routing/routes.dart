@@ -19,5 +19,6 @@ class Routes {
   static const String mybooking = '/mybooking';
   static const String navbar = '/navbar';
   static const String yourAppointment = '/yourAppointment';
-  static const String Customdialoge = '/Customdialoge';
+  static const String announcements = '/announcements'; // Assuming placeholder
+  static const String notifications = '/notifications';
 }

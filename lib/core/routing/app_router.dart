@@ -1,15 +1,16 @@
 import 'package:cure_team_2/core/routing/routes.dart';
-import 'package:cure_team_2/features/auth/presentation/pages/edit_profile_screen.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/login_screen.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/otp_code_verification.dart';
-import 'package:cure_team_2/features/auth/presentation/pages/profile_screen.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/signup_screen.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/edit_profile_screen.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
 import 'package:cure_team_2/features/chat/presentation/pages/chat_detail_screen.dart';
 import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
 import 'package:cure_team_2/features/home/presentation/pages/doctors/presentation/pages/doctors_page.dart';
 import 'package:cure_team_2/features/home/presentation/pages/favorite/pages/favorite_page.dart';
 import 'package:cure_team_2/features/home/presentation/pages/home/pages/home_page.dart';
 import 'package:cure_team_2/features/home/presentation/pages/specialties/presentation/pages/specialties_page.dart';
+import 'package:cure_team_2/features/notifications/presentation/pages/notification_screen.dart';
 import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
 import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
 import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
@@ -18,8 +19,6 @@ import 'package:cure_team_2/features/search/presentation/pages/search_page.dart'
 import 'package:cure_team_2/features/intro/view/splash_screen.dart';
 import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
 import 'package:flutter/material.dart';
-
-import '../../features/intro/view/splash_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -39,10 +38,12 @@ class AppRouter {
       case Routes.chatDetail:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-            builder: (_) => ChatDetailScreen(
-                  chatId: args['chatId'],
-                  chatName: args['chatName'],
-                ));
+          builder:
+              (_) => ChatDetailScreen(
+                chatId: args['chatId'],
+                chatName: args['chatName'],
+              ),
+        );
       case Routes.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case Routes.searchPage:
@@ -61,6 +62,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Mybooking());
       case Routes.yourAppointment:
         return MaterialPageRoute(builder: (_) => const YourAppointment());
+      case Routes.notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationScreen());
       case Routes.profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case Routes.editProfile:
