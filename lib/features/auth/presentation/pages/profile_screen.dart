@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/profile/presentation/pages/widgets/logout_t
 import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'widgets/profile_header.dart';
+import '../../../profile/presentation/pages/widgets/profile_header.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
