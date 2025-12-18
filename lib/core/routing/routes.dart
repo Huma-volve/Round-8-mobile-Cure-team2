@@ -5,6 +5,8 @@ class Routes {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String otp = '/otp';
+  static const String chatList = '/chatList';
+  static const String chatDetail = '/chatDetail';
   static const String profile = '/profile';
   static const String editProfile = '/editProfile';
   static const String homePage = '/HomePage';
@@ -17,5 +19,6 @@ class Routes {
   static const String mybooking = '/mybooking';
   static const String navbar = '/navbar';
   static const String yourAppointment = '/yourAppointment';
-  static const String Customdialoge = '/Customdialoge';
+  static const String announcements = '/announcements'; // Assuming placeholder
+  static const String notifications = '/notifications';
 }
