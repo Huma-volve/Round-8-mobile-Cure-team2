@@ -80,6 +80,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   });
                 },
               ),
+              SizedBox(height: 6.h),
               CardItem(
                 text: 'PayPal',
                 chekIcon: Assets.checkempty,
@@ -91,6 +92,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   });
                 },
               ),
+              SizedBox(height: 6.h),
               CardItem(
                 text: 'Apple Pay',
                 chekIcon: Assets.checkempty,
@@ -105,29 +107,35 @@ class _PaymentMethodState extends State<PaymentMethod> {
               SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {},
-                child: DottedBorder(
-                  dashPattern: const [11, 11],
-                  color: AppColors.primary,
-                  borderType: BorderType.RRect,
-                  radius: const Radius.circular(8),
-                  padding: EdgeInsets.only(
-                    left: 12.w,
-                    right: 16.w,
-                    top: 8.h,
-                    bottom: 8.h,
-                  ),
+                child: Container(
+                  height: 48.h,
+                  margin: EdgeInsets.all(8),
+                  width: 364.w,
+                  child: DottedBorder(
+                    dashPattern: const [11, 11],
+                    color: AppColors.primary,
+                    borderType: BorderType.RRect,
+                    radius: const Radius.circular(8),
 
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(Assets.plus),
-                      Text(
-                        'Add new card',
-                        style: AppTextStyles.montserratH3.copyWith(
-                          color: AppColors.primary,
+                    padding: EdgeInsets.only(
+                      left: 12.w,
+                      right: 16.w,
+                      top: 8.h,
+                      bottom: 8.h,
+                    ),
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(Assets.plus),
+                        Text(
+                          'Add new card',
+                          style: AppTextStyles.montserratH3.copyWith(
+                            color: AppColors.primary,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
