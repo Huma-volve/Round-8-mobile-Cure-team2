@@ -5,26 +5,51 @@ import 'package:cure_team_2/features/tabs/widgets/CustomOutlinedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+<<<<<<< HEAD
 class MyBookingItem extends StatefulWidget {
   const MyBookingItem({
+=======
+class Mybookingitem extends StatefulWidget {
+  const Mybookingitem({
+>>>>>>> saadgawesh
     super.key,
     required this.statusOntap,
     required this.statusText,
+    required this.statuscolor,
+
+    required this.onpressedButtonleft,
+    required this.onpressedButtonright,
+    required this.text1,
+    required this.text2,
   });
   final VoidCallback statusOntap;
+  final VoidCallback onpressedButtonleft;
+  final VoidCallback onpressedButtonright;
+
   final String statusText;
+  final String text1;
+  final String text2;
+  final Color statuscolor;
+
   @override
+<<<<<<< HEAD
   State<MyBookingItem> createState() => _MyBookingItemState();
 }
 
 class _MyBookingItemState extends State<MyBookingItem> {
   int _selectedIndex = -1;
+=======
+  State<Mybookingitem> createState() => _myBookingItemState();
+}
+
+class _myBookingItemState extends State<Mybookingitem> {
+>>>>>>> saadgawesh
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(bottom: 16.h, right: 10, left: 10, top: 10),
       width: 396.w,
-      // height: 189.h,
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(width: 1, color: AppColors.grey50),
@@ -46,8 +71,8 @@ class _MyBookingItemState extends State<MyBookingItem> {
                 onTap: widget.statusOntap,
                 child: Text(
                   widget.statusText,
-                  style: AppTextStyles.montserratCaption.copyWith(
-                    color: AppColors.primary,
+                  style: AppTextStyles.montserratRegularCaption.copyWith(
+                    color: widget.statuscolor,
                   ),
                 ),
               ),
@@ -56,9 +81,7 @@ class _MyBookingItemState extends State<MyBookingItem> {
           Divider(endIndent: 5.w, indent: 5.w, color: AppColors.grey50),
           Row(
             children: [
-              const CircleAvatar(
-                backgroundImage: AssetImage(Assets.doctorphoto),
-              ),
+              const CircleAvatar(backgroundImage: AssetImage(Assets.boy)),
               SizedBox(width: 5.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,6 +119,7 @@ class _MyBookingItemState extends State<MyBookingItem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomOutlinedButton(
+<<<<<<< HEAD
                 text: 'Cancel',
                 onpressed: () {
                   setState(() {
@@ -113,6 +137,20 @@ class _MyBookingItemState extends State<MyBookingItem> {
                   });
                 },
                 isSelected: _selectedIndex == 1,
+=======
+                text: widget.text1,
+                onpressed: widget.onpressedButtonleft,
+                bacgroundColor: Colors.transparent,
+                textButtonStyle: AppTextStyles.montserratRegularCaption,
+              ),
+              SizedBox(width: 10.w),
+              CustomOutlinedButton(
+                text: widget.text2,
+                onpressed: widget.onpressedButtonright,
+                bacgroundColor: AppColors.primary,
+                textButtonStyle: AppTextStyles.montserratRegularCaption
+                    .copyWith(color: Colors.white),
+>>>>>>> saadgawesh
               ),
             ],
           ),
