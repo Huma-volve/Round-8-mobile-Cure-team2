@@ -1,5 +1,4 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
-import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
@@ -7,14 +6,15 @@ class CustomOutlinedButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onpressed,
-
-    required this.isSelected,
+    required this.bacgroundColor,
+    required this.textButtonStyle,
   });
 
   final String? text;
 
   final VoidCallback onpressed;
-  final bool isSelected;
+  final Color bacgroundColor;
+  final TextStyle textButtonStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +23,14 @@ class CustomOutlinedButton extends StatelessWidget {
       width: 165,
       height: 40,
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.primary : Colors.white,
+        color: bacgroundColor,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 1, color: AppColors.grey),
+        border: Border.all(width: 1, color: AppColors.primary),
       ),
       child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          side: BorderSide.none,
-        ),
+        style: OutlinedButton.styleFrom(side: BorderSide.none),
         onPressed: onpressed,
-        child: Text(
-          text!,
-          style: AppTextStyles.montserratCaption.copyWith(
-            color: isSelected ? Colors.white : AppColors.grey,
-          ),
-        ),
+        child: Text(text!, style: textButtonStyle),
       ),
     );
   }
