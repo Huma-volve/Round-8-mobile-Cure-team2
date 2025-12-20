@@ -32,7 +32,7 @@ class _YourAppointmentState extends State<YourAppointment> {
       '10:00PM',
     ];
     return Scaffold(
-      appBar: const CustomAppBar(title: Text('Your Appointment')),
+      appBar: const CustomAppBar(title: 'Your Appointment'),
 
       body: Container(
         margin: EdgeInsets.only(left: 16.w, right: 16.w),
