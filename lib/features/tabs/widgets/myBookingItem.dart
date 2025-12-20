@@ -14,16 +14,16 @@ class Mybookingitem extends StatefulWidget {
 
     required this.onpressedButtonleft,
     required this.onpressedButtonright,
-    required this.text1,
-    required this.text2,
+    required this.TextButton1,
+    required this.TextButton2,
   });
   final VoidCallback statusOntap;
   final VoidCallback onpressedButtonleft;
   final VoidCallback onpressedButtonright;
 
   final String statusText;
-  final String text1;
-  final String text2;
+  final String TextButton1;
+  final String TextButton2;
   final Color statuscolor;
 
   @override
@@ -106,14 +106,14 @@ class _myBookingItemState extends State<Mybookingitem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomOutlinedButton(
-                text: widget.text1,
+                text: widget.TextButton1,
                 onpressed: widget.onpressedButtonleft,
                 bacgroundColor: Colors.transparent,
                 textButtonStyle: AppTextStyles.montserratRegularCaption,
               ),
               SizedBox(width: 10.w),
               CustomOutlinedButton(
-                text: widget.text2,
+                text: widget.TextButton2,
                 onpressed: widget.onpressedButtonright,
                 bacgroundColor: AppColors.primary,
                 textButtonStyle: AppTextStyles.montserratRegularCaption
@@ -126,5 +126,3 @@ class _myBookingItemState extends State<Mybookingitem> {
     );
   }
 }
-
-
