@@ -5,6 +5,8 @@ class DoctorFavModel {
   final String specialty;
   final String address;
   final String doctorImage;
+  final String startTime;
+  final String endTime;
 
   final String favicon;
   final String rating;
@@ -16,6 +18,8 @@ class DoctorFavModel {
     required this.specialty,
     required this.address,
     required this.doctorImage,
+    required this.startTime,
+    required this.endTime,
 
     required this.favicon,
     required this.rating,
@@ -34,6 +38,8 @@ List<DoctorFavModel> bookings = [
     rating: '4.8',
     starIcon: Assets.Star,
     ClockIcon: Assets.ClockCircle,
+    startTime: '9:30am ',
+    endTime: '8:00pm',
   ),
   DoctorFavModel(
     doctorName: 'Jennifer Miller',
@@ -44,6 +50,8 @@ List<DoctorFavModel> bookings = [
     rating: '4.8',
     starIcon: Assets.Star,
     ClockIcon: Assets.ClockCircle,
+    startTime: '9:30am ',
+    endTime: '8:00pm',
   ),
   DoctorFavModel(
     doctorName: 'Jennifer Miller',
@@ -54,6 +62,8 @@ List<DoctorFavModel> bookings = [
     rating: '4.8',
     starIcon: Assets.Star,
     ClockIcon: Assets.ClockCircle,
+    startTime: '9:30am ',
+    endTime: '8:00pm',
   ),
   DoctorFavModel(
     doctorName: 'Jennifer Miller',
@@ -64,5 +74,7 @@ List<DoctorFavModel> bookings = [
     rating: '4.8',
     starIcon: Assets.Star,
     ClockIcon: Assets.ClockCircle,
+    startTime: '9:30am ',
+    endTime: '8:00pm',
   ),
 ];
