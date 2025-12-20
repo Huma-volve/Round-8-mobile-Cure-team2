@@ -61,8 +61,8 @@ class _MybookingState extends State<Mybooking> {
 
                         statuscolor: statusColor(BookingStatus.Upcoming),
 
-                        text1: BookingStatus.Upcoming.TextButton[0],
-                        text2: BookingStatus.Upcoming.TextButton[1],
+                        TextButton1: BookingStatus.Upcoming.TextButton[0],
+                        TextButton2: BookingStatus.Upcoming.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
@@ -73,8 +73,8 @@ class _MybookingState extends State<Mybooking> {
 
                         statuscolor: statusColor(BookingStatus.Complete),
 
-                        text1: BookingStatus.Complete.TextButton[0],
-                        text2: BookingStatus.Complete.TextButton[1],
+                        TextButton1: BookingStatus.Complete.TextButton[0],
+                        TextButton2: BookingStatus.Complete.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
@@ -85,8 +85,8 @@ class _MybookingState extends State<Mybooking> {
 
                         statuscolor: statusColor(BookingStatus.Canceled),
 
-                        text1: BookingStatus.Canceled.TextButton[0],
-                        text2: BookingStatus.Canceled.TextButton[1],
+                        TextButton1: BookingStatus.Canceled.TextButton[0],
+                        TextButton2: BookingStatus.Canceled.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
@@ -97,8 +97,8 @@ class _MybookingState extends State<Mybooking> {
 
                         statuscolor: statusColor(BookingStatus.Complete),
 
-                        text1: BookingStatus.Complete.TextButton[0],
-                        text2: BookingStatus.Complete.TextButton[1],
+                        TextButton1: BookingStatus.Complete.TextButton[0],
+                        TextButton2: BookingStatus.Complete.TextButton[1],
                       ),
                     ],
                   );
