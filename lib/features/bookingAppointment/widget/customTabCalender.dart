@@ -1,6 +1,6 @@
+import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:cure_team_2/core/theme/app_colors.dart';
 
 class CustomTableCalendar extends StatelessWidget {
   final DateTime? selectedDay;
@@ -34,9 +34,7 @@ class CustomTableCalendar extends StatelessWidget {
       /// Days of week
       daysOfWeekStyle: const DaysOfWeekStyle(
         weekdayStyle: TextStyle(color: AppColors.primary),
-        weekendStyle: TextStyle(
-          color: Color.fromARGB(255, 90, 119, 153),
-        ),
+        weekendStyle: TextStyle(color: AppColors.primary),
       ),
 
       /// Calendar style
@@ -54,9 +52,7 @@ class CustomTableCalendar extends StatelessWidget {
           border: Border.all(color: AppColors.primary),
           borderRadius: BorderRadius.circular(8),
         ),
-        defaultTextStyle: const TextStyle(
-          fontWeight: FontWeight.w500,
-        ),
+        defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
         selectedTextStyle: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,

@@ -46,7 +46,6 @@ class _BookingappointmentState extends State<Bookingappointment> {
               Text('Select a day', style: AppTextStyles.georgiaSubheading),
               SizedBox(height: 16.h),
 
-              /// Date TextField
               AppTextField(
                 borderColor: AppColors.primary,
                 controller: tController,
@@ -57,7 +56,6 @@ class _BookingappointmentState extends State<Bookingappointment> {
               ),
               SizedBox(height: 16.h),
 
-              /// Calendar (Separated Widget)
               Container(
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -94,11 +92,17 @@ class _BookingappointmentState extends State<Bookingappointment> {
         ),
       ),
 
-      /// Bottom Bar
       bottomNavigationBar: Totalpriceandnavb(
         text: 'Continue to Pay',
         onPressed: () {},
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    tController.dispose();
+    // TODO: implement dispose
+    super.dispose();
   }
 }
