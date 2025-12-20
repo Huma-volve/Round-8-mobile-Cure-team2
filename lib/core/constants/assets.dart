@@ -13,10 +13,18 @@ class Assets {
   static const String doctorphoto = "assets/images/doctorPhoto.png";
   static const String docPhoto = "assets/images/docPhoto.png";
   static const String boy = "assets/images/docAppoint.png";
+  static const String favouritImage = "assets/images/favouritImage.png";
+  static const String FavPic1 = "assets/images/FavPic1.png";
+  static const String FavPic2 = "assets/images/FavPic2.png";
+  static const String FavPic3 = "assets/images/FavPic3.png";
+  static const String FavPic4 = "assets/images/FavPic4.png";
 
   /// icons
   static const String googleIcon = "assets/images/google.svg";
   static const String fav = "assets/images/favouriteIcon.png";
+  static const String Star = "assets/images/Star.png";
+  static const String ClockCircle = "assets/images/ClockCircle.png";
+  static const String favIconSolid = "assets/images/favIconSolid.png";
   static const String location = "assets/images/location.png";
   static const String checkdoctor = "assets/images/checkdoctor.png";
   static const String bookingicon = "assets/images/bookingicon.png";

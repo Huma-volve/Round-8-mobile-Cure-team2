@@ -33,7 +33,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: const CustomAppBar(title: Text('Book Appointment')),
+      appBar: const CustomAppBar(title: 'Book Appointment'),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
