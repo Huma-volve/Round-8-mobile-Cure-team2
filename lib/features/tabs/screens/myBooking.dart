@@ -1,5 +1,6 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
+import 'package:cure_team_2/features/tabs/widgets/bookingStatusEnum.dart';
 import 'package:cure_team_2/features/tabs/widgets/mybookingitem.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,6 @@ class _MybookingState extends State<Mybooking> {
             focusDate: selectedDate,
           ),
 
-          // SizedBox(height: 16.h),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -54,43 +54,51 @@ class _MybookingState extends State<Mybooking> {
                   return Column(
                     children: [
                       Mybookingitem(
-                        statusText: 'Upcoming',
-                        statusOntap: () {},
-                        statuscolor: AppColors.primary,
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
-                        text1: 'Cancel',
-                        text2: 'Reschedule',
+                        statusOntap: () {},
+                        statusText: statusText(BookingStatus.Upcoming),
+
+                        statuscolor: statusColor(BookingStatus.Upcoming),
+
+                        text1: BookingStatus.Upcoming.TextButton[0],
+                        text2: BookingStatus.Upcoming.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
-                        statusText: 'Completed',
-                        statusOntap: () {},
-                        statuscolor: AppColors.success,
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
-                        text1: 'View details',
-                        text2: 'Feedback',
+                        statusOntap: () {},
+                        statusText: statusText(BookingStatus.Complete),
+
+                        statuscolor: statusColor(BookingStatus.Complete),
+
+                        text1: BookingStatus.Complete.TextButton[0],
+                        text2: BookingStatus.Complete.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
-                        statusText: 'Canceled',
-                        statusOntap: () {},
-                        statuscolor: AppColors.error,
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
-                        text1: 'Book again',
-                        text2: 'Support',
+                        statusOntap: () {},
+                        statusText: statusText(BookingStatus.Canceled),
+
+                        statuscolor: statusColor(BookingStatus.Canceled),
+
+                        text1: BookingStatus.Canceled.TextButton[0],
+                        text2: BookingStatus.Canceled.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
                       Mybookingitem(
-                        statusText: 'Completed',
-                        statusOntap: () {},
-                        statuscolor: AppColors.success,
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
-                        text1: 'View details',
-                        text2: 'Feedback',
+                        statusOntap: () {},
+                        statusText: statusText(BookingStatus.Complete),
+
+                        statuscolor: statusColor(BookingStatus.Complete),
+
+                        text1: BookingStatus.Complete.TextButton[0],
+                        text2: BookingStatus.Complete.TextButton[1],
                       ),
                     ],
                   );
