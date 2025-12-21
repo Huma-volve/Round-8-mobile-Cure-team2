@@ -1,11 +1,177 @@
-import 'package:cure_team_2/core/widgets/profile_tile.dart';
+import 'dart:io';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/address_edit_bottom_sheet.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/birth_date_section.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/date_picker_bottom_sheet.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/edit_profile_button.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/image_picker_bottom_sheet.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_avatar.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cure_team_2/core/theme/app_text_styles.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:cure_team_2/features/auth/presentation/widgets/phone_number_field.dart';
 
-class EditProfileScreen extends StatelessWidget {
+class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
+
+  @override
+  State<EditProfileScreen> createState() => _EditProfileScreenState();
+}
+
+class _EditProfileScreenState extends State<EditProfileScreen> {
+  File? _selectedImage;
+  final ImagePicker _picker = ImagePicker();
+
+  final TextEditingController _nameController = TextEditingController(
+    text: 'Seif Mohamed',
+  );
+  final TextEditingController _emailController = TextEditingController(
+    text: 'Seifmohamed@gmail.com',
+  );
+  final TextEditingController _phoneController = TextEditingController(
+    text: '01********',
+  );
+
+  String _address = '129, El-Nasr Street, Cairo';
+  int _selectedDay = 29;
+  int _selectedMonth = 7;
+  int _selectedYear = 2024;
+
+  static const List<String> _months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    super.dispose();
+  }
+
+  int _getDaysInMonth(int month, int year) {
+    return DateTime(year, month + 1, 0).day;
+  }
+
+  Future<void> _pickImageFromCamera() async {
+    try {
+      final XFile? image = await _picker.pickImage(
+        source: ImageSource.camera,
+        imageQuality: 80,
+      );
+      if (image != null) {
+        setState(() => _selectedImage = File(image.path));
+      }
+    } catch (e) {
+      debugPrint('Error picking image from camera: $e');
+      _showErrorSnackBar('Could not open camera');
+    }
+  }
+
+  Future<void> _pickImageFromGallery() async {
+    try {
+      final XFile? image = await _picker.pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 80,
+      );
+      if (image != null) {
+        setState(() => _selectedImage = File(image.path));
+      }
+    } catch (e) {
+      debugPrint('Error picking image from gallery: $e');
+      _showErrorSnackBar('Could not open gallery');
+    }
+  }
+
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  // Bottom sheet handlers
+  void _showImagePicker() {
+    ImagePickerBottomSheet.show(
+      context: context,
+      onCameraTap: _pickImageFromCamera,
+      onGalleryTap: _pickImageFromGallery,
+    );
+  }
+
+  void _showAddressEditor() {
+    AddressEditBottomSheet.show(
+      context: context,
+      initialAddress: _address,
+      onSave: (newAddress) {
+        setState(() => _address = newAddress);
+      },
+    );
+  }
+
+  void _showDayPicker() {
+    DatePickerBottomSheet.show(
+      context: context,
+      type: DatePickerType.day,
+      initialValue: _selectedDay,
+      daysInMonth: _getDaysInMonth(_selectedMonth, _selectedYear),
+      onSelected: (day) {
+        setState(() => _selectedDay = day);
+      },
+    );
+  }
+
+  void _showMonthPicker() {
+    DatePickerBottomSheet.show(
+      context: context,
+      type: DatePickerType.month,
+      initialValue: _selectedMonth,
+      onSelected: (month) {
+        setState(() {
+          _selectedMonth = month;
+          final daysInMonth = _getDaysInMonth(_selectedMonth, _selectedYear);
+          if (_selectedDay > daysInMonth) {
+            _selectedDay = daysInMonth;
+          }
+        });
+      },
+    );
+  }
+
+  void _showYearPicker() {
+    DatePickerBottomSheet.show(
+      context: context,
+      type: DatePickerType.year,
+      initialValue: _selectedYear,
+      onSelected: (year) {
+        setState(() {
+          _selectedYear = year;
+          final daysInMonth = _getDaysInMonth(_selectedMonth, _selectedYear);
+          if (_selectedDay > daysInMonth) {
+            _selectedDay = daysInMonth;
+          }
+        });
+      },
+    );
+  }
+
+  void _onEditProfilePressed() {
+    debugPrint('Name: ${_nameController.text}');
+    debugPrint('Email: ${_emailController.text}');
+    debugPrint('Phone: ${_phoneController.text}');
+    debugPrint('Address: $_address');
+    debugPrint('Birthday: $_selectedDay/$_selectedMonth/$_selectedYear');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,243 +184,46 @@ class EditProfileScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.w),
-        child: Column(
-          children: [
-            const _ProfileAvatar(),
-            24.verticalSpace,
-            ProfileTile(
-              leading: const Icon(
-                Icons.person_rounded,
-                color: Color(0xFF99A2AB),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ProfileAvatar(
+                selectedImage: _selectedImage,
+                name: _nameController.text,
+                address: _address,
+                onCameraTap: _showImagePicker,
+                onAddressTap: _showAddressEditor,
               ),
-              title: 'Seif Mohamed',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
+              24.verticalSpace,
+              ProfileTextField(
+                controller: _nameController,
+                label: '',
+                prefixIcon: Icons.person_rounded,
               ),
-              showArrow: false,
-              onTap: () {},
-            ),
-            ProfileTile(
-              leading: Row(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/email.svg',
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                  const SizedBox(width: 2),
-                ],
+              16.verticalSpace,
+              ProfileTextField(
+                controller: _emailController,
+                label: '',
+                prefixIcon: Icons.email_outlined,
+                keyboardType: TextInputType.emailAddress,
               ),
-              title: 'Seifmohamed@gmail.com',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
+              16.verticalSpace,
+              PhoneNumberField(controller: _phoneController),
+              24.verticalSpace,
+              BirthDateSection(
+                selectedDay: _selectedDay,
+                monthName: _months[_selectedMonth - 1],
+                selectedYear: _selectedYear,
+                onDayTap: _showDayPicker,
+                onMonthTap: _showMonthPicker,
+                onYearTap: _showYearPicker,
               ),
-              showArrow: false,
-              onTap: () {},
-            ),
-            ProfileTile(
-              leading: Row(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/Flag.svg',
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                  const SizedBox(width: 6),
-                  const Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 18,
-                    color: Color(0xFF99A2AB),
-                  ),
-                ],
-              ),
-              title: '01********',
-              textStyle: const TextStyle(
-                color: Color(0xFF99A2AB),
-              ),
-              showArrow: false,
-              onTap: () {},
-            ),
-            24.verticalSpace,
-            const _BirthDateSection(),
-            60.verticalSpace,
-            const _EditProfileButton(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ProfileAvatar extends StatelessWidget {
-  const _ProfileAvatar();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
-          children: [
-            CircleAvatar(
-              radius: 48.r,
-              backgroundImage: const AssetImage('assets/images/pro_img.jpg'),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                width: 24.w,
-                height: 23.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.r),
-                  gradient: const LinearGradient(
-                    begin: Alignment.bottomRight,
-                    end: Alignment.topLeft,
-                    colors: [
-                      Color(0xFF145DB8),
-                      Color(0xFFFFFFFF),
-                    ],
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(1),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 2.h),
-                    decoration: BoxDecoration(
-                      color: const Color(0xE5FFFFFF),
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Icon(
-                      Icons.camera_alt_outlined,
-                      size: 13,
-                      color: Color(0xFF145DB8),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        12.verticalSpace,
-        Text(
-          'Seif Mohamed',
-          style: AppTextStyles.georgiaSubheading,
-        ),
-        4.verticalSpace,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/Icon.png',
-              width: 9.3.w,
-              height: 13.5.h,
-              fit: BoxFit.contain,
-              color: const Color(0xFF6D7379),
-            ),
-            4.horizontalSpace,
-            Text(
-              '129, El-Nasr Street, Cairo',
-              style: AppTextStyles.montserratSmallCaption,
-            ),
-            4.horizontalSpace,
-            Icon(
-              Icons.keyboard_arrow_down,
-              color: const Color(0xFF99a2ab),
-              size: 20.sp,
-            ),
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class _BirthDateSection extends StatelessWidget {
-  const _BirthDateSection();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Select your birthday',
-          style: AppTextStyles.montserratButton.copyWith(
-            color: const Color(0xFF05162C),
-          ),
-        ),
-        12.verticalSpace,
-        const Row(
-          children: [
-            _DateBox(label: '29'),
-            SizedBox(width: 12),
-            _DateBox(label: 'July'),
-            SizedBox(width: 12),
-            _DateBox(label: '2024'),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class _DateBox extends StatelessWidget {
-  final String label;
-
-  const _DateBox({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
-        height: 44.h,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: const Color(0xFFF5F6F7),
-          borderRadius: BorderRadius.circular(4.r),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              label,
-              style: AppTextStyles.montserratButton,
-            ),
-            4.horizontalSpace,
-            const Icon(
-              Icons.keyboard_arrow_down_rounded,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _EditProfileButton extends StatelessWidget {
-  const _EditProfileButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 48.h,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF145db8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-        ),
-        onPressed: () {},
-        child: Text(
-          'Edit Profile',
-          style: AppTextStyles.montserratButton.copyWith(
-            color: const Color(0xFFFFFFFF),
+              60.verticalSpace,
+              EditProfileButton(onPressed: _onEditProfilePressed),
+            ],
           ),
         ),
       ),
