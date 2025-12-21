@@ -32,7 +32,6 @@ import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointme
 import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
 
 // Tabs
-import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -71,8 +70,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Bookingappointment());
       case Routes.paymentmethod:
         return MaterialPageRoute(builder: (_) => const PaymentMethod());
-      case Routes.mybooking:
-        return MaterialPageRoute(builder: (_) => const Mybooking());
+      
       case Routes.yourAppointment:
         return MaterialPageRoute(builder: (_) => const YourAppointment());
       case Routes.notifications:

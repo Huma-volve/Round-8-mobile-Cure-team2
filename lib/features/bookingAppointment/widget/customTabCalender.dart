@@ -54,13 +54,13 @@ class CustomTableCalendar extends StatelessWidget {
 
           borderRadius: BorderRadius.circular(8),
         ),
-<<<<<<< HEAD
+
         weekendTextStyle:const TextStyle(color: AppColors.grey),
         outsideTextStyle:const TextStyle(color: AppColors.grey),
         defaultTextStyle: const TextStyle(color: AppColors.grey),
-=======
-        defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
->>>>>>> saadgawesh
+
+        // defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
+
         selectedTextStyle: const TextStyle(
           color: AppColors.secondary600,
           fontWeight: FontWeight.bold,
