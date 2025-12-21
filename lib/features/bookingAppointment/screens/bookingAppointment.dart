@@ -33,7 +33,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: const CustomAppBar(title: Text('Book Appointment')),
+      appBar: const CustomAppBar(title: 'Book Appointment'),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
@@ -46,7 +46,6 @@ class _BookingappointmentState extends State<Bookingappointment> {
               Text('Select a day', style: AppTextStyles.georgiaSubheading),
               SizedBox(height: 16.h),
 
-              /// Date TextField
               AppTextField(
                 borderWidth: 1,
                 borderColor: AppColors.primary,
@@ -58,7 +57,6 @@ class _BookingappointmentState extends State<Bookingappointment> {
               ),
               SizedBox(height: 16.h),
 
-              /// Calendar
               Container(
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -95,7 +93,6 @@ class _BookingappointmentState extends State<Bookingappointment> {
         ),
       ),
 
-      /// Bottom Bar
       bottomNavigationBar: Totalpriceandnavb(
         text: 'Continue to Pay',
         onPressed: () {},
@@ -106,6 +103,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
   @override
   void dispose() {
     tController.dispose();
+    // TODO: implement dispose
     super.dispose();
   }
 }
