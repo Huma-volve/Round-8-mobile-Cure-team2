@@ -5,13 +5,8 @@ import 'package:cure_team_2/features/tabs/widgets/CustomOutlinedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-<<<<<<< HEAD
 class MyBookingItem extends StatefulWidget {
   const MyBookingItem({
-=======
-class Mybookingitem extends StatefulWidget {
-  const Mybookingitem({
->>>>>>> saadgawesh
     super.key,
     required this.statusOntap,
     required this.statusText,
@@ -30,20 +25,12 @@ class Mybookingitem extends StatefulWidget {
   final String TextButton1;
   final String TextButton2;
   final Color statuscolor;
-
   @override
-<<<<<<< HEAD
   State<MyBookingItem> createState() => _MyBookingItemState();
 }
 
 class _MyBookingItemState extends State<MyBookingItem> {
   int _selectedIndex = -1;
-=======
-  State<Mybookingitem> createState() => _myBookingItemState();
-}
-
-class _myBookingItemState extends State<Mybookingitem> {
->>>>>>> saadgawesh
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,15 +106,15 @@ class _myBookingItemState extends State<Mybookingitem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomOutlinedButton(
-<<<<<<< HEAD
-<<<<<<< HEAD
                 text: 'Cancel',
                 onpressed: () {
                   setState(() {
                     _selectedIndex = 0;
                   });
                 },
-                isSelected: _selectedIndex == 0,
+                bacgroundColor: AppColors.background,
+                textButtonStyle: AppTextStyles.chatSubtitle,
+                IsSelected: _selectedIndex == 0,
               ),
               SizedBox(width: 10.w),
               CustomOutlinedButton(
@@ -137,13 +124,8 @@ class _myBookingItemState extends State<Mybookingitem> {
                     _selectedIndex = 1;
                   });
                 },
-                isSelected: _selectedIndex == 1,
-=======
-                text: widget.text1,
-=======
-                text: widget.TextButton1,
->>>>>>> saadgawesh
-                onpressed: widget.onpressedButtonleft,
+                IsSelected: _selectedIndex == 1,
+
                 bacgroundColor: Colors.transparent,
                 textButtonStyle: AppTextStyles.montserratRegularCaption,
               ),
@@ -154,7 +136,8 @@ class _myBookingItemState extends State<Mybookingitem> {
                 bacgroundColor: AppColors.primary,
                 textButtonStyle: AppTextStyles.montserratRegularCaption
                     .copyWith(color: Colors.white),
->>>>>>> saadgawesh
+                IsSelected: _selectedIndex == 2,
+                
               ),
             ],
           ),

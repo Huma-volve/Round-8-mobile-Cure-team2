@@ -8,6 +8,7 @@ class CustomOutlinedButton extends StatelessWidget {
     required this.onpressed,
     required this.bacgroundColor,
     required this.textButtonStyle,
+    required this.IsSelected,
   });
 
   final String? text;
@@ -15,6 +16,7 @@ class CustomOutlinedButton extends StatelessWidget {
   final VoidCallback onpressed;
   final Color bacgroundColor;
   final TextStyle textButtonStyle;
+  final bool IsSelected;
 
   @override
   Widget build(BuildContext context) {

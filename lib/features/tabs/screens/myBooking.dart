@@ -1,7 +1,7 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/features/tabs/widgets/bookingStatusEnum.dart';
-import 'package:cure_team_2/features/tabs/widgets/mybookingitem.dart';
+import 'package:cure_team_2/features/tabs/widgets/myBookingItem.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,7 +53,7 @@ class _MybookingState extends State<Mybooking> {
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
-                      Mybookingitem(
+                      MyBookingItem(
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
                         statusOntap: () {},
@@ -63,7 +63,7 @@ class _MybookingState extends State<Mybooking> {
                         TextButton2: BookingStatus.Upcoming.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
-                      Mybookingitem(
+                      MyBookingItem(
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
                         statusOntap: () {},
@@ -73,7 +73,7 @@ class _MybookingState extends State<Mybooking> {
                         TextButton2: BookingStatus.Complete.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
-                      Mybookingitem(
+                      MyBookingItem(
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
                         statusOntap: () {},
@@ -83,7 +83,7 @@ class _MybookingState extends State<Mybooking> {
                         TextButton2: BookingStatus.Canceled.TextButton[1],
                       ),
                       SizedBox(height: 16.h),
-                      Mybookingitem(
+                      MyBookingItem(
                         onpressedButtonleft: () {},
                         onpressedButtonright: () {},
                         statusOntap: () {},
