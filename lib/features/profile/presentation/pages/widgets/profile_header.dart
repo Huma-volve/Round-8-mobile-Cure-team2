@@ -18,7 +18,9 @@ class ProfileHeader extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 28.r,
-            backgroundImage: const AssetImage('assets/images/pro_img.jpg'),
+            backgroundImage: const AssetImage(
+              'assets/images/profile_image.jpg',
+            ),
           ),
           12.horizontalSpace,
           Expanded(

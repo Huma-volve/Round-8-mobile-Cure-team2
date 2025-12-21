@@ -5,9 +5,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_header.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +25,21 @@ class ProfileScreen extends StatelessWidget {
               const ProfileHeader(),
               64.verticalSpace,
               ProfileTile(
-                leading: SvgPicture.asset('assets/icons/bell.svg'),
+                leading: SvgPicture.asset('assets/icons/notification.svg'),
                 title: 'Notification',
                 textStyle: const TextStyle(color: Color(0xFF05162C)),
                 trailing: Switch(
-                  value: true,
-                  onChanged: (value) {},
-                  activeTrackColor: Colors.green,
+                  value: isSwitched,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  },
+                  activeTrackColor: const Color(0xFF4CAF50),
+                  activeThumbColor: Colors.white,
+                  trackOutlineColor: WidgetStateProperty.all(
+                    const Color(0xFFC8E6C9),
+                  ),
                 ),
               ),
               24.verticalSpace,
@@ -69,8 +83,9 @@ class ProfileScreen extends StatelessWidget {
               ProfileTile(
                 leading: SvgPicture.asset('assets/icons/Logout 4.svg'),
                 title: 'Log out',
-                textStyle: const TextStyle(color: Color(0xFF05162C)),
+                textStyle: const TextStyle(color: Color(0xFFfc4b4e)),
                 onTap: () => showLogoutDialog(context),
+                showArrow: false,
               ),
             ],
           ),

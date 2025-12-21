@@ -6,11 +6,9 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-<<<<<<< HEAD
-  sdk: ">=3.7.0"
-=======
   sdk: ">=3.7.0 <4.0.0"
->>>>>>> d958f2974f3ba76bfb4519b7c6429611b01a845f
+  flutter: ">=3.19.0"
+
 
 dependencies:
   flutter:
@@ -33,6 +31,7 @@ dependencies:
   dotted_border: ^2.1.0
   easy_date_timeline: ^2.0.9
   iconly: ^1.0.1
+  image_picker: ^1.2.1
 
 dev_dependencies:
   flutter_test:
