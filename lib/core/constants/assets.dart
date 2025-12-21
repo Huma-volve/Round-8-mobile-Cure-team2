@@ -4,6 +4,29 @@ class Assets {
 
   /// images
   // logo
+  static const String chat = "/images/chat.svg";
+  static const String arrow = "/images/arrow_left.svg";
+  static const String starsView = "/images/stars_view.svg";
+  static const String robert = "/images/Robert_Johnson.svg";
+  static const String clock = "/images/clock.svg";
+
+  static const String map = "/images/map.svg";
+  static const String filter = "/images/filter.svg";
+  static const String sort = "/images/sort.svg";
+  static const String search = "/images/search.svg";
+  static const String nabila = "assets/images/nabila.svg";
+  static const String nabilaReyna = "assets/images/nabila_reyna.svg";
+  static const String starReviewDisabled =
+      "assets/images/star_review_disabled.svg";
+  static const String starReview = "/images/star_review.svg";
+  static const String addreview = "assets/images/add_review.svg";
+  static const String review = "assets/images/review.svg";
+  static const String rating = "assets/images/starsss.svg";
+
+  static const String experince = "assets/images/experince.svg";
+  static const String profile = "assets/images/profileee-2user.svg";
+  static const String favourite = "/images/favouriteee.svg";
+  static const String doctorVicica = "assets/images/doctor_vessica_turner.svg";
   static const String logoWhite = "assets/images/BsHeartPulseWhite.svg";
   static const String logoBlue = "assets/images/BsHeartPulse.svg";
   // illustration
@@ -20,7 +43,35 @@ class Assets {
   static const String FavPic4 = "assets/images/FavPic4.png";
 
   /// icons
-  static const String googleIcon = "assets/images/google.svg";
+  static const String googleIcon = "assets/images/google.png";
+// appBar icons
+  static const String searchIcon = "assets/images/Search.png";
+  static const String locationIcon = "assets/images/Location.png";
+  // Navigation
+  static const String homeIcon = "assets/images/Home.png";
+  static const String calendarIcon = "assets/images/calendar.png";
+  static const String chatIcon = "assets/images/chat.png";
+  static const String profileIcon = "assets/images/Profile.png";
+  static const String backIcon = "assets/images/back.png";
+  // Favorite
+  static const String bannerFavorite = "assets/images/baner_favorit.png";
+  static const String favoriteIcon = "assets/images/favorite.png";
+
+  // Specialties
+  static const String cardiologistIcon = "assets/images/Cardiologist.png";
+  static const String dentistIcon = "assets/images/Dentist.png";
+  static const String endocrinologistIcon = "assets/images/Endocrinologist.png";
+  static const String entIcon = "assets/images/ENT.png";
+  static const String gastroenterologistIcon =
+      "assets/images/Gastroenterologist.png";
+  static const String generalPractitionerIcon =
+      "assets/images/GeneralPractitioner.png";
+  static const String neurologistIcon = "assets/images/Neurologist.png";
+  static const String oncologistIcon = "assets/images/Oncologist.png";
+  static const String ophthalmologistIcon = "assets/images/Ophthalmologist.png";
+  static const String orthopedicIcon = "assets/images/Orthopedic.png";
+  static const String psychiatristIcon = "assets/images/Psychiatrist.png";
+  static const String pulmonologistIcon = "assets/images/pulmonologist.png";
   static const String fav = "assets/images/favouriteIcon.png";
   static const String Star = "assets/images/Star.png";
   static const String ClockCircle = "assets/images/ClockCircle.png";

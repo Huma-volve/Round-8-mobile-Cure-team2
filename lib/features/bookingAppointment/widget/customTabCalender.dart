@@ -41,20 +41,28 @@ class CustomTableCalendar extends StatelessWidget {
       calendarStyle: CalendarStyle(
         cellMargin: const EdgeInsets.all(4),
         defaultDecoration: BoxDecoration(
-          border: Border.all(color: AppColors.grey300),
+          boxShadow: const [BoxShadow(color: AppColors.grey50)],
+
           borderRadius: BorderRadius.circular(8),
         ),
         selectedDecoration: BoxDecoration(
-          color: AppColors.primary,
+          color: AppColors.primary50,
           borderRadius: BorderRadius.circular(8),
         ),
         todayDecoration: BoxDecoration(
-          border: Border.all(color: AppColors.primary),
+          boxShadow: const [BoxShadow(color: AppColors.grey50)],
+
           borderRadius: BorderRadius.circular(8),
         ),
+<<<<<<< HEAD
+        weekendTextStyle:const TextStyle(color: AppColors.grey),
+        outsideTextStyle:const TextStyle(color: AppColors.grey),
+        defaultTextStyle: const TextStyle(color: AppColors.grey),
+=======
         defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
+>>>>>>> saadgawesh
         selectedTextStyle: const TextStyle(
-          color: Colors.white,
+          color: AppColors.secondary600,
           fontWeight: FontWeight.bold,
         ),
         todayTextStyle: const TextStyle(

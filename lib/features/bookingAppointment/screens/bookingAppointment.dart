@@ -47,6 +47,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
               SizedBox(height: 16.h),
 
               AppTextField(
+                borderWidth: 1,
                 borderColor: AppColors.primary,
                 controller: tController,
                 readOnly: true,

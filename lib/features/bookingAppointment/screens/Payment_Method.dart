@@ -98,7 +98,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 onTap: () {},
                 child: Container(
                   height: 48.h,
-                  margin:const EdgeInsets.all(8),
+                  margin: const EdgeInsets.all(8),
                   width: 364.w,
                   child: DottedBorder(
                     dashPattern: const [11, 11],
@@ -116,10 +116,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(Assets.plus),
+                        Image.asset(Assets.plus, width: 24.w, height: 24.h),
                         Text(
                           'Add new card',
-                          style: AppTextStyles.montserratH3.copyWith(
+                          style: AppTextStyles.montserratButton.copyWith(
                             color: AppColors.primary,
                           ),
                         ),
