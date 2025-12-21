@@ -11,7 +11,7 @@ import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.da
 // Intro
 import 'package:cure_team_2/features/intro/view/onboarding_screen.dart';
 import 'package:cure_team_2/features/intro/view/splash_screen.dart';
-// Home / search / favorite / doctors / specialties
+
 
 // Notifications
 import 'package:cure_team_2/features/notifications/presentation/pages/notification_screen.dart';
