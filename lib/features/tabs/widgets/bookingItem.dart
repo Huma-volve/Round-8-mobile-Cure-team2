@@ -137,7 +137,7 @@ class _MyBookingItemState extends State<MyBookingItem> {
                 textButtonStyle: AppTextStyles.montserratRegularCaption
                     .copyWith(color: Colors.white),
                 IsSelected: _selectedIndex == 2,
-                
+
               ),
             ],
           ),

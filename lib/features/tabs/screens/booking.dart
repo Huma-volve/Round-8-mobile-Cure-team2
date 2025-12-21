@@ -1,7 +1,8 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
+import 'package:cure_team_2/features/tabs/widgets/bookingItem.dart';
 import 'package:cure_team_2/features/tabs/widgets/bookingStatusEnum.dart';
-import 'package:cure_team_2/features/tabs/widgets/myBookingItem.dart';
+
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

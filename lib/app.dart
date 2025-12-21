@@ -1,6 +1,6 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
-import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
+import 'package:cure_team_2/features/tabs/screens/booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
