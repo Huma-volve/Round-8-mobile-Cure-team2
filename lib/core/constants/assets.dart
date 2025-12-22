@@ -4,6 +4,8 @@ class Assets {
 
   /// images
   // logo
+
+  static const String logo = "/images/logo.svg";
   static const String chat = "/images/chat.svg";
   static const String arrow = "/images/arrow_left.svg";
   static const String starsView = "/images/stars_view.svg";
@@ -26,15 +28,15 @@ class Assets {
   static const String experince = "assets/images/experince.svg";
   static const String profile = "assets/images/profileee-2user.svg";
   static const String favourite = "/images/favouriteee.svg";
-  static const String doctorVicica = "assets/images/doctor_vessica_turner.svg";
+  static const String doctorVicica = "/images/doctor_vessica_turner.svg";
   static const String logoWhite = "assets/images/BsHeartPulseWhite.svg";
   static const String logoBlue = "assets/images/BsHeartPulse.svg";
   // illustration
   static const String onBoardingPage2 = "assets/images/page1.png";
   static const String onBoardingPage1 = "assets/images/page2.png";
   static const String loginIllustration = "assets/images/login.png";
-  static const String doctorphoto = "assets/images/doctorPhoto.png";
-  static const String docPhoto = "assets/images/docPhoto.png";
+  static const String doctorphoto = "/images/doctorPhoto.png";
+  static const String docPhoto = "/images/docPhoto.png";
   static const String boy = "assets/images/docAppoint.png";
   static const String favouritImage = "assets/images/favouritImage.png";
   static const String FavPic1 = "assets/images/FavPic1.png";
@@ -44,7 +46,7 @@ class Assets {
 
   /// icons
   static const String googleIcon = "assets/images/google.png";
-// appBar icons
+  // appBar icons
   static const String searchIcon = "assets/images/Search.png";
   static const String locationIcon = "assets/images/Location.png";
   // Navigation

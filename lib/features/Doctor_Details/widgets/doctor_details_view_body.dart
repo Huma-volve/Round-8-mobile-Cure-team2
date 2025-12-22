@@ -15,26 +15,31 @@ class DoctorDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 12), // من 10 → 12
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 17),
             child: DoctorHeaderSection(),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 22), // من 20 → 18
           DoctorStatsSection(),
-          SizedBox(height: 20),
+          SizedBox(height: 35), // من 20 → 18
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 17),
             child: DoctorAboutSection(),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 35), // من 20 → 18
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 17),
             child: DoctorInfoRowSection(),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 15), // من 20 → 18
           DoctorRatingSection(),
-          SizedBox(height: 20),
-          DoctorReviewsSection(),
+          SizedBox(height: 45), // من 20 → 18
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 17),
+            child: DoctorReviewsSection(),
+          ),
+          SizedBox(height: 22), // مسافة أخيرة للشاشة → من 20 → 12
         ],
       ),
     );
