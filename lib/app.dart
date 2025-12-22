@@ -1,7 +1,11 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
+<<<<<<< HEAD
 import 'package:cure_team_2/features/tabs/screens/booking.dart';
 import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
+=======
+import 'package:cure_team_2/features/bookingAppointment/screens/navbar.dart';
+>>>>>>> saadgawesh
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +25,11 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
+<<<<<<< HEAD
           home: const ProfileScreen(),
+=======
+          home: const Navbar(),
+>>>>>>> saadgawesh
           // initialRoute:Routes.navbar,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,

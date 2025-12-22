@@ -106,7 +106,7 @@ class _MyBookingItemState extends State<MyBookingItem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomOutlinedButton(
-                text: 'Cancel',
+                text: widget.TextButton1,
                 onpressed: () {
                   setState(() {
                     _selectedIndex = 0;
@@ -118,7 +118,7 @@ class _MyBookingItemState extends State<MyBookingItem> {
               ),
               SizedBox(width: 10.w),
               CustomOutlinedButton(
-                text: 'Reschedule',
+                text: widget.TextButton2,
                 onpressed: () {
                   setState(() {
                     _selectedIndex = 1;
@@ -128,16 +128,6 @@ class _MyBookingItemState extends State<MyBookingItem> {
 
                 bacgroundColor: Colors.transparent,
                 textButtonStyle: AppTextStyles.montserratRegularCaption,
-              ),
-              SizedBox(width: 10.w),
-              CustomOutlinedButton(
-                text: widget.TextButton2,
-                onpressed: widget.onpressedButtonright,
-                bacgroundColor: AppColors.primary,
-                textButtonStyle: AppTextStyles.montserratRegularCaption
-                    .copyWith(color: Colors.white),
-                IsSelected: _selectedIndex == 2,
-
               ),
             ],
           ),
