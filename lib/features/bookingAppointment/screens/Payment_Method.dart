@@ -17,7 +17,7 @@ class PaymentMethod extends StatefulWidget {
 }
 
 class _PaymentMethodState extends State<PaymentMethod> {
-  int selectedIndex = -1;
+  int _selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +62,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 text: 'Credit Cart',
                 chekIcon: Assets.checksolid,
                 creditName: Assets.visa,
-                isSelected: selectedIndex == 0,
+                isSelected: _selectedIndex == 0,
                 onTap: () {
                   setState(() {
-                    selectedIndex = 0;
+                    _selectedIndex = 0;
                   });
                 },
               ),
@@ -74,10 +74,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 text: 'PayPal',
                 chekIcon: Assets.checkempty,
                 creditName: Assets.paypal,
-                isSelected: selectedIndex == 1,
+                isSelected: _selectedIndex == 1,
                 onTap: () {
                   setState(() {
-                    selectedIndex = 1;
+                    _selectedIndex = 1;
                   });
                 },
               ),
@@ -86,10 +86,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 text: 'Apple Pay',
                 chekIcon: Assets.checkempty,
                 creditName: Assets.pay,
-                isSelected: selectedIndex == 2,
+                isSelected: _selectedIndex == 2,
                 onTap: () {
                   setState(() {
-                    selectedIndex = 2;
+                    _selectedIndex = 2;
                   });
                 },
               ),

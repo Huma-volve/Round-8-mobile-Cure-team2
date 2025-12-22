@@ -58,9 +58,6 @@ class CustomTableCalendar extends StatelessWidget {
         weekendTextStyle:const TextStyle(color: AppColors.grey),
         outsideTextStyle:const TextStyle(color: AppColors.grey),
         defaultTextStyle: const TextStyle(color: AppColors.grey),
-
-        // defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
-
         selectedTextStyle: const TextStyle(
           color: AppColors.secondary600,
           fontWeight: FontWeight.bold,
