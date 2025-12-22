@@ -16,7 +16,6 @@ void showCancelDialog(BuildContext context) {
             child: Container(
               height: 475.h,
               width: 341.w,
-
               padding: const EdgeInsets.only(
                 top: 32,
                 bottom: 32,
@@ -58,7 +57,7 @@ void showCancelDialog(BuildContext context) {
                   ),
                   SizedBox(height: 13.h),
                   AppButton(
-                    text: " yes,Cancel",
+                    text: 'Yes, Cancel',
                     onPressed: () {
                       Navigator.pop(context);
                     },

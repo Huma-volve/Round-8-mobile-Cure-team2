@@ -5,7 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 class CustomTableCalendar extends StatelessWidget {
   final DateTime? selectedDay;
   final DateTime focusedDay;
-  final Function(DateTime selected, DateTime focused) onDaySelected;
+  final void Function(DateTime selected, DateTime focused) onDaySelected;
 
   const CustomTableCalendar({
     super.key,
@@ -42,7 +42,6 @@ class CustomTableCalendar extends StatelessWidget {
         cellMargin: const EdgeInsets.all(4),
         defaultDecoration: BoxDecoration(
           boxShadow: const [BoxShadow(color: AppColors.grey50)],
-
           borderRadius: BorderRadius.circular(8),
         ),
         selectedDecoration: BoxDecoration(
@@ -51,16 +50,11 @@ class CustomTableCalendar extends StatelessWidget {
         ),
         todayDecoration: BoxDecoration(
           boxShadow: const [BoxShadow(color: AppColors.grey50)],
-
           borderRadius: BorderRadius.circular(8),
         ),
-
-        weekendTextStyle:const TextStyle(color: AppColors.grey),
-        outsideTextStyle:const TextStyle(color: AppColors.grey),
+        weekendTextStyle: const TextStyle(color: AppColors.grey),
+        outsideTextStyle: const TextStyle(color: AppColors.grey),
         defaultTextStyle: const TextStyle(color: AppColors.grey),
-
-        // defaultTextStyle: const TextStyle(fontWeight: FontWeight.w500),
-
         selectedTextStyle: const TextStyle(
           color: AppColors.secondary600,
           fontWeight: FontWeight.bold,

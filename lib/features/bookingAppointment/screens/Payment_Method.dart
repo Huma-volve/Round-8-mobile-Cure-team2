@@ -23,7 +23,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: const CustomAppBar(title:"Book Appointment"),
+      appBar: const CustomAppBar(title: 'Book Appointment'),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
@@ -43,7 +43,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
                   SizedBox(width: 5.w),
                   Text(
-                    'Friday,July17-4:00pm',
+                    'Friday, July 17 - 4:00 pm',
                     style: AppTextStyles.montserratSmallCaption,
                   ),
                   const Spacer(),
@@ -59,8 +59,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               Text('Payment Method', style: AppTextStyles.georgiaSubheading),
               SizedBox(height: 10.h),
               CardItem(
-                text: 'Credit Cart',
-                chekIcon: Assets.checksolid,
+                text: 'Credit Card',
                 creditName: Assets.visa,
                 isSelected: selectedIndex == 0,
                 onTap: () {
@@ -72,7 +71,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
               SizedBox(height: 6.h),
               CardItem(
                 text: 'PayPal',
-                chekIcon: Assets.checkempty,
                 creditName: Assets.paypal,
                 isSelected: selectedIndex == 1,
                 onTap: () {
@@ -84,7 +82,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
               SizedBox(height: 6.h),
               CardItem(
                 text: 'Apple Pay',
-                chekIcon: Assets.checkempty,
                 creditName: Assets.pay,
                 isSelected: selectedIndex == 2,
                 onTap: () {
@@ -134,7 +131,8 @@ class _PaymentMethodState extends State<PaymentMethod> {
       ),
 
       /// Bottom Bar
-      bottomNavigationBar: Totalpriceandnavb(text: ' Pay', onPressed: () {}),
+      bottomNavigationBar:
+          TotalPriceAndNavBar(text: 'Pay', onPressed: () {}),
     );
   }
 }

@@ -2,6 +2,9 @@ import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
 import 'package:cure_team_2/features/Doctor_Details/doctor_details_v.dart';
 import 'package:cure_team_2/features/Favourite/Screens/Your_Favourite.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
+import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
 import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
-          home: const DoctorDetailsView(),
+          home: const PaymentMethod(),
           // initialRoute:Routes.navbar,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,

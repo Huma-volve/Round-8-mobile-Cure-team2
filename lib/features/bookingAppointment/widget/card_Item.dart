@@ -8,14 +8,12 @@ class CardItem extends StatelessWidget {
   const CardItem({
     super.key,
     required this.text,
-    required this.chekIcon,
     required this.creditName,
     required this.isSelected,
     required this.onTap,
   });
 
   final String text;
-  final String chekIcon;
   final String creditName;
   final bool isSelected;
   final VoidCallback onTap;
@@ -24,6 +22,7 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
       child: Container(
         padding: const EdgeInsets.all(8),
         margin: EdgeInsets.all(2.h),

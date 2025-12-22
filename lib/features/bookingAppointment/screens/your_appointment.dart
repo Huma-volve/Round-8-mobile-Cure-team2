@@ -17,26 +17,25 @@ class YourAppointment extends StatefulWidget {
 
 class _YourAppointmentState extends State<YourAppointment> {
   int _selectedIndex = -1;
+  static const List<String> _times = [
+    '9:00 AM',
+    '10:00AM',
+    '11:00AM',
+    '12:30AM',
+    '4:00 PM',
+    '5:30 PM',
+    '7:00 PM',
+    '9:00 PM',
+    '10:00PM',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final List<String> times = [
-      '9:00 AM',
-      '10:00AM',
-      '11:00AM',
-      '12:30AM',
-      '4:00 PM',
-      '5:30 PM',
-      '7:00 PM',
-      '9:00 PM',
-      '10:00PM',
-    ];
     return Scaffold(
       appBar: const CustomAppBar(title: 'Your Appointment'),
 
-      body: Container(
-        margin: EdgeInsets.only(left: 16.w, right: 16.w),
-        width: 396.w,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [
             SizedBox(height: 20.h),
@@ -109,7 +108,7 @@ class _YourAppointmentState extends State<YourAppointment> {
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      ' Psychiatrist',
+                      'Psychiatrist',
                       style: AppTextStyles.montserratButton.copyWith(
                         color: AppColors.grey,
                       ),
@@ -130,7 +129,7 @@ class _YourAppointmentState extends State<YourAppointment> {
                   height: 20,
                 ),
                 Text(
-                  '129,El-Nasr Street, Cairo, Egypt ',
+                  '129, El-Nasr Street, Cairo, Egypt',
                   style: AppTextStyles.montserratButton.copyWith(
                     color: AppColors.grey,
                   ),
@@ -162,10 +161,10 @@ class _YourAppointmentState extends State<YourAppointment> {
               alignment: WrapAlignment.center,
               spacing: 50,
               runSpacing: 10,
-              children: List.generate(times.length, (index) {
+              children: List.generate(_times.length, (index) {
                 return ChoiceChip(
                   label: Text(
-                    times[index],
+                    _times[index],
                     style: AppTextStyles.montserratSmallCaption.copyWith(
                       color:
                           _selectedIndex == index
@@ -213,10 +212,4 @@ class _YourAppointmentState extends State<YourAppointment> {
       ),
     );
   }
-  // @override
-  // void dispose() {
-
-  //   // TODO: implement dispose
-  //   super.dispose();
-  // }
 }

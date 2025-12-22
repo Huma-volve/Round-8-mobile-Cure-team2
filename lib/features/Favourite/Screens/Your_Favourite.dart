@@ -10,22 +10,16 @@ class YourFavourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: " Your Favorite"),
-      body: Column(
-        children: [
-          SizedBox(height: 32.h),
-          Expanded(
-            child: ListView.separated(
-              itemCount: bookings.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(height: 16.h);
-              },
-              itemBuilder: (BuildContext context, int index) {
-                return DoctorFavItem(model: bookings[index]);
-              },
-            ),
-          ),
-        ],
+      appBar: const CustomAppBar(title: 'Your Favorite'),
+      body: ListView.separated(
+        padding: EdgeInsets.only(top: 32.h, bottom: 16.h),
+        itemCount: favoriteDoctors.length,
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(height: 16.h);
+        },
+        itemBuilder: (BuildContext context, int index) {
+          return DoctorFavItem(model: favoriteDoctors[index]);
+        },
       ),
     );
   }
