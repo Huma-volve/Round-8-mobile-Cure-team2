@@ -1,3 +1,4 @@
+import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,29 @@ class DoctorAboutSection extends StatelessWidget {
       children: [
         Text(
           'About me',
-          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 26),
+          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 22),
         ),
-        Text(
-          'Dr. Jessica Turner, a board-certified Pulmonologist with over 8 years of experience in diagnosing and treating a wide range of respiratory and ',
-          style: AppTextStyles.montserratRegularCaption.copyWith(fontSize: 14),
+        const SizedBox(height: 6),
+        RichText(
+          text: TextSpan(
+            style: AppTextStyles.montserratRegularCaption.copyWith(
+              fontSize: 14,
+              color: AppColors.grey700,
+            ),
+            children: [
+              const TextSpan(
+                text:
+                    'Dr. Jessica Turner, a board-certified Pulmonologist with over 8 years of experience in diagnosing and treating a wide range of respiratory conditions. ',
+              ),
+              TextSpan(
+                text: 'Read more',
+                style: AppTextStyles.montserratRegularCaption.copyWith(
+                  fontSize: 14,
+                  color: AppColors.primary,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

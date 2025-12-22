@@ -12,8 +12,8 @@ class DoctorReviewsSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5, color: Colors.grey.withOpacity(0.5)),
-        borderRadius: BorderRadius.circular(12),
+        border: Border.all(width: 0.5, color: AppColors.grey200),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
@@ -23,17 +23,15 @@ class DoctorReviewsSection extends StatelessWidget {
               Container(
                 height: 50,
                 width: 50,
+                padding: const EdgeInsets.all(1),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.withOpacity(0.5)),
-                  borderRadius: BorderRadius.circular(50),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppColors.grey200),
                 ),
-                child: Center(
-                  child: CircleAvatar(
-                    radius: 43,
-
-                    child: ClipOval(
-                      child: SvgPicture.asset(Assets.review, fit: BoxFit.cover),
-                    ),
+                child: ClipOval(
+                  child: SvgPicture.asset(
+                    Assets.nabilaReyna,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -53,6 +51,7 @@ class DoctorReviewsSection extends StatelessWidget {
                       '30 min ago',
                       style: AppTextStyles.montserratSubheading.copyWith(
                         fontSize: 12,
+                        color: AppColors.grey700,
                       ),
                     ),
                   ],
@@ -63,7 +62,7 @@ class DoctorReviewsSection extends StatelessWidget {
                 width: 60,
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.warning200.withOpacity(0.5),
+                  color: AppColors.warning50,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -80,6 +79,7 @@ class DoctorReviewsSection extends StatelessWidget {
                       '4.5',
                       style: AppTextStyles.montserratSubheading.copyWith(
                         fontSize: 12,
+                        color: AppColors.secondary900,
                       ),
                     ),
                   ],
@@ -90,7 +90,10 @@ class DoctorReviewsSection extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             'Excellent service! Dr. Jessica Turner was attentive and thorough. The clinic was clean, and the staff were friendly. Highly recommend for in-person care!',
-            style: AppTextStyles.montserratButton.copyWith(fontSize: 14),
+            style: AppTextStyles.montserratRegularCaption.copyWith(
+              fontSize: 13,
+              color: AppColors.grey700,
+            ),
           ),
         ],
       ),
