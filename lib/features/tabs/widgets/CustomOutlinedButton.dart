@@ -22,7 +22,7 @@ class CustomOutlinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
-      width: 165,
+      width: 160,
       height: 40,
       decoration: BoxDecoration(
         color: bacgroundColor,
