@@ -11,11 +11,11 @@ class DoctorAboutSection extends StatelessWidget {
       children: [
         Text(
           'About me',
-          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 40),
+          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 26),
         ),
         Text(
           'Dr. Jessica Turner, a board-certified Pulmonologist with over 8 years of experience in diagnosing and treating a wide range of respiratory and ',
-          style: AppTextStyles.montserratRegularCaption,
+          style: AppTextStyles.montserratRegularCaption.copyWith(fontSize: 14),
         ),
       ],
     );

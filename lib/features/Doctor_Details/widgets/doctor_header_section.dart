@@ -10,18 +10,18 @@ class DoctorHeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
-          radius: 50,
-          backgroundImage: AssetImage(Assets.doctorVicica),
+        CircleAvatar(
+          radius: 43,
+
+          child: ClipOval(
+            child: SvgPicture.asset(Assets.review, fit: BoxFit.cover),
+          ),
         ),
         const SizedBox(width: 12),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Dr. Jessica Turner',
-              style: AppTextStyles.georgiaSubheading,
-            ),
+            Text('Dr. Jessica Turner', style: AppTextStyles.georgiaCaption),
             Text(
               'Pulmonologist',
               style: AppTextStyles.montserratRegularSmallCaption,
@@ -32,19 +32,19 @@ class DoctorHeaderSection extends StatelessWidget {
             ),
           ],
         ),
-        const Spacer(),
+        SizedBox(width: 10),
         Container(
-          height: 40,
-          width: 40,
+          height: 32,
+          width: 32,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey.withOpacity(0.5)),
             borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
             child: SvgPicture.asset(
-              Assets.favourite,
-              width: 20,
-              height: 20,
+              Assets.favouritImage,
+              width: 16,
+              height: 16,
               fit: BoxFit.contain,
             ),
           ),

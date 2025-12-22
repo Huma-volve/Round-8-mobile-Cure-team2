@@ -10,27 +10,32 @@ class DoctorInfoRowSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          'Reviews and Rating',
-          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 40),
+        Expanded(
+          child: Text(
+            'Reviews and Rating',
+            style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 18),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
-        Spacer(),
+        SizedBox(width: 6),
         Row(
           children: [
             SvgPicture.asset(
               Assets.addreview,
-              width: 17,
-              height: 17,
+              width: 15,
+              height: 15,
               fit: BoxFit.contain,
             ),
-            SizedBox(
-              width: 5,
-            ),
+            SizedBox(width: 4),
             Text(
               'add review',
-              style: AppTextStyles.montserratRegularSubheading
-                  .copyWith(color: AppColors.primary),
+              style: AppTextStyles.montserratRegularSubheading.copyWith(
+                fontSize: 14,
+                color: AppColors.primary,
+              ),
             ),
           ],
         ),

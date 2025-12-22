@@ -13,7 +13,7 @@ class DoctorRatingSection extends StatelessWidget {
       children: [
         Text(
           '4.5/5',
-          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 60),
+          style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 40),
         ),
         Column(
           children: [
@@ -21,42 +21,40 @@ class DoctorRatingSection extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   Assets.starReview,
-                  width: 20,
-                  height: 20,
+                  width: 16,
+                  height: 16,
                   fit: BoxFit.contain,
                 ),
                 SvgPicture.asset(
                   Assets.starReview,
-                  width: 20,
-                  height: 20,
+                  width: 16,
+                  height: 16,
                   fit: BoxFit.contain,
                 ),
                 SvgPicture.asset(
                   Assets.starReview,
-                  width: 20,
-                  height: 20,
+                  width: 16,
+                  height: 16,
                   fit: BoxFit.contain,
                 ),
                 SvgPicture.asset(
                   Assets.starReview,
-                  width: 20,
-                  height: 20,
+                  width: 16,
+                  height: 16,
                   fit: BoxFit.contain,
                 ),
                 SvgPicture.asset(
                   Assets.starReviewDisabled,
-                  width: 20,
-                  height: 20,
+                  width: 16,
+                  height: 16,
                   fit: BoxFit.contain,
                 ),
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 6),
             Text(
               '1250+ Reviews',
-              style: AppTextStyles.montserratRegularH3.copyWith(fontSize: 30),
+              style: AppTextStyles.montserratRegularH3.copyWith(fontSize: 18),
             ),
           ],
         ),

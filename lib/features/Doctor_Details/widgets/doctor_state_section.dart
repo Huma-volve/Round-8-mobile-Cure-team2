@@ -15,20 +15,20 @@ class DoctorStatsSection extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 Assets.profile,
-                width: 30,
-                height: 30,
+                width: 22,
+                height: 22,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 3),
               Text(
                 '120',
-                style: AppTextStyles.montserratCaption,
+                style: AppTextStyles.montserratCaption.copyWith(fontSize: 15),
               ),
               Text(
                 'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 11,
+                ),
               ),
             ],
           ),
@@ -38,20 +38,20 @@ class DoctorStatsSection extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 Assets.experince,
-                width: 30,
-                height: 30,
+                width: 22,
+                height: 22,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 3),
               Text(
                 '120',
-                style: AppTextStyles.montserratCaption,
+                style: AppTextStyles.montserratCaption.copyWith(fontSize: 15),
               ),
               Text(
                 'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 11,
+                ),
               ),
             ],
           ),
@@ -61,20 +61,20 @@ class DoctorStatsSection extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 Assets.rating,
-                width: 30,
-                height: 30,
+                width: 22,
+                height: 22,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 3),
               Text(
                 '120',
-                style: AppTextStyles.montserratCaption,
+                style: AppTextStyles.montserratCaption.copyWith(fontSize: 15),
               ),
               Text(
                 'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 11,
+                ),
               ),
             ],
           ),
@@ -84,20 +84,20 @@ class DoctorStatsSection extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 Assets.review,
-                width: 30,
-                height: 30,
+                width: 22,
+                height: 22,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 3),
               Text(
                 '120',
-                style: AppTextStyles.montserratCaption,
+                style: AppTextStyles.montserratCaption.copyWith(fontSize: 15),
               ),
               Text(
                 'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 11,
+                ),
               ),
             ],
           ),

@@ -10,76 +10,87 @@ class DoctorReviewsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 0.5,
-          color: Colors.grey.withOpacity(0.5),
-        ),
+        border: Border.all(width: 0.5, color: Colors.grey.withOpacity(0.5)),
         borderRadius: BorderRadius.circular(12),
       ),
-      padding: const EdgeInsets.all(12),
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                height: 70,
-                width: 70,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.withOpacity(0.5)),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Center(
-                  child: SvgPicture.asset(
-                    Assets.nabila,
-                    fit: BoxFit.cover,
+                  child: CircleAvatar(
+                    radius: 43,
+
+                    child: ClipOval(
+                      child: SvgPicture.asset(Assets.review, fit: BoxFit.cover),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Nabila Reyna ',
-                    style: AppTextStyles.georgiaSubheading,
-                  ),
-                  Text(
-                    '30 min ago',
-                    style: AppTextStyles.montserratSubheading,
-                  ),
-                ],
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Nabila Reyna',
+                      style: AppTextStyles.georgiaSubheading.copyWith(
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '30 min ago',
+                      style: AppTextStyles.montserratSubheading.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const Spacer(),
               Container(
-                height: 30,
-                width: 70,
+                height: 25,
+                width: 60,
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
-                    color: AppColors.warning200.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(9)),
+                  color: AppColors.warning200.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
                       Assets.starReview,
-                      width: 20,
-                      height: 20,
+                      width: 16,
+                      height: 16,
                       fit: BoxFit.contain,
                     ),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 3),
                     Text(
                       '4.5',
-                      style: AppTextStyles.montserratSubheading,
+                      style: AppTextStyles.montserratSubheading.copyWith(
+                        fontSize: 12,
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             'Excellent service! Dr. Jessica Turner was attentive and thorough. The clinic was clean, and the staff were friendly. Highly recommend for in-person care!',
-            style: AppTextStyles.montserratButton,
+            style: AppTextStyles.montserratButton.copyWith(fontSize: 14),
           ),
         ],
       ),
