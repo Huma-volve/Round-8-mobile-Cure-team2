@@ -55,6 +55,20 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
     }
   }
 
+  void _sendMessage() {
+    final text = _messageController.text.trim();
+    if (text.isEmpty) return;
+    context.read<ChatDetailCubit>().sendMessage(widget.chatId, text);
+    _messageController.clear();
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,7 +137,7 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
             decoration: BoxDecoration(color: Colors.white, boxShadow: [
               BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
+                  color: Colors.black.withOpacity(0.05),
                   blurRadius: 10,
                   offset: const Offset(0, -2)),
             ]),
@@ -138,46 +152,47 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                     ),
                     child: TextField(
                       controller: _messageController,
-                      decoration: const InputDecoration(
-                          hintText: "Message",
-                          border: InputBorder.none,
-                          suffixIcon: Row(
+                      decoration: InputDecoration(
+                        hintText: "Message",
+                        border: InputBorder.none,
+                        suffixIcon: SizedBox(
+                          width: 72,
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Icon(Icons.attach_file, color: Colors.grey),
                               SizedBox(width: 8),
-                              Icon(Icons.camera_alt_outlined,
-                                  color: Colors.grey),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
                             ],
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 12.w),
-                GestureDetector(
-                  onTap: () {
-                    if (_messageController.text.isNotEmpty) {
-                      context
-                          .read<ChatDetailCubit>()
-                          .sendMessage(widget.chatId, _messageController.text);
-                      _messageController.clear();
-                    }
+                ValueListenableBuilder<TextEditingValue>(
+                  valueListenable: _messageController,
+                  builder: (context, value, _) {
+                    final hasText = value.text.trim().isNotEmpty;
+                    return GestureDetector(
+                      onTap: _sendMessage,
+                      child: Container(
+                        padding: EdgeInsets.all(12.w),
+                        decoration: const BoxDecoration(
+                          color: AppColors.primaryBlue,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          hasText ? Icons.send : Icons.mic,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(12.w),
-                    decoration: const BoxDecoration(
-                      color: AppColors.primaryBlue,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(Icons.mic,
-                        color: Colors
-                            .white), // Mic icon as per screenshot (or send if typing.. screenshot shows mic but standard behavior is send)
-                    // Actually screenshot shows Mic, but usually it turns to send. I'll stick to Mic icon for visual fidelity or changing it.
-                    // Wait, usually users want to SEND text.
-                    // I will implement it so it sends on tap for now, even if icon is Mic (or better, change to Send when text is present).
-                    // Let's use Send icon when text is present in a real app, but for now I'll just use Send icon to be functional.
-                    // The screenshot has a Mic. I will use a Send icon instead for functionality.
-                  ),
                 ),
               ],
             ),

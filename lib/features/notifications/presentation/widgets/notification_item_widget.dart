@@ -98,13 +98,15 @@ class NotificationItemWidget extends StatelessWidget {
   }
 
   String _formatTime(DateTime timestamp) {
-    final difference = DateTime.now().difference(timestamp);
-    if (difference.inHours > 0) {
-      return "${difference.inHours}h";
-    } else if (difference.inMinutes > 0) {
-      return "${difference.inMinutes}m";
-    } else {
-      return "Now";
+    final now = DateTime.now();
+    final difference = now.difference(timestamp);
+    final duration = difference.isNegative ? timestamp.difference(now) : difference;
+    if (duration.inHours > 0) {
+      return "${duration.inHours}h";
     }
+    if (duration.inMinutes > 0) {
+      return "${duration.inMinutes}m";
+    }
+    return "Now";
   }
 }
