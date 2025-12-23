@@ -4,7 +4,7 @@ class Assets {
 
   /// images
   // logo
-
+  static const String authentication = "/images/Authentication.svg";
   static const String logo = "/images/logo.svg";
   static const String chat = "/images/chat.svg";
   static const String arrow = "/images/arrow_left.svg";

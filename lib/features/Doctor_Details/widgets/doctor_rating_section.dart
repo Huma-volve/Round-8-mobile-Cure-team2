@@ -15,48 +15,52 @@ class DoctorRatingSection extends StatelessWidget {
           '4.5/5',
           style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 40),
         ),
-        Column(
-          children: [
-            Row(
-              children: [
-                SvgPicture.asset(
-                  Assets.starReview,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                ),
-                SvgPicture.asset(
-                  Assets.starReview,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                ),
-                SvgPicture.asset(
-                  Assets.starReview,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                ),
-                SvgPicture.asset(
-                  Assets.starReview,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                ),
-                SvgPicture.asset(
-                  Assets.starReviewDisabled,
-                  width: 16,
-                  height: 16,
-                  fit: BoxFit.contain,
-                ),
-              ],
-            ),
-            SizedBox(height: 6),
-            Text(
-              '1250+ Reviews',
-              style: AppTextStyles.montserratRegularH3.copyWith(fontSize: 18),
-            ),
-          ],
+        SizedBox(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    Assets.starReview,
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
+                  SvgPicture.asset(
+                    Assets.starReview,
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
+                  SvgPicture.asset(
+                    Assets.starReview,
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
+                  SvgPicture.asset(
+                    Assets.starReview,
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
+                  SvgPicture.asset(
+                    Assets.starReviewDisabled,
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                '1250+ Reviews',
+                style: AppTextStyles.montserratRegularH3.copyWith(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ],
     );

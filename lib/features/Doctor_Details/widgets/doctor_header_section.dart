@@ -9,40 +9,81 @@ class DoctorHeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CircleAvatar(
-          radius: 43,
-
-          child: ClipOval(
-            child: SvgPicture.asset(Assets.review, fit: BoxFit.cover),
-          ),
-        ),
-        const SizedBox(width: 12),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Stack(
           children: [
-            Text('Dr. Jessica Turner', style: AppTextStyles.georgiaCaption),
-            Text(
-              'Pulmonologist',
-              style: AppTextStyles.montserratRegularSmallCaption,
+            CircleAvatar(
+              radius: 46,
+
+              child: CircleAvatar(
+                radius: 38,
+                child: ClipOval(
+                  child: SvgPicture.asset(
+                    Assets.review,
+                    fit: BoxFit.cover,
+                    width: 76,
+                    height: 76,
+                  ),
+                ),
+              ),
             ),
-            Text(
-              '129,El-Nasr Street, Cairo ',
-              style: AppTextStyles.montserratRegularSmallCaption,
+            Positioned(
+              bottom: 2,
+              right: 2,
+              child: Container(
+                height: 22,
+                width: 22,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey.shade300),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    Assets.authentication,
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Dr. Jessica Turner',
+                style: AppTextStyles.georgiaCaption.copyWith(fontSize: 25),
+              ),
+              Text(
+                'Pulmonologist',
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 16,
+                ),
+              ),
+              Text(
+                '129,El-Nasr Street, Cairo ',
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 8),
         Container(
           height: 32,
           width: 32,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.withOpacity(0.5)),
+            border: Border.all(color: Colors.grey.withOpacity(0.2)),
             borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
             child: SvgPicture.asset(
-              Assets.favouritImage,
+              Assets.favourite,
               width: 16,
               height: 16,
               fit: BoxFit.contain,

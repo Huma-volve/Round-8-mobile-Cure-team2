@@ -1,11 +1,7 @@
 ﻿import 'package:cure_team_2/core/routing/routes.dart';
-// Booking
-import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
-import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
-import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
-import 'package:cure_team_2/features/chat/presentation/pages/chat_detail_screen.dart';
-// Chat
-import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
+import 'package:cure_team_2/features/review/review_view.dart';
+import 'package:flutter/material.dart';
+
 // Auth & Profile
 
 // Intro
@@ -28,6 +24,8 @@ class AppRouter {
 
       case Routes.chatList:
         return MaterialPageRoute(builder: (_) => const ChatListScreen());
+      case Routes.review:
+        return MaterialPageRoute(builder: (_) => const ReviewView());
       case Routes.chatDetail:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(

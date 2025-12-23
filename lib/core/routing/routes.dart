@@ -21,4 +21,5 @@ class Routes {
   static const String yourAppointment = '/yourAppointment';
   static const String announcements = '/announcements'; // Assuming placeholder
   static const String notifications = '/notifications';
+  static const String review = '/review';
 }
