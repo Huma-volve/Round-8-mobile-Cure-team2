@@ -14,7 +14,7 @@ class NotificationCubit extends Cubit<NotificationState> {
       final notifications = await getNotificationsUseCase();
       emit(NotificationLoaded(notifications));
     } catch (e) {
-      emit(NotificationError("Failed to load notifications"));
+      emit(NotificationError(e.toString()));
     }
   }
 }
