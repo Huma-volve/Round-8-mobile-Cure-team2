@@ -8,7 +8,6 @@ class NotificationRepositoryImpl implements NotificationRepository {
   NotificationRepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<List<NotificationEntity>> getNotifications() async {
-    return await remoteDataSource.getNotifications();
-  }
+  Future<List<NotificationEntity>> getNotifications() =>
+      remoteDataSource.getNotifications();
 }
