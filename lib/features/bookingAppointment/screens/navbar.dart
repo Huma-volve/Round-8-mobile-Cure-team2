@@ -1,5 +1,4 @@
 import 'package:cure_team_2/core/constants/assets.dart';
-import 'package:cure_team_2/features/tabs/screens/booking.dart';
 import 'package:cure_team_2/features/tabs/screens/chat.dart';
 import 'package:cure_team_2/features/tabs/screens/home.dart';
 
@@ -14,11 +13,7 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  final List<Widget> _tabs = [
-    const Home(),
-    const Chat(),
-    const Profile(),
-  ];
+  final List<Widget> _tabs = [const Home(), const Chat(), const Profile()];
   int _index = 1;
   @override
   Widget build(BuildContext context) {

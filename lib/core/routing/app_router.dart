@@ -12,10 +12,8 @@ import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.da
 import 'package:cure_team_2/features/intro/view/onboarding_screen.dart';
 import 'package:cure_team_2/features/intro/view/splash_screen.dart';
 
-
 // Notifications
 import 'package:cure_team_2/features/notifications/presentation/pages/notification_screen.dart';
-import 'package:cure_team_2/features/tabs/screens/booking.dart';
 // Tabs
 
 import 'package:flutter/material.dart';
