@@ -1,9 +1,10 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
+import 'package:cure_team_2/features/Doctor_Details/doctor_details_v.dart';
+import 'package:cure_team_2/features/Favourite/Screens/Your_Favourite.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'core/routing/routes.dart';
 
 class MyApp extends StatelessWidget {
   final AppRouter router;
@@ -21,10 +22,13 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
-          initialRoute: Routes.profile,
+          home: const DoctorDetailsView(),
+          // initialRoute:Routes.navbar,
+          // initialRoute: Routes.splash,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
+          // home: const ChatListScreen(),
         ),
       ),
     );

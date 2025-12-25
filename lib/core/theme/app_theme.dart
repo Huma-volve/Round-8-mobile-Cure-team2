@@ -1,5 +1,6 @@
 import 'package:cure_team_2/core/extensions/style.dart';
 import 'package:flutter/material.dart';
+
 import 'app_colors.dart';
 
 class AppTheme {
@@ -20,12 +21,13 @@ class AppTheme {
     hoverColor: Colors.transparent,
     splashFactory: NoSplash.splashFactory,
     appBarTheme: _appBarThemeData.copyWith(
-        titleTextStyle: const TextStyle(
-      fontFamily: "Georgia",
-      fontSize: 20,
-      color: Colors.black,
-      fontWeight: FontWeight.w400,
-    )),
+      titleTextStyle: const TextStyle(
+        fontFamily: "Georgia",
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+      ),
+    ),
     colorScheme: _ColorScheme.lightColorScheme,
   );
 

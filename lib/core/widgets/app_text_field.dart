@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 
-enum TextFieldBorderType {
-  filled,
-  outlined,
-  underlined,
-  none,
-}
+enum TextFieldBorderType { filled, outlined, underlined, none }
 
 class AppTextField extends StatelessWidget {
   final TextFieldBorderType borderType;
@@ -89,14 +85,14 @@ class AppTextField extends StatelessWidget {
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
           borderSide: BorderSide(
-            color: borderColor ?? AppColors.grey300,
+            color: borderColor ?? AppColors.primary,
             width: borderWidth,
           ),
         );
       case TextFieldBorderType.underlined:
         return UnderlineInputBorder(
           borderSide: BorderSide(
-            color: borderColor ?? AppColors.grey300,
+            color: borderColor ?? AppColors.primary,
             width: borderWidth,
           ),
         );
@@ -137,25 +133,16 @@ class AppTextField extends StatelessWidget {
       case TextFieldBorderType.filled:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
-          borderSide: BorderSide(
-            color: AppColors.error,
-            width: borderWidth,
-          ),
+          borderSide: BorderSide(color: AppColors.error, width: borderWidth),
         );
       case TextFieldBorderType.outlined:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
-          borderSide: BorderSide(
-            color: AppColors.error,
-            width: borderWidth,
-          ),
+          borderSide: BorderSide(color: AppColors.error, width: borderWidth),
         );
       case TextFieldBorderType.underlined:
         return UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.error,
-            width: borderWidth,
-          ),
+          borderSide: BorderSide(color: AppColors.error, width: borderWidth),
         );
       case TextFieldBorderType.none:
         return InputBorder.none;
@@ -190,7 +177,8 @@ class AppTextField extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         suffixIconColor: AppColors.grey300,
         filled: borderType == TextFieldBorderType.filled,
-        fillColor: filledColor ??
+        fillColor:
+            filledColor ??
             (borderType == TextFieldBorderType.filled
                 ? AppColors.grey50
                 : null),
@@ -200,7 +188,8 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
 
         helperStyle: helperStyle,
-        hintStyle: hintStyle ??
+        hintStyle:
+            hintStyle ??
             AppTextStyles.montserratButton.copyWith(color: AppColors.grey400),
         labelStyle: labelStyle,
         labelText: labelText,

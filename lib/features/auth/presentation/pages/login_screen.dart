@@ -21,30 +21,30 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          SizedBox(
-              height: 211.h,
-              width: 250.w,
-              child: Image.asset(
-                Assets.loginIllustration,
-              )),
-          Text(
-            "Enter your phone number",
-            style: AppTextStyles.georgiaH3,
-          ).appPaddingVr(24),
-          PhoneNumberField(
-            controller: TextEditingController(),
-          ),
-          const VSpace(48),
-          AppButton(
-            text: "Sign in with your Phone Number",
-            onPressed: () => context.pushNamed(Routes.otp),
-          ),
-          const VSpace(16),
-          const OrDivider(),
-          const SignInWithGoogle(),
-          const ToggleLoginSignup().appPaddingVr(24)
-        ]).appPaddingHr(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 211.h,
+                  width: 250.w,
+                  child: Image.asset(Assets.loginIllustration),
+                ),
+                Text(
+                  "Enter your phone number",
+                  style: AppTextStyles.georgiaH3,
+                ).appPaddingVr(24),
+                PhoneNumberField(controller: TextEditingController()),
+                const VSpace(48),
+                AppButton(
+                  text: "Sign in with your Phone Number",
+                  onPressed: () => context.pushNamed(Routes.otp),
+                ),
+                const VSpace(16),
+                const OrDivider(),
+                const SignInWithGoogle(),
+                const ToggleLoginSignup().appPaddingVr(24),
+              ],
+            ).appPaddingHr(),
       ),
     );
   }
