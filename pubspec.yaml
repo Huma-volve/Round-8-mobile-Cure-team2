@@ -31,6 +31,8 @@ dependencies:
   dotted_border: ^2.1.0
   easy_date_timeline: ^2.0.9
   iconly: ^1.0.1
+  image_picker: ^1.2.1
+  google_fonts: ^6.3.3
 
 dev_dependencies:
   flutter_test:

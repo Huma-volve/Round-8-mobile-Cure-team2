@@ -222,7 +222,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 onYearTap: _showYearPicker,
               ),
               60.verticalSpace,
-              EditProfileButton(onPressed: _onEditProfilePressed),
+              EditProfileButton(
+                onPressed: _onEditProfilePressed,
+                text: 'Edit Profile',
+              ),
             ],
           ),
         ),
