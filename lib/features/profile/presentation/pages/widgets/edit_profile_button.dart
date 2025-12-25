@@ -4,8 +4,15 @@ import 'package:cure_team_2/core/theme/app_text_styles.dart';
 
 class EditProfileButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final String text;
+  final bool showPlus;
 
-  const EditProfileButton({super.key, required this.onPressed});
+  const EditProfileButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+    this.showPlus = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +23,45 @@ class EditProfileButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF145db8),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(9.r),
           ),
         ),
         onPressed: onPressed,
-        child: Text(
-          'Edit Profile',
-          style: AppTextStyles.montserratButton.copyWith(
-            color: const Color(0xFFFFFFFF),
-          ),
-        ),
+        child: showPlus
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 24,
+                    height: 24,
+                    padding: const EdgeInsets.all(5),
+                    child: const Center(
+                      child: Text(
+                        '+',
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    text,
+                    style: AppTextStyles.montserratButton.copyWith(
+                      color: const Color(0xFFFFFFFF),
+                    ),
+                  ),
+                ],
+              )
+            : Text(
+                text,
+                style: AppTextStyles.montserratButton.copyWith(
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ),
       ),
     );
   }

@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileTile extends StatelessWidget {
   final Widget leading;
-  final String title;
+  final String? title;
+  final Widget? titleWidget;
   final Widget? trailing;
   final VoidCallback? onTap;
   final TextStyle? textStyle;
@@ -13,7 +14,8 @@ class ProfileTile extends StatelessWidget {
   const ProfileTile({
     super.key,
     required this.leading,
-    required this.title,
+    this.title,
+    this.titleWidget,
     this.trailing,
     this.onTap,
     this.textStyle,
@@ -22,39 +24,42 @@ class ProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 48.h,
-        margin: EdgeInsets.only(bottom: 12.h),
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8).r,
-        decoration: BoxDecoration(
-          color: const Color(0xFFf5f6f7),
-          borderRadius: BorderRadius.circular(6.r),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                leading,
-                12.horizontalSpace,
+    final tile = Container(
+      height: 48.h,
+      margin: EdgeInsets.only(bottom: 12.h),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 8).r,
+      decoration: BoxDecoration(
+        color: const Color(0xFFf5f6f7),
+        borderRadius: BorderRadius.circular(6.r),
+      ),
+      child: Row(
+        children: [
+          leading,
+          12.horizontalSpace,
+          Expanded(
+            child: titleWidget ??
                 Text(
-                  title,
+                  title ?? '',
+                  overflow: TextOverflow.ellipsis,
                   style: textStyle ?? AppTextStyles.montserratButton,
                 ),
-              ],
+          ),
+          if (trailing != null)
+            trailing!
+          else if (showArrow)
+            const Icon(
+              Icons.chevron_right,
+              color: Color(0xFF99a2ab),
             ),
-            if (trailing != null)
-              trailing!
-            else if (showArrow)
-              const Icon(
-                Icons.chevron_right,
-                color: Color(0xFF99a2ab),
-              ),
-          ],
-        ),
+        ],
       ),
+    );
+
+    if (onTap == null) return tile;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: tile,
     );
   }
 }

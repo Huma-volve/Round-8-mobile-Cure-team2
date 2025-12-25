@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
-          initialRoute: Routes.splash,
+          initialRoute: Routes.profile,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,

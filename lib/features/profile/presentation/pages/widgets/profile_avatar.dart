@@ -27,11 +27,10 @@ class ProfileAvatar extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 48.r,
-              backgroundImage:
-                  selectedImage != null
-                      ? FileImage(selectedImage!)
-                      : const AssetImage('assets/images/profile_image.jpg')
-                          as ImageProvider,
+              backgroundImage: selectedImage != null
+                  ? FileImage(selectedImage!)
+                  : const AssetImage('assets/images/profile_img.jpg')
+                      as ImageProvider,
             ),
             Positioned(
               bottom: 0,
