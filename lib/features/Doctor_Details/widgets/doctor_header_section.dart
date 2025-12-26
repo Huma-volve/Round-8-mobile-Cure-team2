@@ -10,46 +10,45 @@ class DoctorHeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(
-          width: 86,
-          height: 86,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              CircleAvatar(
-                radius: 43,
-                backgroundColor: Colors.transparent,
+        Stack(
+          children: [
+            CircleAvatar(
+              radius: 46,
+
+              child: CircleAvatar(
+                radius: 38,
                 child: ClipOval(
                   child: SvgPicture.asset(
-                    Assets.doctorVicica,
+                    Assets.review,
                     fit: BoxFit.cover,
+                    width: 76,
+                    height: 76,
                   ),
                 ),
               ),
-              Positioned(
-                right: -2,
-                bottom: -2,
-                child: Container(
-                  height: 22,
-                  width: 22,
-                  decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 2),
-                  ),
-                  child: Center(
-                    child: Image.asset(
-                      Assets.checkdoctor,
-                      width: 12,
-                      height: 12,
-                    ),
+            ),
+            Positioned(
+              bottom: 2,
+              right: 2,
+              child: Container(
+                height: 22,
+                width: 22,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey.shade300),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    Assets.authentication,
+                    width: 20,
+                    height: 20,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -58,36 +57,19 @@ class DoctorHeaderSection extends StatelessWidget {
             children: [
               Text(
                 'Dr. Jessica Turner',
-                style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 18),
+                style: AppTextStyles.georgiaCaption.copyWith(fontSize: 25),
               ),
-              const SizedBox(height: 4),
               Text(
                 'Pulmonologist',
                 style: AppTextStyles.montserratRegularSmallCaption.copyWith(
-                  color: AppColors.grey700,
+                  fontSize: 16,
                 ),
               ),
-              const SizedBox(height: 6),
-              Row(
-                children: [
-                  Image.asset(
-                    Assets.location,
-                    width: 14,
-                    height: 14,
-                  ),
-                  const SizedBox(width: 4),
-                  Expanded(
-                    child: Text(
-                      '129, El-Nasr Street, Cairo',
-                      style: AppTextStyles.montserratRegularSmallCaption
-                          .copyWith(
-                        color: AppColors.grey700,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
+              Text(
+                '129,El-Nasr Street, Cairo ',
+                style: AppTextStyles.montserratRegularSmallCaption.copyWith(
+                  fontSize: 14,
+                ),
               ),
             ],
           ),
@@ -97,14 +79,14 @@ class DoctorHeaderSection extends StatelessWidget {
           height: 34,
           width: 34,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.grey200),
+            border: Border.all(color: Colors.grey.withOpacity(0.2)),
+            borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
             child: SvgPicture.asset(
               Assets.favourite,
-              width: 18,
-              height: 18,
+              width: 16,
+              height: 16,
               fit: BoxFit.contain,
             ),
           ),

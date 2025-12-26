@@ -18,9 +18,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {});
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.pushNamedAndRemoveUntil(Routes.onBoarding , predicate: (_)=>false);
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        context.pushNamedAndRemoveUntil(
+          Routes.onBoarding,
+          predicate: (_) => false,
+        );
+      }
     });
     super.initState();
   }
@@ -28,23 +32,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.primary,
-        body: Center(
-          child: Column(
-            children: [
-              const Spacer(),
-              SvgPicture.asset(
-                Assets.logoWhite,
-                width: 60.w,
-                height: 60.h,
-              ),
-              const Spacer(),
-              SpinKitThreeBounce(
-                color: Colors.white,
-                size: 36.w,
-              ),
-            ],
-          ).appPaddingVr(48),
-        ));
+      backgroundColor: AppColors.primary,
+      body: Center(
+        child: Column(
+          children: [
+            const Spacer(),
+            SvgPicture.asset(Assets.logoWhite, width: 60.w, height: 60.h),
+            const Spacer(),
+            SpinKitThreeBounce(color: Colors.white, size: 36.w),
+          ],
+        ).appPaddingVr(48),
+      ),
+    );
   }
 }

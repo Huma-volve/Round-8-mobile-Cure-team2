@@ -26,10 +26,13 @@ class MyApp extends StatelessWidget {
         left: false,
         child: MaterialApp(
           title: 'cure_team_1',
-          home: const ChatListScreen(),
+          home: const DoctorDetailsView(),
+          // initialRoute:Routes.navbar,
+          // initialRoute: Routes.splash,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
+          // home: const ChatListScreen(),
         ),
       ),
     );

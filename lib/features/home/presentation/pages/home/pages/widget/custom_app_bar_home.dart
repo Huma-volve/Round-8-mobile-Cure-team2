@@ -20,15 +20,13 @@ class CustomAppBarHome extends StatelessWidget {
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7KN97spbilvMv3J9dPaRK8_G1PTFNueatg&s',
                 width: 50,
                 height: 50,
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
-                ),
+                placeholder:
+                    (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,16 +38,16 @@ class CustomAppBarHome extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(Assets.locationIcon),
-                      const SizedBox(
-                        width: 5,
-                      ),
+                      const SizedBox(width: 5),
                       const Text(
                         'El Nasr City',
-                        style:
-                            TextStyle(fontSize: 12, color: Color(0xFF6D7379)),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF6D7379),
+                        ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -58,26 +56,24 @@ class CustomAppBarHome extends StatelessWidget {
               elevation: 5,
               borderRadius: BorderRadius.circular(10),
               child: SizedBox(
-                  width: 40,
-                  height: 40,
-                  child: InkWell(
-                    onTap: () => context.pushNamed(Routes.favoritePage),
-                    child: const Icon(
-                      Icons.favorite_border_outlined,
-                      size: 24,
-                    ),
-                  )),
+                width: 40,
+                height: 40,
+                child: InkWell(
+                  onTap: () => context.pushNamed(Routes.favoritePage),
+                  child: const Icon(Icons.favorite_border_outlined, size: 24),
+                ),
+              ),
             ),
             const SizedBox(width: 16),
             Material(
               elevation: 5,
               borderRadius: BorderRadius.circular(10),
-              child: const SizedBox(
+              child: SizedBox(
                 width: 40,
                 height: 40,
-                child: Icon(
-                  Icons.notifications_none,
-                  size: 24,
+                child: InkWell(
+                  onTap: () => context.pushNamed(Routes.notifications),
+                  child: const Icon(Icons.notifications_none, size: 24),
                 ),
               ),
             ),

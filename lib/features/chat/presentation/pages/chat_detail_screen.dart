@@ -21,9 +21,10 @@ class ChatDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          ChatDetailCubit(ChatRepositoryImpl(MockChatRemoteDataSourceImpl()))
-            ..loadMessages(chatId),
+      create:
+          (context) => ChatDetailCubit(
+            ChatRepositoryImpl(MockChatRemoteDataSourceImpl()),
+          )..loadMessages(chatId),
       child: _ChatDetailScreenContent(chatName: chatName, chatId: chatId),
     );
   }
@@ -33,8 +34,10 @@ class _ChatDetailScreenContent extends StatefulWidget {
   final String chatName;
   final String chatId;
 
-  const _ChatDetailScreenContent(
-      {required this.chatName, required this.chatId});
+  const _ChatDetailScreenContent({
+    required this.chatName,
+    required this.chatId,
+  });
 
   @override
   State<_ChatDetailScreenContent> createState() =>
@@ -56,10 +59,13 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
   }
 
   void _sendMessage() {
-    final text = _messageController.text.trim();
-    if (text.isEmpty) return;
-    context.read<ChatDetailCubit>().sendMessage(widget.chatId, text);
-    _messageController.clear();
+    if (_messageController.text.trim().isNotEmpty) {
+      context.read<ChatDetailCubit>().sendMessage(
+        widget.chatId,
+        _messageController.text,
+      );
+      _messageController.clear();
+    }
   }
 
   @override
@@ -82,22 +88,27 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
               child: const Icon(Icons.person, color: Colors.grey),
             ),
             SizedBox(width: 10.w),
-            Text(widget.chatName,
-                style: TextStyle(color: Colors.black, fontSize: 16.sp)),
+            Text(
+              widget.chatName,
+              style: TextStyle(color: Colors.black, fontSize: 16.sp),
+            ),
           ],
         ),
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.videocam_outlined, color: Colors.black)),
+            onPressed: () {},
+            icon: const Icon(Icons.videocam_outlined, color: Colors.black),
+          ),
           IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.call_outlined, color: Colors.black)),
+            onPressed: () {},
+            icon: const Icon(Icons.call_outlined, color: Colors.black),
+          ),
           IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert, color: Colors.black)),
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert, color: Colors.black),
+          ),
         ],
       ),
       body: Column(
@@ -107,8 +118,9 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
               listener: (context, state) {
                 if (state is ChatDetailLoaded) {
                   // Wait for layout to build then scroll
-                  WidgetsBinding.instance
-                      .addPostFrameCallback((_) => _scrollToBottom());
+                  WidgetsBinding.instance.addPostFrameCallback(
+                    (_) => _scrollToBottom(),
+                  );
                 }
               },
               builder: (context, state) {
@@ -135,12 +147,16 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
           // Input Area
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-            decoration: BoxDecoration(color: Colors.white, boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 10,
-                  offset: const Offset(0, -2)),
-            ]),
+                  offset: const Offset(0, -2),
+                ),
+              ],
+            ),
             child: Row(
               children: [
                 Expanded(
@@ -152,22 +168,16 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                     ),
                     child: TextField(
                       controller: _messageController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Message",
                         border: InputBorder.none,
-                        suffixIcon: SizedBox(
-                          width: 72,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Icon(Icons.attach_file, color: Colors.grey),
-                              SizedBox(width: 8),
-                              Icon(
-                                Icons.camera_alt_outlined,
-                                color: Colors.grey,
-                              ),
-                            ],
-                          ),
+                        suffixIcon: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.attach_file, color: Colors.grey),
+                            SizedBox(width: 8),
+                            Icon(Icons.camera_alt_outlined, color: Colors.grey),
+                          ],
                         ),
                       ),
                     ),
