@@ -25,7 +25,9 @@ class AppTheme {
       fontSize: 20,
       color: Colors.black,
       fontWeight: FontWeight.w400,
-    )),
+    )
+
+    ),
     colorScheme: _ColorScheme.lightColorScheme,
   );
 

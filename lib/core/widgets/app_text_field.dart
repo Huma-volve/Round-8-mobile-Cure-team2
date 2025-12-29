@@ -42,12 +42,14 @@ class AppTextField extends StatelessWidget {
   final Color? borderColor;
   final double borderRadius;
   final double borderWidth;
+  final VoidCallback? onTap ;
 
   const AppTextField({
     super.key,
     this.autofocus = false,
     this.borderType = TextFieldBorderType.filled,
     this.readOnly = false,
+    this.onTap,
     this.smartDashesType,
     this.filledColor,
     this.helperText,
@@ -166,6 +168,7 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
+      onTap: onTap,
       obscuringCharacter: obscuringCharacter,
       keyboardType: keyboardType,
       inputFormatters: formatter,

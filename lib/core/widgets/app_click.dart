@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppClick extends StatefulWidget {
   final Widget child;
@@ -34,10 +35,13 @@ class _AppClickState extends State<AppClick> {
       onTapUp: (_) => setState(() => _isPressed = false),
       onTapCancel: () => setState(() => _isPressed = false),
       onTap: widget.onTap,
-      child: widget.child
-          .animate(target: _isPressed ? 1 : 0)
-          .scaleXY(begin: 1, end: 0.95, duration: 100.ms, curve: Curves.linear)
-          .fade(begin: 1.0, end: 0.85, duration: 100.ms, curve: Curves.linear),
+      child: Padding(
+        padding: EdgeInsetsGeometry.symmetric(horizontal: 8.w,vertical: 4.h),
+        child: widget.child
+            .animate(target: _isPressed ? 1 : 0)
+            .scaleXY(begin: 1, end: 0.95, duration: 100.ms, curve: Curves.linear)
+            .fade(begin: 1.0, end: 0.85, duration: 100.ms, curve: Curves.linear),
+      ),
     );
   }
 }

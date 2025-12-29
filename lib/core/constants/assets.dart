@@ -13,4 +13,5 @@ class Assets {
 
   /// icons
   static const String googleIcon = "assets/images/google.svg";
+  static const String bannerBackground = "assets/images/Vector.svg";
 }
