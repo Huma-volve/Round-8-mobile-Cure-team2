@@ -12,8 +12,8 @@ class DoctorFavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      width: 396.w,
-      height: 86,
+      width: double.infinity,
+      height: 86.h,
       padding: EdgeInsets.only(right: 16.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
@@ -24,12 +24,11 @@ class DoctorFavItem extends StatelessWidget {
           Image.asset(
             model.doctorImage,
             width: 89.w,
-            height: MediaQuery.of(context).size.height,
+            height: 86.h,
             fit: BoxFit.cover,
           ),
           SizedBox(width: 16.w),
-          SizedBox(
-            height: 86.h,
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +47,7 @@ class DoctorFavItem extends StatelessWidget {
                         color: AppColors.secondary300,
                       ),
                     ),
+                    const SizedBox(width: 4),
                     Text(
                       model.address,
                       style: AppTextStyles.montserratCaption.copyWith(
@@ -59,11 +59,11 @@ class DoctorFavItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset(Assets.Star, width: 20.w, height: 20.h),
+                    Image.asset(model.starIcon, width: 20.w, height: 20.h),
                     SizedBox(width: 8.w),
                     Text(model.rating),
                     SizedBox(width: 20.w),
-                    Image.asset(model.ClockIcon, width: 20.w, height: 20.h),
+                    Image.asset(model.clockIcon, width: 20.w, height: 20.h),
                     SizedBox(width: 10.w),
                     Text(
                       model.startTime,
@@ -78,7 +78,7 @@ class DoctorFavItem extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Image.asset(Assets.favIconSolid, width: 24.w, height: 24.h),
+          Image.asset(model.favoriteIcon, width: 24.w, height: 24.h),
         ],
       ),
     );

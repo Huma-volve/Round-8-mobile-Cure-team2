@@ -59,13 +59,10 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
   }
 
   void _sendMessage() {
-    if (_messageController.text.trim().isNotEmpty) {
-      context.read<ChatDetailCubit>().sendMessage(
-        widget.chatId,
-        _messageController.text,
-      );
-      _messageController.clear();
-    }
+    final text = _messageController.text.trim();
+    if (text.isEmpty) return;
+    context.read<ChatDetailCubit>().sendMessage(widget.chatId, text);
+    _messageController.clear();
   }
 
   @override
@@ -151,7 +148,7 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
+                  color: Colors.black.withOpacity(0.05),
                   blurRadius: 10,
                   offset: const Offset(0, -2),
                 ),
@@ -168,16 +165,22 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                     ),
                     child: TextField(
                       controller: _messageController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         hintText: "Message",
                         border: InputBorder.none,
-                        suffixIcon: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.attach_file, color: Colors.grey),
-                            SizedBox(width: 8),
-                            Icon(Icons.camera_alt_outlined, color: Colors.grey),
-                          ],
+                        suffixIcon: SizedBox(
+                          width: 72,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Icon(Icons.attach_file, color: Colors.grey),
+                              SizedBox(width: 8),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

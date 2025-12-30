@@ -12,12 +12,11 @@ class CustomDoctorInfo extends StatefulWidget {
 }
 
 class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
-  bool isSelected = false;
+  bool _isSelected = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 113.h,
-      width: 428.w,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -30,28 +29,46 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
               Positioned(
                 right: 0,
                 bottom: 5,
-                child: Image(image: AssetImage(Assets.checkdoctor)),
+                child: Image(
+                  image: AssetImage(Assets.checkdoctor),
+                  width: 18,
+                  height: 18,
+                ),
               ),
             ],
           ),
-
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Dr. Jessica Turner', style: AppTextStyles.georgiaH3),
-              Text('Pulmonologist', style: AppTextStyles.montserratCaption),
-              Row(
-                children: [
-                  const Image(image: AssetImage(Assets.location)),
-                  Text(
-                    '129,El-Nasr Street, Cairo ',
-                    style: AppTextStyles.georgiaCaption,
-                  ),
-                ],
-              ),
-            ],
+          SizedBox(width: 12.w),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Dr. Jessica Turner', style: AppTextStyles.georgiaH3),
+                const SizedBox(height: 4),
+                Text('Pulmonologist', style: AppTextStyles.montserratCaption),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    const Image(
+                      image: AssetImage(Assets.location),
+                      width: 14,
+                      height: 14,
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: Text(
+                        '129, El-Nasr Street, Cairo',
+                        style: AppTextStyles.georgiaCaption,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
+          SizedBox(width: 12.w),
           CircleAvatar(
             radius: 24,
             backgroundColor: AppColors.grey50,
@@ -61,12 +78,12 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
               child: GestureDetector(
                 onTap: () {
                   setState(() {
-                    isSelected = !isSelected;
+                    _isSelected = !_isSelected;
                   });
                 },
                 child: Image(
-                  color: isSelected ? AppColors.error : AppColors.grey,
-                  image:const AssetImage(Assets.fav),
+                  color: _isSelected ? AppColors.error : AppColors.grey,
+                  image: const AssetImage(Assets.fav),
                 ),
               ),
             ),

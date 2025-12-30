@@ -18,15 +18,15 @@ class Bookingappointment extends StatefulWidget {
 }
 
 class _BookingappointmentState extends State<Bookingappointment> {
-  final TextEditingController tController = TextEditingController();
-
-  DateTime? selectedday = DateTime.now();
-  DateTime focusedday = DateTime.now();
+  final TextEditingController _dateController = TextEditingController();
+  final DateFormat _dateFormat = DateFormat('EEEE MMMM d');
+  DateTime _selectedDay = DateTime.now();
+  DateTime _focusedDay = DateTime.now();
 
   @override
   void initState() {
     super.initState();
-    tController.text = DateFormat('EEEE MMMM d').format(DateTime.now());
+    _dateController.text = _dateFormat.format(DateTime.now());
   }
 
   @override
@@ -35,28 +35,25 @@ class _BookingappointmentState extends State<Bookingappointment> {
       resizeToAvoidBottomInset: false,
       appBar: const CustomAppBar(title: 'Book Appointment'),
       body: SingleChildScrollView(
-        child: Container(
+        child: Padding(
           padding: EdgeInsets.only(right: 28.w, left: 28.w, bottom: 5.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CustomDoctorInfo(),
               SizedBox(height: 16.h),
-
               Text('Select a day', style: AppTextStyles.georgiaSubheading),
               SizedBox(height: 16.h),
-
               AppTextField(
                 borderWidth: 1,
                 borderColor: AppColors.primary,
-                controller: tController,
+                controller: _dateController,
                 readOnly: true,
                 hintText: 'Select day',
                 prefix: const ImageIcon(AssetImage(Assets.bookingicon)),
                 suffix: const ImageIcon(AssetImage(Assets.upicon)),
               ),
               SizedBox(height: 16.h),
-
               Container(
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -70,30 +67,24 @@ class _BookingappointmentState extends State<Bookingappointment> {
                   border: Border.all(width: 1.5.w, color: AppColors.grey50),
                 ),
                 child: CustomTableCalendar(
-                  selectedDay: selectedday,
-                  focusedDay: focusedday,
+                  selectedDay: _selectedDay,
+                  focusedDay: _focusedDay,
                   onDaySelected: (selected, focused) {
                     setState(() {
-                      selectedday = selected;
-                      focusedday = focused;
+                      _selectedDay = selected;
+                      _focusedDay = focused;
                     });
-
-                    tController.text = DateFormat(
-                      'EEEE MMMM d',
-                    ).format(selected);
+                    _dateController.text = _dateFormat.format(selected);
                   },
                 ),
               ),
-
               const SizedBox(height: 12),
-
               Text('select time', style: AppTextStyles.georgiaSubheading),
             ],
           ),
         ),
       ),
-
-      bottomNavigationBar: Totalpriceandnavb(
+      bottomNavigationBar: TotalPriceAndNavBar(
         text: 'Continue to Pay',
         onPressed: () {},
       ),
@@ -102,8 +93,7 @@ class _BookingappointmentState extends State<Bookingappointment> {
 
   @override
   void dispose() {
-    tController.dispose();
-    // TODO: implement dispose
+    _dateController.dispose();
     super.dispose();
   }
 }

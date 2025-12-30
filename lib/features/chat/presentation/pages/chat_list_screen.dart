@@ -35,15 +35,15 @@ class _ChatListScreenContent extends StatefulWidget {
 }
 
 class _ChatListScreenContentState extends State<_ChatListScreenContent> {
-  final List<String> _tabs = ["All", "Unread", "Favorites"];
-  int _selectedTab = 0;
+  int _selectedTab = 0; // 0: All, 1: Unread, 2: Favorites
+  static const List<String> _tabLabels = ['All', 'Unread', 'Favorites'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(_tabs[_selectedTab], style: AppTextStyles.headerTitle),
+        title: Text(_tabLabels[_selectedTab], style: AppTextStyles.headerTitle),
         centerTitle: false,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -95,11 +95,11 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Row(
               children: [
-                _buildTab(_tabs[0], 0),
+                _buildTab(_tabLabels[0], 0),
                 SizedBox(width: 16.w),
-                _buildTab(_tabs[1], 1),
+                _buildTab(_tabLabels[1], 1),
                 SizedBox(width: 16.w),
-                _buildTab(_tabs[2], 2),
+                _buildTab(_tabLabels[2], 2),
               ],
             ),
           ),

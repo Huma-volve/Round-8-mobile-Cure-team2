@@ -8,12 +8,12 @@ class DoctorFavModel {
   final String startTime;
   final String endTime;
 
-  final String favicon;
+  final String favoriteIcon;
   final String rating;
   final String starIcon;
-  final String ClockIcon;
+  final String clockIcon;
 
-  DoctorFavModel({
+  const DoctorFavModel({
     required this.doctorName,
     required this.specialty,
     required this.address,
@@ -21,23 +21,23 @@ class DoctorFavModel {
     required this.startTime,
     required this.endTime,
 
-    required this.favicon,
+    required this.favoriteIcon,
     required this.rating,
     required this.starIcon,
-    required this.ClockIcon,
+    required this.clockIcon,
   });
 }
 
-List<DoctorFavModel> bookings = [
+const List<DoctorFavModel> favoriteDoctors = [
   DoctorFavModel(
     doctorName: 'Jennifer Miller',
     specialty: 'Orthopedic',
     address: ' | El-Nasr Hospital',
     doctorImage: Assets.FavPic1,
-    favicon: Assets.favIconSolid,
+    favoriteIcon: Assets.favIconSolid,
     rating: '4.8',
     starIcon: Assets.Star,
-    ClockIcon: Assets.ClockCircle,
+    clockIcon: Assets.ClockCircle,
     startTime: '9:30am ',
     endTime: '8:00pm',
   ),
@@ -46,10 +46,10 @@ List<DoctorFavModel> bookings = [
     specialty: 'Orthopedic',
     address: ' | El-Nasr Hospital',
     doctorImage: Assets.FavPic2,
-    favicon: Assets.favIconSolid,
+    favoriteIcon: Assets.favIconSolid,
     rating: '4.8',
     starIcon: Assets.Star,
-    ClockIcon: Assets.ClockCircle,
+    clockIcon: Assets.ClockCircle,
     startTime: '9:30am ',
     endTime: '8:00pm',
   ),
@@ -58,10 +58,10 @@ List<DoctorFavModel> bookings = [
     specialty: 'Orthopedic',
     address: ' | El-Nasr Hospital',
     doctorImage: Assets.FavPic3,
-    favicon: Assets.favIconSolid,
+    favoriteIcon: Assets.favIconSolid,
     rating: '4.8',
     starIcon: Assets.Star,
-    ClockIcon: Assets.ClockCircle,
+    clockIcon: Assets.ClockCircle,
     startTime: '9:30am ',
     endTime: '8:00pm',
   ),
@@ -70,10 +70,10 @@ List<DoctorFavModel> bookings = [
     specialty: 'Orthopedic',
     address: ' | El-Nasr Hospital',
     doctorImage: Assets.FavPic4,
-    favicon: Assets.favIconSolid,
+    favoriteIcon: Assets.favIconSolid,
     rating: '4.8',
     starIcon: Assets.Star,
-    ClockIcon: Assets.ClockCircle,
+    clockIcon: Assets.ClockCircle,
     startTime: '9:30am ',
     endTime: '8:00pm',
   ),
