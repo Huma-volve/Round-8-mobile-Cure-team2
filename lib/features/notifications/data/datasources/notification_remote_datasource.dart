@@ -1,46 +1,52 @@
+import 'package:cure_team_2/core/network/api_client.dart';
 import 'package:cure_team_2/features/notifications/data/models/notification_model.dart';
-import 'package:cure_team_2/features/notifications/domain/entities/notification_entity.dart';
 
 abstract class NotificationRemoteDataSource {
   Future<List<NotificationModel>> getNotifications();
+  Future<List<NotificationModel>> getUnreadNotifications();
+  Future<void> readNotification(String id);
+  Future<void> readAllNotifications();
+  Future<void> deleteNotification(String id);
+  Future<void> deleteAllNotifications();
 }
 
-class MockNotificationRemoteDataSourceImpl
-    implements NotificationRemoteDataSource {
+class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource {
+  final ApiClient apiClient;
+
+  NotificationRemoteDataSourceImpl(this.apiClient);
+
   @override
   Future<List<NotificationModel>> getNotifications() async {
-    // Simulate network delay
-    await Future.delayed(const Duration(seconds: 1));
+    final response = await apiClient.get('notifications');
+    final data = response.data['data'] as List;
+    return data.map((json) => NotificationModel.fromJson(json)).toList();
+  }
 
-    // Mock data based on screenshots
-    return [
-      NotificationModel(
-        id: '1',
-        title: 'Upcoming Appointment',
-        description:
-            'Reminder: You have an appointment with Dr. Emily Walker at 10:00 AM.',
-        timestamp: DateTime.now().add(const Duration(hours: 1)),
-        type: NotificationType.appointment,
-        isRead: false,
-      ),
-      NotificationModel(
-        id: '2',
-        title: 'Appointment completed',
-        description:
-            'You have successfully booked your appointment with Dr. Emily Walker.',
-        timestamp: DateTime.now().subtract(const Duration(hours: 3)),
-        type: NotificationType.completed,
-        isRead: true,
-      ),
-      NotificationModel(
-        id: '3',
-        title: 'Appointment Cancelled',
-        description:
-            'You have successfully cancelled your appointment with Dr. David Patel.',
-        timestamp: DateTime.now().subtract(const Duration(hours: 4)),
-        type: NotificationType.cancelled,
-        isRead: true,
-      ),
-    ];
+  @override
+  Future<List<NotificationModel>> getUnreadNotifications() async {
+    // Assuming endpoint exists based on "GET un readed" folder in Postman
+    final response = await apiClient.get('notifications/unread');
+    final data = response.data['data'] as List;
+    return data.map((json) => NotificationModel.fromJson(json)).toList();
+  }
+
+  @override
+  Future<void> readNotification(String id) async {
+    await apiClient.post('notifications/$id/read');
+  }
+
+  @override
+  Future<void> readAllNotifications() async {
+    await apiClient.post('notifications/mark-all-read');
+  }
+
+  @override
+  Future<void> deleteNotification(String id) async {
+    await apiClient.delete('notifications/$id');
+  }
+
+  @override
+  Future<void> deleteAllNotifications() async {
+    await apiClient.delete('notifications');
   }
 }

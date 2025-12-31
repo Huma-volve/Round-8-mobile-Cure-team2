@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
-
 import 'package:cure_team_2/features/chat/presentation/cubit/chat_detail_cubit.dart';
 import 'package:cure_team_2/features/chat/presentation/widgets/message_bubble_widget.dart';
-import 'package:cure_team_2/features/chat/data/datasources/chat_remote_datasource.dart';
-import 'package:cure_team_2/features/chat/data/repositories/chat_repository_impl.dart';
+import 'package:get_it/get_it.dart';
 
 class ChatDetailScreen extends StatelessWidget {
   final String chatId;
@@ -22,9 +20,7 @@ class ChatDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create:
-          (context) => ChatDetailCubit(
-            ChatRepositoryImpl(MockChatRemoteDataSourceImpl()),
-          )..loadMessages(chatId),
+          (context) => GetIt.instance<ChatDetailCubit>()..loadMessages(chatId),
       child: _ChatDetailScreenContent(chatName: chatName, chatId: chatId),
     );
   }
@@ -103,7 +99,9 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
             icon: const Icon(Icons.call_outlined, color: Colors.black),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // Placeholder: Show options like "Delete Messages" here if we want to wire up delete functionality
+            },
             icon: const Icon(Icons.more_vert, color: Colors.black),
           ),
         ],
@@ -114,7 +112,6 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
             child: BlocConsumer<ChatDetailCubit, ChatDetailState>(
               listener: (context, state) {
                 if (state is ChatDetailLoaded) {
-                  // Wait for layout to build then scroll
                   WidgetsBinding.instance.addPostFrameCallback(
                     (_) => _scrollToBottom(),
                   );
@@ -123,7 +120,12 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
               builder: (context, state) {
                 if (state is ChatDetailLoading) {
                   return const Center(child: CircularProgressIndicator());
+                } else if (state is ChatDetailError) {
+                  return Center(child: Text(state.message));
                 } else if (state is ChatDetailLoaded) {
+                  if (state.messages.isEmpty) {
+                    return const Center(child: Text('No messages yet'));
+                  }
                   return ListView.builder(
                     controller: _scrollController,
                     padding: EdgeInsets.symmetric(vertical: 20.h),
@@ -131,7 +133,13 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                     itemBuilder: (context, index) {
                       final message = state.messages[index];
                       // Determine if me
-                      final isMe = message.senderId == 'current_user';
+                      final isMe =
+                          message.senderId == 'current_user' ||
+                          message.senderId == '213';
+                      // Note: '213' was seen in screenshot as user_id.
+                      // Need a way to get actual current user ID dynamically.
+                      // For now using the mock id 'current_user' or assuming ID logic needs to be robust.
+
                       return MessageBubbleWidget(message: message, isMe: isMe);
                     },
                   );

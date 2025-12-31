@@ -2,4 +2,9 @@ import 'package:cure_team_2/features/notifications/domain/entities/notification_
 
 abstract class NotificationRepository {
   Future<List<NotificationEntity>> getNotifications();
+  Future<List<NotificationEntity>> getUnreadNotifications();
+  Future<void> readNotification(String id);
+  Future<void> readAllNotifications();
+  Future<void> deleteNotification(String id);
+  Future<void> deleteAllNotifications();
 }

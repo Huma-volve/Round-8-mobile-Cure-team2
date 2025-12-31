@@ -10,4 +10,24 @@ class NotificationRepositoryImpl implements NotificationRepository {
   @override
   Future<List<NotificationEntity>> getNotifications() =>
       remoteDataSource.getNotifications();
+
+  @override
+  Future<List<NotificationEntity>> getUnreadNotifications() =>
+      remoteDataSource.getUnreadNotifications();
+
+  @override
+  Future<void> readNotification(String id) =>
+      remoteDataSource.readNotification(id);
+
+  @override
+  Future<void> readAllNotifications() =>
+      remoteDataSource.readAllNotifications();
+
+  @override
+  Future<void> deleteNotification(String id) =>
+      remoteDataSource.deleteNotification(id);
+
+  @override
+  Future<void> deleteAllNotifications() =>
+      remoteDataSource.deleteAllNotifications();
 }

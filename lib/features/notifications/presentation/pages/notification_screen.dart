@@ -1,7 +1,7 @@
+import 'package:cure_team_2/core/network/api_client.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/features/notifications/data/datasources/notification_remote_datasource.dart';
 import 'package:cure_team_2/features/notifications/data/repositories/notification_repository_impl.dart';
-import 'package:cure_team_2/features/notifications/domain/usecases/get_notifications_usecase.dart';
 import 'package:cure_team_2/features/notifications/presentation/cubit/notification_cubit.dart';
 import 'package:cure_team_2/features/notifications/presentation/cubit/notification_state.dart';
 import 'package:cure_team_2/features/notifications/presentation/widgets/empty_notification_widget.dart';
@@ -18,10 +18,8 @@ class NotificationScreen extends StatelessWidget {
     return BlocProvider(
       create:
           (context) => NotificationCubit(
-            GetNotificationsUseCase(
-              NotificationRepositoryImpl(
-                MockNotificationRemoteDataSourceImpl(),
-              ),
+            NotificationRepositoryImpl(
+              NotificationRemoteDataSourceImpl(ApiClient()),
             ),
           )..loadNotifications(),
       child: const _NotificationScreenContent(),
@@ -50,9 +48,26 @@ class _NotificationScreenContent extends StatelessWidget {
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
             color: AppColors.text,
-            fontFamily: 'Montserrat', // Adjust if known
+            fontFamily: 'Montserrat',
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.done_all, color: AppColors.primaryBlue),
+            tooltip: "Mark all as read",
+            onPressed: () {
+              context.read<NotificationCubit>().markAllAsRead();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete_sweep, color: Colors.red),
+            tooltip: "Delete all",
+            onPressed: () {
+              // Show confirmation dialog ideally, but direct for now
+              context.read<NotificationCubit>().deleteAllNotifications();
+            },
+          ),
+        ],
       ),
       body: BlocBuilder<NotificationCubit, NotificationState>(
         builder: (context, state) {
@@ -65,20 +80,6 @@ class _NotificationScreenContent extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 12.h,
-                  ),
-                  child: Text(
-                    "Today", // Mocked section header
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primaryBlue,
-                    ),
-                  ),
-                ),
                 Expanded(
                   child: ListView.separated(
                     itemCount: state.notifications.length,
@@ -86,8 +87,33 @@ class _NotificationScreenContent extends StatelessWidget {
                         (context, index) =>
                             Divider(height: 1, color: Colors.grey[200]),
                     itemBuilder: (context, index) {
-                      return NotificationItemWidget(
-                        notification: state.notifications[index],
+                      final notification = state.notifications[index];
+                      return Dismissible(
+                        key: Key(notification.id),
+                        direction: DismissDirection.endToStart,
+                        background: Container(
+                          color: Colors.red,
+                          alignment: Alignment.centerRight,
+                          padding: EdgeInsets.only(right: 20.w),
+                          child: const Icon(Icons.delete, color: Colors.white),
+                        ),
+                        onDismissed: (direction) {
+                          context.read<NotificationCubit>().deleteNotification(
+                            notification.id,
+                          );
+                        },
+                        child: InkWell(
+                          onTap: () {
+                            if (!notification.isRead) {
+                              context.read<NotificationCubit>().markAsRead(
+                                notification.id,
+                              );
+                            }
+                          },
+                          child: NotificationItemWidget(
+                            notification: notification,
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -95,7 +121,21 @@ class _NotificationScreenContent extends StatelessWidget {
               ],
             );
           } else if (state is NotificationError) {
-            return Center(child: Text(state.message));
+            // Show empty state on error or retry button
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Something went wrong: ${state.message}"),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<NotificationCubit>().loadNotifications();
+                    },
+                    child: Text("Retry"),
+                  ),
+                ],
+              ),
+            );
           }
           return const SizedBox.shrink();
         },
