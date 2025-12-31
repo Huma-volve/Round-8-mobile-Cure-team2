@@ -1,8 +1,6 @@
 import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
-import 'package:cure_team_2/features/home/presentation/pages/home/pages/widget/custom_bottom_navigation_bar.dart';
-import 'package:cure_team_2/features/home/presentation/pages/home/pages/widget/home_page_body.dart';
 import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
-import 'package:cure_team_2/features/tabs/screens/myBooking.dart';
+import 'package:cure_team_2/features/tabs/screens/booking.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

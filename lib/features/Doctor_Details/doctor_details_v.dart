@@ -2,7 +2,7 @@ import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/features/Doctor_Details/widgets/doctor_details_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DoctorDetailsView extends StatelessWidget {
   const DoctorDetailsView({super.key});
