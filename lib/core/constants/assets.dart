@@ -8,6 +8,10 @@ class Assets {
   static const String robert = "assets/images/Robert_Johnson.svg";
   static const String clock = "assets/images/clock.svg";
 
+  /// images
+  // logo
+  static const String authentication = "assets/images/Authentication.svg";
+
   static const String map = "assets/images/map.svg";
   static const String filter = "assets/images/filter.svg";
   static const String sort = "assets/images/sort.svg";

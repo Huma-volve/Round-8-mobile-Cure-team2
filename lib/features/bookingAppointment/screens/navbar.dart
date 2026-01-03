@@ -1,6 +1,6 @@
 import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
-import 'package:cure_team_2/features/tabs/screens/chat.dart';
+import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart'; // Updated import
 import 'package:cure_team_2/features/tabs/screens/home.dart';
 
 import 'package:cure_team_2/features/tabs/screens/profile.dart';
@@ -14,8 +14,13 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  final List<Widget> _tabs = [const Home(), const Chat(), const Profile()];
-  int _index = 1;
+  final List<Widget> _tabs = const [
+    Home(),
+    Bookingappointment(),
+    ChatListScreen(), // Updated widget
+    Profile(),
+  ];
+  int _index = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

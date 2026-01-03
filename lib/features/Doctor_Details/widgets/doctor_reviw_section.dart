@@ -62,7 +62,7 @@ class DoctorReviewsSection extends StatelessWidget {
                 width: 60,
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
-                  color: Color(0xffFEFCE5),
+                  color: AppColors.warning50,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -79,7 +79,7 @@ class DoctorReviewsSection extends StatelessWidget {
                       '4.5',
                       style: AppTextStyles.montserratSubheading.copyWith(
                         fontSize: 12,
-                        color: AppColors.warning400,
+                        color: AppColors.secondary900,
                       ),
                     ),
                   ],

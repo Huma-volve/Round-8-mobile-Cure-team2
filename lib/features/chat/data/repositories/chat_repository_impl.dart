@@ -22,4 +22,24 @@ class ChatRepositoryImpl implements ChatRepository {
   @override
   Future<List<ChatEntity>> searchChats(String query) =>
       remoteDataSource.searchChats(query);
+
+  @override
+  Future<void> deleteMessage(String chatId, String messageId) =>
+      remoteDataSource.deleteMessage(chatId, messageId);
+
+  @override
+  Future<void> deleteChatMessages(String chatId) =>
+      remoteDataSource.deleteChatMessages(chatId);
+
+  @override
+  Future<List<ChatEntity>> getFavoriteChats() =>
+      remoteDataSource.getFavoriteChats();
+
+  @override
+  Future<void> addToFavorites(String chatId) =>
+      remoteDataSource.addToFavorites(chatId);
+
+  @override
+  Future<void> removeFromFavorites(String chatId) =>
+      remoteDataSource.removeFromFavorites(chatId);
 }

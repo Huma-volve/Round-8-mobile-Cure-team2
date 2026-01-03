@@ -6,4 +6,11 @@ abstract class ChatRepository {
   Future<List<MessageEntity>> getMessages(String chatId);
   Future<void> sendMessage(String chatId, String content, MessageType type);
   Future<List<ChatEntity>> searchChats(String query);
+
+  Future<void> deleteMessage(String chatId, String messageId);
+  Future<void> deleteChatMessages(String chatId);
+
+  Future<List<ChatEntity>> getFavoriteChats();
+  Future<void> addToFavorites(String chatId);
+  Future<void> removeFromFavorites(String chatId);
 }

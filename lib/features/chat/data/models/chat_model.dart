@@ -13,15 +13,15 @@ class ChatModel extends ChatEntity {
   factory ChatModel.fromJson(Map<String, dynamic> json) {
     return ChatModel(
       id: json['id'],
-      participants: (json['participants'] as List)
-          .map((e) => UserModel.fromJson(e))
-          .toList(),
-      lastMessage: json['lastMessage'] != null
-          ? MessageModel.fromJson(json['lastMessage'])
-          : null,
+      participants:
+          (json['participants'] as List)
+              .map((e) => UserModel.fromJson(e))
+              .toList(),
+      lastMessage:
+          json['lastMessage'] != null
+              ? MessageModel.fromJson(json['lastMessage'])
+              : null,
       unreadCount: json['unreadCount'] ?? 0,
     );
   }
-
-  // helper to get logic properties if needed
 }

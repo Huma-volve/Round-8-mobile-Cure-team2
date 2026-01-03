@@ -9,7 +9,7 @@ import 'package:cure_team_2/features/profile/presentation/pages/widgets/profile_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:cure_team_2/features/auth/presentation/widgets/phone_number_field.dart';
+import 'package:cure_team_2/core/widgets/app_text_field.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -211,7 +211,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 keyboardType: TextInputType.emailAddress,
               ),
               16.verticalSpace,
-              PhoneNumberField(controller: _phoneController),
+              AppTextField(
+                controller: _phoneController,
+                hintText: "Phone Number",
+                keyboardType: TextInputType.phone,
+              ),
               24.verticalSpace,
               BirthDateSection(
                 selectedDay: _selectedDay,

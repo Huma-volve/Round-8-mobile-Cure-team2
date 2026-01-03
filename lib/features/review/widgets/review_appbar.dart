@@ -8,15 +8,23 @@ class ReviewAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-      child: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
-          onPressed: () {},
+    return AppBar(
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: Colors.white,
+      surfaceTintColor: Colors.white,
+      leading: IconButton(
+        icon: SvgPicture.asset(
+          Assets.arrow,
+          width: 22,
+          height: 22,
+          fit: BoxFit.contain,
         ),
-        title: Text('Review', style: AppTextStyles.georgiaSubheading),
-        centerTitle: true,
+        onPressed: () => Navigator.pop(context),
+      ),
+      title: Text(
+        'Review',
+        style: AppTextStyles.georgiaSubheading.copyWith(fontSize: 20),
       ),
     );
   }

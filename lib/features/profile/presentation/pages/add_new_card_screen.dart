@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
-import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/features/profile/presentation/pages/widgets/edit_profile_button.dart';
 
 class AddNewCardScreen extends StatefulWidget {
@@ -23,11 +22,11 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
   bool showNumber = false;
 
   TextStyle get _labelStyle => TextStyle(
-        fontFamily: AppTextStyles.montserratSmallCaption.fontFamily,
-        fontSize: AppTextStyles.montserratSmallCaption.fontSize,
-        fontWeight: AppTextStyles.montserratSmallCaption.fontWeight,
-        color: const Color(0xff000000),
-      );
+    fontFamily: AppTextStyles.montserratSmallCaption.fontFamily,
+    fontSize: AppTextStyles.montserratSmallCaption.fontSize,
+    fontWeight: AppTextStyles.montserratSmallCaption.fontWeight,
+    color: const Color(0xff000000),
+  );
 
   InputDecoration _inputDecoration(String hint, {Widget? suffix}) {
     return InputDecoration(
@@ -219,10 +218,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                                 decoration: _inputDecoration('02'),
                               ),
                             ),
-                            Container(
-                              width: 1,
-                              color: const Color(0xffd1d5db),
-                            ),
+                            Container(width: 1, color: const Color(0xffd1d5db)),
                             Expanded(
                               child: TextField(
                                 controller: yearController,
@@ -242,10 +238,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'CVV Code',
-                        style: _labelStyle,
-                      ),
+                      Text('CVV Code', style: _labelStyle),
                       8.verticalSpace,
                       _tile(
                         child: TextField(
@@ -262,10 +255,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
               ],
             ),
             160.verticalSpace,
-            EditProfileButton(
-              onPressed: () {},
-              text: 'Save',
-            ),
+            EditProfileButton(onPressed: () {}, text: 'Save'),
           ],
         ),
       ),
@@ -276,12 +266,13 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
 class CardBackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..shader = const LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [Color(0xff19D9C2), Color(0xff3B58E7)],
-      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+    final paint =
+        Paint()
+          ..shader = const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xff19D9C2), Color(0xff3B58E7)],
+          ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
   }
