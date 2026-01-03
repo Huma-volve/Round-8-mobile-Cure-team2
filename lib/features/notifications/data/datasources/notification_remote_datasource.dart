@@ -18,16 +18,22 @@ class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource {
   @override
   Future<List<NotificationModel>> getNotifications() async {
     final response = await apiClient.get('notifications');
-    final data = response.data['data'] as List;
-    return data.map((json) => NotificationModel.fromJson(json)).toList();
+    final data = response.data['data'];
+    if (data is List) {
+      return data.map((json) => NotificationModel.fromJson(json)).toList();
+    }
+    return [];
   }
 
   @override
   Future<List<NotificationModel>> getUnreadNotifications() async {
     // Assuming endpoint exists based on "GET un readed" folder in Postman
     final response = await apiClient.get('notifications/unread');
-    final data = response.data['data'] as List;
-    return data.map((json) => NotificationModel.fromJson(json)).toList();
+    final data = response.data['data'];
+    if (data is List) {
+      return data.map((json) => NotificationModel.fromJson(json)).toList();
+    }
+    return [];
   }
 
   @override

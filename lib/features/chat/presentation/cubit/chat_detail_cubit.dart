@@ -32,19 +32,27 @@ class ChatDetailCubit extends Cubit<ChatDetailState> {
 
   ChatDetailCubit(this.repository) : super(ChatDetailInitial());
 
-  Future<void> loadMessages(String chatId) async {
-    emit(ChatDetailLoading());
+  Future<void> loadMessages(String chatId, {bool showLoading = true}) async {
+    final previousState = state;
+    if (showLoading) {
+      emit(ChatDetailLoading());
+    }
     try {
       final messages = await repository.getMessages(chatId);
       emit(ChatDetailLoaded(messages));
     } catch (e) {
-      emit(ChatDetailError(e.toString()));
+      if (!showLoading && previousState is ChatDetailLoaded) {
+        emit(previousState);
+      } else {
+        emit(ChatDetailError(e.toString()));
+      }
     }
   }
 
   Future<void> sendMessage(String chatId, String content) async {
     if (content.trim().isEmpty) return;
 
+    final previousState = state;
     try {
       final currentState = state;
       List<MessageEntity> currentMessages = [];
@@ -64,9 +72,13 @@ class ChatDetailCubit extends Cubit<ChatDetailState> {
 
       await repository.sendMessage(chatId, content, MessageType.text);
 
-      loadMessages(chatId);
+      await loadMessages(chatId, showLoading: false);
     } catch (e) {
-      emit(ChatDetailError(e.toString()));
+      if (previousState is ChatDetailLoaded) {
+        emit(previousState);
+      } else {
+        emit(ChatDetailError(e.toString()));
+      }
     }
   }
 }

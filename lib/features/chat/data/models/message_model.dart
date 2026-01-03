@@ -11,13 +11,27 @@ class MessageModel extends MessageEntity {
   });
 
   factory MessageModel.fromJson(Map<String, dynamic> json) {
+    final rawType = json['type'];
+    final parsedType = MessageType.values.firstWhere(
+      (type) => type.name == rawType?.toString().toLowerCase(),
+      orElse: () => MessageType.text,
+    );
+    final rawTimestamp = json['timestamp'] ?? json['created_at'];
+    final parsedTimestamp =
+        DateTime.tryParse(rawTimestamp?.toString() ?? '') ?? DateTime.now();
+    final rawIsRead = json['isRead'] ?? json['is_read'];
+    final parsedIsRead =
+        rawIsRead is bool
+            ? rawIsRead
+            : rawIsRead?.toString().toLowerCase() == 'true' ||
+                rawIsRead?.toString() == '1';
     return MessageModel(
-      id: json['id'],
-      senderId: json['senderId'],
-      content: json['content'],
-      type: MessageType.values.byName(json['type']),
-      timestamp: DateTime.parse(json['timestamp']),
-      isRead: json['isRead'] ?? false,
+      id: json['id']?.toString() ?? '',
+      senderId: (json['senderId'] ?? json['sender_id'])?.toString() ?? '',
+      content: (json['content'] ?? json['message'] ?? '').toString(),
+      type: parsedType,
+      timestamp: parsedTimestamp,
+      isRead: parsedIsRead || json['read_at'] != null,
     );
   }
 

@@ -28,14 +28,19 @@ class NotificationItemWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      notification.title,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.text,
+                    Expanded(
+                      child: Text(
+                        notification.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.text,
+                        ),
                       ),
                     ),
+                    SizedBox(width: 8.w),
                     Text(
                       _formatTime(notification.timestamp),
                       style: TextStyle(
@@ -102,6 +107,9 @@ class NotificationItemWidget extends StatelessWidget {
     final difference = now.difference(timestamp);
     final duration =
         difference.isNegative ? timestamp.difference(now) : difference;
+    if (duration.inDays > 0) {
+      return "${duration.inDays}d";
+    }
     if (duration.inHours > 0) {
       return "${duration.inHours}h";
     }

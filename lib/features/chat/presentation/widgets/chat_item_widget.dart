@@ -19,10 +19,14 @@ class ChatItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final otherParticipant = chat.participants.cast<UserEntity>().firstWhere(
-          (p) => p.id != currentUserId,
-          orElse: () => chat.participants.first,
-        );
+    final otherParticipant =
+        chat.participants.isNotEmpty
+            ? chat.participants.firstWhere(
+              (p) => p.id != currentUserId,
+              orElse: () => chat.participants.first,
+            )
+            : const UserEntity(id: '', name: 'Unknown');
+    final avatarProvider = _avatarProvider(otherParticipant.avatarUrl);
 
     // Format time (simplistic for mock)
     final timeStr = chat.lastMessage != null
@@ -47,13 +51,15 @@ class ChatItemWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
-                image: otherParticipant.avatarUrl != null
-                    ? DecorationImage(
-                        image: AssetImage(otherParticipant.avatarUrl!),
-                        fit: BoxFit.cover)
-                    : null,
+                image:
+                    avatarProvider != null
+                        ? DecorationImage(
+                          image: avatarProvider,
+                          fit: BoxFit.cover,
+                        )
+                        : null,
               ),
-              child: otherParticipant.avatarUrl == null
+              child: avatarProvider == null
                   ? const Icon(Icons.person, color: Colors.grey)
                   : null,
             ),
@@ -114,5 +120,16 @@ class ChatItemWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  ImageProvider? _avatarProvider(String? avatarUrl) {
+    if (avatarUrl == null || avatarUrl.isEmpty) {
+      return null;
+    }
+    if (avatarUrl.startsWith('http://') ||
+        avatarUrl.startsWith('https://')) {
+      return NetworkImage(avatarUrl);
+    }
+    return AssetImage(avatarUrl);
   }
 }
