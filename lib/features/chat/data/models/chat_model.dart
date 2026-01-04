@@ -11,17 +11,22 @@ class ChatModel extends ChatEntity {
   }) : super(participants: participants, lastMessage: lastMessage);
 
   factory ChatModel.fromJson(Map<String, dynamic> json) {
+    final participantsJson = json['participants'] ?? json['users'];
+    final lastMessageJson = json['lastMessage'] ?? json['last_message'];
+    final unreadRaw = json['unreadCount'] ?? json['unread_count'];
+    final unreadCount =
+        unreadRaw is int ? unreadRaw : int.tryParse(unreadRaw.toString()) ?? 0;
     return ChatModel(
-      id: json['id'],
+      id: json['id']?.toString() ?? '',
       participants:
-          (json['participants'] as List)
-              .map((e) => UserModel.fromJson(e))
-              .toList(),
+          participantsJson is List
+              ? participantsJson.map((e) => UserModel.fromJson(e)).toList()
+              : const <UserModel>[],
       lastMessage:
-          json['lastMessage'] != null
-              ? MessageModel.fromJson(json['lastMessage'])
+          lastMessageJson != null
+              ? MessageModel.fromJson(lastMessageJson)
               : null,
-      unreadCount: json['unreadCount'] ?? 0,
+      unreadCount: unreadCount,
     );
   }
 }

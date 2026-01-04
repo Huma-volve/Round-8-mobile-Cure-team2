@@ -31,6 +31,18 @@ class _ChatListScreenContent extends StatefulWidget {
 class _ChatListScreenContentState extends State<_ChatListScreenContent> {
   int _selectedTab = 0;
   static const List<String> _tabLabels = ['All', 'Unread', 'Favorites'];
+  void _onTabSelected(int index) {
+    if (_selectedTab == index) return;
+    setState(() {
+      _selectedTab = index;
+    });
+    final cubit = context.read<ChatListCubit>();
+    if (index == 2) {
+      cubit.loadFavoriteChats();
+    } else {
+      cubit.loadChats();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,11 +139,13 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
                     itemBuilder: (context, index) {
                       final chat = filteredChats[index];
 
-                      final otherParticipant = chat.participants.firstWhere(
-                        (p) => p.id != 'current_user',
-                        orElse: () => chat.participants.first,
-                      );
-
+                      final otherParticipant =
+                          chat.participants.isNotEmpty
+                              ? chat.participants.firstWhere(
+                                (p) => p.id != 'current_user',
+                                orElse: () => chat.participants.first,
+                              )
+                              : null;
                       return ChatItemWidget(
                         chat: chat,
                         currentUserId: 'current_user',
@@ -142,7 +156,8 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
                               builder:
                                   (_) => ChatDetailScreen(
                                     chatId: chat.id,
-                                    chatName: otherParticipant.name,
+                                    chatName:
+                                        otherParticipant?.name ?? 'Unknown',
                                   ),
                             ),
                           ).then((_) {
@@ -168,9 +183,7 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
     final isSelected = _selectedTab == index;
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _selectedTab = index;
-        });
+        _onTabSelected(index);
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),

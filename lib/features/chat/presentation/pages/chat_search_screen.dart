@@ -59,24 +59,40 @@ class _ChatSearchScreenState extends State<ChatSearchScreen> {
               builder: (context, state) {
                 if (state is ChatListLoading) {
                   return const Center(child: CircularProgressIndicator());
+                } else if (state is ChatListError) {
+                  return Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(state.message, textAlign: TextAlign.center),
+                    ),
+                  );
                 } else if (state is ChatListLoaded) {
                   return ListView.builder(
                     itemCount: state.chats.length,
                     itemBuilder: (context, index) {
                       final chat = state.chats[index];
+                      final otherParticipant =
+                          chat.participants.isNotEmpty
+                              ? chat.participants.firstWhere(
+                                (p) => p.id != 'current_user',
+                                orElse: () => chat.participants.first,
+                              )
+                              : null;
                       return ChatItemWidget(
                         chat: chat,
                         currentUserId: 'current_user',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => ChatDetailScreen(
-                                      chatId: chat.id,
-                                      chatName: chat.participants
-                                          .firstWhere(
-                                              (p) => p.id != 'current_user')
-                                          .name)));
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => ChatDetailScreen(
+                                    chatId: chat.id,
+                                    chatName:
+                                        otherParticipant?.name ?? 'Unknown',
+                                  ),
+                            ),
+                          );
                         },
                       );
                     },
