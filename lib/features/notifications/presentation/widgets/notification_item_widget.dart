@@ -114,6 +114,9 @@ class NotificationItemWidget extends StatelessWidget {
     if (duration.inMinutes > 0) {
       return "${duration.inMinutes}m";
     }
+    if (duration.inSeconds > 0) {
+      return "${duration.inSeconds}s";
+    }
 
     return "Now";
   }
