@@ -67,12 +67,9 @@ class AppRegex {
   AppRegex._();
 
   static bool isValidEmail(String email) => RegExp(
-        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-      ).hasMatch(email);
-  static bool isValidPhoneNumber(
-    String phone, {
-    int minLength = 5,
-  }) {
+    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+  ).hasMatch(email);
+  static bool isValidPhoneNumber(String phone, {int minLength = 5}) {
     phone = phone.replaceAll(' ', '');
     final regex = RegExp(r'^\d+$');
     return regex.hasMatch(phone) && phone.length >= minLength;
@@ -102,7 +99,6 @@ class AppRegex {
     return /* hasLowerCase(password) &&
         hasUpperCase(password) &&
         hasNumber(password) &&
-        hasSpecialCharacter(password) && */
-        hasMinLength(password);
+        hasSpecialCharacter(password) && */ hasMinLength(password);
   }
 }

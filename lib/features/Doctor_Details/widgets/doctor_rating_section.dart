@@ -51,9 +51,7 @@ class DoctorRatingSection extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Text(
               '1250+ Reviews',
               style: AppTextStyles.montserratRegularH3.copyWith(fontSize: 30),

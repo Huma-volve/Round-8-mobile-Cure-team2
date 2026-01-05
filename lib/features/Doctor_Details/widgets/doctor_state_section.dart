@@ -19,17 +19,9 @@ class DoctorStatsSection extends StatelessWidget {
                 height: 30,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                '120',
-                style: AppTextStyles.montserratCaption,
-              ),
-              Text(
-                'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
-              ),
+              SizedBox(height: 5),
+              Text('120', style: AppTextStyles.montserratCaption),
+              Text('Total', style: AppTextStyles.montserratRegularSmallCaption),
             ],
           ),
         ),
@@ -42,17 +34,9 @@ class DoctorStatsSection extends StatelessWidget {
                 height: 30,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                '120',
-                style: AppTextStyles.montserratCaption,
-              ),
-              Text(
-                'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
-              ),
+              SizedBox(height: 5),
+              Text('120', style: AppTextStyles.montserratCaption),
+              Text('Total', style: AppTextStyles.montserratRegularSmallCaption),
             ],
           ),
         ),
@@ -65,17 +49,9 @@ class DoctorStatsSection extends StatelessWidget {
                 height: 30,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                '120',
-                style: AppTextStyles.montserratCaption,
-              ),
-              Text(
-                'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
-              ),
+              SizedBox(height: 5),
+              Text('120', style: AppTextStyles.montserratCaption),
+              Text('Total', style: AppTextStyles.montserratRegularSmallCaption),
             ],
           ),
         ),
@@ -88,17 +64,9 @@ class DoctorStatsSection extends StatelessWidget {
                 height: 30,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                '120',
-                style: AppTextStyles.montserratCaption,
-              ),
-              Text(
-                'Total',
-                style: AppTextStyles.montserratRegularSmallCaption,
-              ),
+              SizedBox(height: 5),
+              Text('120', style: AppTextStyles.montserratCaption),
+              Text('Total', style: AppTextStyles.montserratRegularSmallCaption),
             ],
           ),
         ),

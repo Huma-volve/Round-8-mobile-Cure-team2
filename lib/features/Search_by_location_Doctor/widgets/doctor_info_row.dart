@@ -17,10 +17,7 @@ class DoctorInfoRow extends StatelessWidget {
           fit: BoxFit.contain,
         ),
         SizedBox(width: 4),
-        Text(
-          '4.8',
-          style: AppTextStyles.montserratSubheading,
-        ),
+        Text('4.8', style: AppTextStyles.montserratSubheading),
         SizedBox(width: 10),
         SvgPicture.asset(
           Assets.clock,
@@ -29,10 +26,7 @@ class DoctorInfoRow extends StatelessWidget {
           fit: BoxFit.contain,
         ),
         SizedBox(width: 4),
-        Text(
-          '9:30am - 8:00pm',
-          style: AppTextStyles.montserratSubheading,
-        ),
+        Text('9:30am - 8:00pm', style: AppTextStyles.montserratSubheading),
       ],
     );
   }

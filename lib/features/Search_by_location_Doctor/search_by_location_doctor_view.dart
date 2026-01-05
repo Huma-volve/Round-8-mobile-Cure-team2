@@ -13,10 +13,7 @@ class SearchByLocationDoctorView extends StatelessWidget {
       appBar: AppBar(
         title: Column(
           children: [
-            Text(
-              'Your location',
-              style: AppTextStyles.georgiaH3,
-            ),
+            Text('Your location', style: AppTextStyles.georgiaH3),
             Text(
               '129,El-Nasr Street',
               style: AppTextStyles.montserratRegularSubheading,

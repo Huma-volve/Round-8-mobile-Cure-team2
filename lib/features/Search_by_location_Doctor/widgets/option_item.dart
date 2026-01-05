@@ -22,16 +22,9 @@ class OptionItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              assets,
-              width: 20,
-              height: 20,
-            ),
+            SvgPicture.asset(assets, width: 20, height: 20),
             const SizedBox(width: 6),
-            Text(
-              text,
-              style: AppTextStyles.montserratRegularSubheading,
-            ),
+            Text(text, style: AppTextStyles.montserratRegularSubheading),
           ],
         ),
       ),

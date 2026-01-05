@@ -8,17 +8,8 @@ class ReviewTextFieldPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              'Your review',
-              style: AppTextStyles.georgiaH3,
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
+        Row(children: [Text('Your review', style: AppTextStyles.georgiaH3)]),
+        SizedBox(height: 10),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.25,
           width: double.infinity,
@@ -28,11 +19,12 @@ class ReviewTextFieldPart extends StatelessWidget {
             maxLines: null,
             expands: true,
             decoration: InputDecoration(
-                border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                ),
-                hintText: 'Write your review',
-                hintStyle: AppTextStyles.montserratRegularSubheading),
+              border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              ),
+              hintText: 'Write your review',
+              hintStyle: AppTextStyles.montserratRegularSubheading,
+            ),
           ),
         ),
       ],

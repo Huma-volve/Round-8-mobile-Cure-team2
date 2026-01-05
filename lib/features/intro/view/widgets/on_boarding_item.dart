@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 class OnBoardingItem extends StatelessWidget {
   final OnBoardingItemModel item;
 
-  const OnBoardingItem({
-    super.key,
-    required this.item,
-  });
+  const OnBoardingItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {

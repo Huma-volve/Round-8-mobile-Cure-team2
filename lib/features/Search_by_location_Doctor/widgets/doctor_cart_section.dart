@@ -22,18 +22,20 @@ class DoctorCardSection extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Row(children: [
-                const Expanded(child: DoctorInfo()),
-                const SizedBox(width: 12),
-                SvgPicture.asset(
-                  Assets.favourite,
-                  width: 17,
-                  height: 17,
-                  fit: BoxFit.contain,
-                ),
-              ]),
+              child: Row(
+                children: [
+                  const Expanded(child: DoctorInfo()),
+                  const SizedBox(width: 12),
+                  SvgPicture.asset(
+                    Assets.favourite,
+                    width: 17,
+                    height: 17,
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -12,7 +12,5 @@ void main() async {
     SharedPrefHelper.init(),
     ScreenUtil.ensureScreenSize(),
   ]);
-  runApp(MyApp(
-    router: AppRouter(),
-  ));
+  runApp(MyApp(router: AppRouter()));
 }

@@ -29,16 +29,14 @@ Color statusColor(BookingStatus status) {
 }
 
 extension BookingStatusUI on BookingStatus {
- List<String> get TextButton {
+  List<String> get TextButton {
     switch (this) {
       case BookingStatus.Upcoming:
-        return ["Cancel","Reschedule"];
+        return ["Cancel", "Reschedule"];
       case BookingStatus.Complete:
-        return ["View details","Feedback"];
+        return ["View details", "Feedback"];
       case BookingStatus.Canceled:
         return ["Book again", "Support"];
     }
   }
-
-
 }

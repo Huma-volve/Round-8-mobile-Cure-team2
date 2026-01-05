@@ -19,9 +19,7 @@ class ReviewBody extends StatelessWidget {
               ReviewTextFieldPart(),
             ],
           ),
-          Spacer(
-            flex: 1,
-          ),
+          Spacer(flex: 1),
           SendReviewPart(),
         ],
       ),

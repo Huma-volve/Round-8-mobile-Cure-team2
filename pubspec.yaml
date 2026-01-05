@@ -31,6 +31,8 @@ dependencies:
   iconly: ^1.0.1
   google_maps_flutter: ^2.14.0
   location: ^8.0.1
+  dio: ^5.9.0
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

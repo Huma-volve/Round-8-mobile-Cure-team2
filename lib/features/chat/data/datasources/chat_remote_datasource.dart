@@ -128,7 +128,7 @@ class MockChatRemoteDataSourceImpl implements ChatRemoteDataSource {
         id: 'chat_4',
         participants: [
           _currentUser,
-          const UserModel(id: 'dr_jessica_2', name: 'Dr. Jessica')
+          const UserModel(id: 'dr_jessica_2', name: 'Dr. Jessica'),
         ],
         lastMessage: MessageModel(
           id: '12',
@@ -163,7 +163,10 @@ class MockChatRemoteDataSourceImpl implements ChatRemoteDataSource {
 
   @override
   Future<void> sendMessage(
-      String chatId, String content, MessageType type) async {
+    String chatId,
+    String content,
+    MessageType type,
+  ) async {
     await Future.delayed(const Duration(milliseconds: 300));
     final newMessage = MessageModel(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -183,9 +186,10 @@ class MockChatRemoteDataSourceImpl implements ChatRemoteDataSource {
         final chat = _chats[index];
         _chats[index] = ChatModel(
           id: chat.id,
-          participants: chat.participants
-              .cast<UserModel>()
-              .toList(), // Cast needed if strict
+          participants:
+              chat.participants
+                  .cast<UserModel>()
+                  .toList(), // Cast needed if strict
           lastMessage: newMessage,
           unreadCount: chat.unreadCount,
         );

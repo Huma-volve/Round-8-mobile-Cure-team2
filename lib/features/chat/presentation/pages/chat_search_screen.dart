@@ -69,14 +69,20 @@ class _ChatSearchScreenState extends State<ChatSearchScreen> {
                         currentUserId: 'current_user',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => ChatDetailScreen(
-                                      chatId: chat.id,
-                                      chatName: chat.participants
-                                          .firstWhere(
-                                              (p) => p.id != 'current_user')
-                                          .name)));
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => ChatDetailScreen(
+                                    chatId: chat.id,
+                                    chatName:
+                                        chat.participants
+                                            .firstWhere(
+                                              (p) => p.id != 'current_user',
+                                            )
+                                            .name,
+                                  ),
+                            ),
+                          );
                         },
                       );
                     },

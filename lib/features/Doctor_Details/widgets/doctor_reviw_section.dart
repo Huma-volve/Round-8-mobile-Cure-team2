@@ -11,10 +11,7 @@ class DoctorReviewsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 0.5,
-          color: Colors.grey.withOpacity(0.5),
-        ),
+        border: Border.all(width: 0.5, color: Colors.grey.withOpacity(0.5)),
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(12),
@@ -30,24 +27,15 @@ class DoctorReviewsSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Center(
-                  child: SvgPicture.asset(
-                    Assets.nabila,
-                    fit: BoxFit.cover,
-                  ),
+                  child: SvgPicture.asset(Assets.nabila, fit: BoxFit.cover),
                 ),
               ),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Nabila Reyna ',
-                    style: AppTextStyles.georgiaSubheading,
-                  ),
-                  Text(
-                    '30 min ago',
-                    style: AppTextStyles.montserratSubheading,
-                  ),
+                  Text('Nabila Reyna ', style: AppTextStyles.georgiaSubheading),
+                  Text('30 min ago', style: AppTextStyles.montserratSubheading),
                 ],
               ),
               const Spacer(),
@@ -55,8 +43,9 @@ class DoctorReviewsSection extends StatelessWidget {
                 height: 30,
                 width: 70,
                 decoration: BoxDecoration(
-                    color: AppColors.warning200.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(9)),
+                  color: AppColors.warning200.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(9),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,13 +56,10 @@ class DoctorReviewsSection extends StatelessWidget {
                       fit: BoxFit.contain,
                     ),
                     const SizedBox(width: 4),
-                    Text(
-                      '4.5',
-                      style: AppTextStyles.montserratSubheading,
-                    ),
+                    Text('4.5', style: AppTextStyles.montserratSubheading),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(height: 8),

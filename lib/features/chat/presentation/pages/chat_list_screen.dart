@@ -18,9 +18,10 @@ class ChatListScreen extends StatelessWidget {
     // Inject Cubit here for simplicity, or in global provider
     // For this task, local injection is fine as it's a feature root
     return BlocProvider(
-      create: (context) =>
-          ChatListCubit(ChatRepositoryImpl(MockChatRemoteDataSourceImpl()))
-            ..loadChats(),
+      create:
+          (context) =>
+              ChatListCubit(ChatRepositoryImpl(MockChatRemoteDataSourceImpl()))
+                ..loadChats(),
       child: const _ChatListScreenContent(),
     );
   }
@@ -49,7 +50,7 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
           IconButton(
             icon: const Icon(Icons.more_vert, color: Colors.black),
             onPressed: () {},
-          )
+          ),
         ],
       ),
       body: Column(
@@ -58,11 +59,15 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
           GestureDetector(
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => BlocProvider.value(
-                          value: context.read<ChatListCubit>(),
-                          child: const ChatSearchScreen())));
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (_) => BlocProvider.value(
+                        value: context.read<ChatListCubit>(),
+                        child: const ChatSearchScreen(),
+                      ),
+                ),
+              );
             },
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -75,8 +80,10 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
                 children: [
                   const Icon(Icons.search, color: Colors.grey),
                   SizedBox(width: 10.w),
-                  Text("Search for chat, doctor",
-                      style: AppTextStyles.chatSubtitle),
+                  Text(
+                    "Search for chat, doctor",
+                    style: AppTextStyles.chatSubtitle,
+                  ),
                 ],
               ),
             ),
@@ -111,9 +118,10 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
                   // Needs logic for Unread/Favorites filtering if we had flags
                   // For mock, let's just show all for All/Fav, and filter unread > 0 for Unread
 
-                  final filteredChats = _selectedTab == 1
-                      ? chats.where((c) => c.unreadCount > 0).toList()
-                      : chats; // Favorites not implemented in Entity, treating as All for now
+                  final filteredChats =
+                      _selectedTab == 1
+                          ? chats.where((c) => c.unreadCount > 0).toList()
+                          : chats; // Favorites not implemented in Entity, treating as All for now
 
                   return ListView.builder(
                     itemCount: filteredChats.length,
@@ -124,14 +132,20 @@ class _ChatListScreenContentState extends State<_ChatListScreenContent> {
                         currentUserId: 'current_user',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => ChatDetailScreen(
-                                      chatId: chat.id,
-                                      chatName: chat.participants
-                                          .firstWhere(
-                                              (p) => p.id != 'current_user')
-                                          .name))).then((_) {
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => ChatDetailScreen(
+                                    chatId: chat.id,
+                                    chatName:
+                                        chat.participants
+                                            .firstWhere(
+                                              (p) => p.id != 'current_user',
+                                            )
+                                            .name,
+                                  ),
+                            ),
+                          ).then((_) {
                             // Reload on return to update unread status potentially
                             if (context.mounted) {
                               context.read<ChatListCubit>().loadChats();

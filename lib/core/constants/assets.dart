@@ -44,7 +44,7 @@ class Assets {
 
   /// icons
   static const String googleIcon = "assets/images/google.png";
-// appBar icons
+  // appBar icons
   static const String searchIcon = "assets/images/Search.png";
   static const String locationIcon = "assets/images/Location.png";
   // Navigation

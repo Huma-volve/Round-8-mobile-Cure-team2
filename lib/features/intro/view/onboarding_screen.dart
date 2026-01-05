@@ -46,7 +46,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     context.pushReplacementNamed(Routes.login);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
@@ -62,26 +61,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: _items.length,
-                    onPageChanged: (index) =>
-                        _currentPageNotifier.value = index,
+                    onPageChanged:
+                        (index) => _currentPageNotifier.value = index,
                     itemBuilder: (_, index) {
                       return Column(
                         children: [
-                          OnBoardingItem(
-                            item: _items[index],
-                          ),
+                          OnBoardingItem(item: _items[index]),
                           OnBoardingPageIndicator(
                             pageNotifier: _currentPageNotifier,
                             pageCount: _items.length,
-                          )
+                          ),
                         ],
                       );
                     },
                   ),
                 ),
                 AppButton(
-                    text: isLastPage ? "Get Started" : "Next",
-                    onPressed: _goToNextPage).appPaddingAll()
+                  text: isLastPage ? "Get Started" : "Next",
+                  onPressed: _goToNextPage,
+                ).appPaddingAll(),
               ],
             ),
           ),
@@ -91,13 +89,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _skipButton() => Align(
-      alignment: AlignmentDirectional.topEnd,
-      child: TextButton(
-        onPressed: _endOnboarding,
-        child: Text("Skip ", style: AppTextStyles.montserratButton.copyWith(
-          color: AppColors.grey700
-        )),
-      ));
+    alignment: AlignmentDirectional.topEnd,
+    child: TextButton(
+      onPressed: _endOnboarding,
+      child: Text(
+        "Skip ",
+        style: AppTextStyles.montserratButton.copyWith(
+          color: AppColors.grey700,
+        ),
+      ),
+    ),
+  );
 
   @override
   void dispose() {

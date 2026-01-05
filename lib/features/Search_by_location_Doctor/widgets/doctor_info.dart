@@ -10,10 +10,7 @@ class DoctorInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Robert Johnson',
-          style: AppTextStyles.georgiaSubheading,
-        ),
+        Text('Robert Johnson', style: AppTextStyles.georgiaSubheading),
         const SizedBox(height: 4),
         Text(
           'Orthopedic | El-Nasr Hospital',

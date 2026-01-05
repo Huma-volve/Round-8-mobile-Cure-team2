@@ -15,9 +15,7 @@ class DoctorImage extends StatelessWidget {
       child: Container(
         width: 70,
         height: 90,
-        decoration: BoxDecoration(
-          color: Colors.grey.shade300,
-        ),
+        decoration: BoxDecoration(color: Colors.grey.shade300),
       ),
     );
   }

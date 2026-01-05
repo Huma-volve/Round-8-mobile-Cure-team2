@@ -8,13 +8,14 @@ class AppClick extends StatefulWidget {
   final GestureTapCallback? onDoubleTap;
   final GestureTapCallback? onSecondaryTap;
 
-  const AppClick(
-      {required this.child,
-      this.onDoubleTap,
-      this.onSecondaryTap,
-      this.onLongPress,
-      this.onTap,
-      super.key});
+  const AppClick({
+    required this.child,
+    this.onDoubleTap,
+    this.onSecondaryTap,
+    this.onLongPress,
+    this.onTap,
+    super.key,
+  });
 
   @override
   State<AppClick> createState() => _AppClickState();

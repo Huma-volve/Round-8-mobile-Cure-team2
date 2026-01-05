@@ -44,18 +44,17 @@ class AppButton extends StatelessWidget {
     double? borderRadius,
     required VoidCallback? onPressed,
     required Widget icon,
-  }) =>
-      AppButton(
-        text: text,
-        onPressed: onPressed,
-        style: style,
-        borderColor: borderColor ?? Colors.transparent,
-        borderRadius: borderRadius ?? 7,
-        width: width ?? double.infinity,
-        height: height ?? 48,
-        color: color ?? AppColors.primary,
-        icon: icon,
-      );
+  }) => AppButton(
+    text: text,
+    onPressed: onPressed,
+    style: style,
+    borderColor: borderColor ?? Colors.transparent,
+    borderRadius: borderRadius ?? 7,
+    width: width ?? double.infinity,
+    height: height ?? 48,
+    color: color ?? AppColors.primary,
+    icon: icon,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -76,17 +75,17 @@ class AppButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) icon!.appPaddingHr(8),
-            Text(text,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                style: style ??
-                    AppTextStyles.montserratButton
-                        .copyWith(color: Colors.white)),
+            Text(
+              text,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style:
+                  style ??
+                  AppTextStyles.montserratButton.copyWith(color: Colors.white),
+            ),
           ],
         ),
-
       ),
-
     );
   }
 }
