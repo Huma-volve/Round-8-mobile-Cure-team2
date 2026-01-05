@@ -58,11 +58,12 @@ class ChatDetailCubit extends Cubit<ChatDetailState> {
 
       // Temporary local append for optimistic UI (optional, but good)
       final tempMessage = MessageEntity(
-          id: 'temp_${DateTime.now()}',
-          senderId: 'current_user', // Mock user ID
-          content: content,
-          type: MessageType.text,
-          timestamp: DateTime.now());
+        id: 'temp_${DateTime.now()}',
+        senderId: 'current_user', // Mock user ID
+        content: content,
+        type: MessageType.text,
+        timestamp: DateTime.now(),
+      );
 
       emit(ChatDetailLoaded([...currentMessages, tempMessage]));
 

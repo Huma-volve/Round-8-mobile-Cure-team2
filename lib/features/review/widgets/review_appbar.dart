@@ -11,11 +11,7 @@ class ReviewAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
       child: AppBar(
-        leading: SvgPicture.asset(
-          Assets.arrow,
-          height: 2,
-          width: 2,
-        ),
+        leading: SvgPicture.asset(Assets.arrow, height: 2, width: 2),
         title: Text('Review', style: AppTextStyles.georgiaH2),
         centerTitle: true,
       ),

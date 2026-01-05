@@ -11,16 +11,18 @@ class SendReviewPart extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           backgroundColor: AppColors.primary,
         ),
         onPressed: () {},
         child: Text(
           'Send your review',
           textAlign: TextAlign.center,
-          style: AppTextStyles.montserratSubheading
-              .copyWith(color: AppColors.grey100),
+          style: AppTextStyles.montserratSubheading.copyWith(
+            color: AppColors.grey100,
+          ),
         ),
       ),
     );

@@ -9,7 +9,6 @@ environment:
   sdk: ">=3.7.0 <4.0.0"
   flutter: ">=3.19.0"
 
-
 dependencies:
   flutter:
     sdk: flutter
@@ -31,6 +30,8 @@ dependencies:
   dotted_border: ^2.1.0
   easy_date_timeline: ^2.0.9
   iconly: ^1.0.1
+  dartz: ^0.10.1
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:

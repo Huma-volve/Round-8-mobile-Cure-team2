@@ -6,20 +6,25 @@ class CustomTextRich extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text.rich(TextSpan(
+    return const Text.rich(
+      TextSpan(
         text: 'Search by your location ',
         style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Color.fromARGB(255, 7, 49, 56)),
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: Color.fromARGB(255, 7, 49, 56),
+        ),
         children: [
           TextSpan(
-              text: '129,El-Nasr Street, Cairo',
-              style: TextStyle(
-                color: AppColors.info,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ))
-        ]));
+            text: '129,El-Nasr Street, Cairo',
+            style: TextStyle(
+              color: AppColors.info,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

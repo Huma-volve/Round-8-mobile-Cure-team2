@@ -19,11 +19,7 @@ class SearchTextFieldSection extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            Assets.search,
-            width: 20,
-            height: 20,
-          ),
+          SvgPicture.asset(Assets.search, width: 20, height: 20),
           const SizedBox(width: 8),
           Expanded(
             child: TextField(

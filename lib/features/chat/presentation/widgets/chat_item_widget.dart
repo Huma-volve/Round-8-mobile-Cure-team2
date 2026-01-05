@@ -20,14 +20,15 @@ class ChatItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final otherParticipant = chat.participants.cast<UserEntity>().firstWhere(
-          (p) => p.id != currentUserId,
-          orElse: () => chat.participants.first,
-        );
+      (p) => p.id != currentUserId,
+      orElse: () => chat.participants.first,
+    );
 
     // Format time (simplistic for mock)
-    final timeStr = chat.lastMessage != null
-        ? "${chat.lastMessage!.timestamp.hour}:${chat.lastMessage!.timestamp.minute.toString().padLeft(2, '0')}"
-        : "";
+    final timeStr =
+        chat.lastMessage != null
+            ? "${chat.lastMessage!.timestamp.hour}:${chat.lastMessage!.timestamp.minute.toString().padLeft(2, '0')}"
+            : "";
 
     return GestureDetector(
       onTap: onTap,
@@ -47,15 +48,18 @@ class ChatItemWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
-                image: otherParticipant.avatarUrl != null
-                    ? DecorationImage(
-                        image: AssetImage(otherParticipant.avatarUrl!),
-                        fit: BoxFit.cover)
-                    : null,
+                image:
+                    otherParticipant.avatarUrl != null
+                        ? DecorationImage(
+                          image: AssetImage(otherParticipant.avatarUrl!),
+                          fit: BoxFit.cover,
+                        )
+                        : null,
               ),
-              child: otherParticipant.avatarUrl == null
-                  ? const Icon(Icons.person, color: Colors.grey)
-                  : null,
+              child:
+                  otherParticipant.avatarUrl == null
+                      ? const Icon(Icons.person, color: Colors.grey)
+                      : null,
             ),
             SizedBox(width: 12.w),
             // Content
@@ -73,9 +77,10 @@ class ChatItemWidget extends StatelessWidget {
                       Text(
                         timeStr,
                         style: AppTextStyles.chatTime.copyWith(
-                          color: chat.unreadCount > 0
-                              ? AppColors.primaryBlue
-                              : AppColors.secondaryText,
+                          color:
+                              chat.unreadCount > 0
+                                  ? AppColors.primaryBlue
+                                  : AppColors.secondaryText,
                         ),
                       ),
                     ],
@@ -101,8 +106,10 @@ class ChatItemWidget extends StatelessWidget {
                           ),
                           child: Text(
                             chat.unreadCount.toString(),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 10.sp),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10.sp,
+                            ),
                           ),
                         ),
                     ],

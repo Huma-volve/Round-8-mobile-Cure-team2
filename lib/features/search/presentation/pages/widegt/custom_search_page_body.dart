@@ -10,26 +10,20 @@ class CustomSearchPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-        child: Column(
-      children: [
-        VSpace(33),
-        CustomTextField(),
-        VSpace(16),
-        CustomTextRich(),
-        VSpace(16),
-        Flexible(
-          flex: 2,
-          child: CustomTextSearchPage(
-            text: 'All Specialties',
+      child: Column(
+        children: [
+          VSpace(33),
+          CustomTextField(),
+          VSpace(16),
+          CustomTextRich(),
+          VSpace(16),
+          Flexible(
+            flex: 2,
+            child: CustomTextSearchPage(text: 'All Specialties'),
           ),
-        ),
-        Flexible(
-          flex: 1,
-          child: CustomTextSearchPage(
-            text: 'History',
-          ),
-        )
-      ],
-    ));
+          Flexible(flex: 1, child: CustomTextSearchPage(text: 'History')),
+        ],
+      ),
+    );
   }
 }

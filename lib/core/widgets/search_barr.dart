@@ -25,10 +25,11 @@ class CustomSearchPageBottom extends StatelessWidget {
               Image.asset(Assets.searchIcon),
               const SizedBox(width: 8),
               const Expanded(
-                  child: Text(
-                'Search for specialty, doctor',
-                style: TextStyle(fontSize: 16, color: Color(0xFF6D7379)),
-              )),
+                child: Text(
+                  'Search for specialty, doctor',
+                  style: TextStyle(fontSize: 16, color: Color(0xFF6D7379)),
+                ),
+              ),
             ],
           ),
         ),

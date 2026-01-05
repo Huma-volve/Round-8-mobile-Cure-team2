@@ -12,10 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: Colors.white,
       leading: IconButton(
-        icon: Image.asset(
-          Assets.backIcon,
-          width: 24,
-        ),
+        icon: Image.asset(Assets.backIcon, width: 24),
         onPressed: () {
           Navigator.pop(context);
         },

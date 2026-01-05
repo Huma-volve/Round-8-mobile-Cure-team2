@@ -21,7 +21,10 @@ class DoctorHeaderSection extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Dr. Jessica Turner', style: AppTextStyles.georgiaCaption),
+            Text(
+              'Dr. Jessica Turner',
+              style: AppTextStyles.georgiaSubheading,
+            ),
             Text(
               'Pulmonologist',
               style: AppTextStyles.montserratRegularSmallCaption,

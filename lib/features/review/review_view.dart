@@ -7,9 +7,6 @@ class ReviewView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: ReviewAppBar(),
-      body: ReviewBody(),
-    );
+    return const Scaffold(appBar: ReviewAppBar(), body: ReviewBody());
   }
 }

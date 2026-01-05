@@ -29,11 +29,18 @@ class DoctorInfoRowSection extends StatelessWidget {
               height: 15,
               fit: BoxFit.contain,
             ),
+<<<<<<< HEAD
             SizedBox(width: 4),
             Text(
               'add review',
               style: AppTextStyles.montserratRegularSubheading.copyWith(
                 fontSize: 14,
+=======
+            SizedBox(width: 5),
+            Text(
+              'add review',
+              style: AppTextStyles.montserratRegularSubheading.copyWith(
+>>>>>>> saadgawesh
                 color: AppColors.primary,
               ),
             ),

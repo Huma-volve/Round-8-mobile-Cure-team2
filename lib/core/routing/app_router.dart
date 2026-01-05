@@ -1,8 +1,8 @@
-﻿import 'package:cure_team_2/core/routing/routes.dart';
+import 'package:cure_team_2/core/routing/routes.dart';
 // Booking
-import 'package:cure_team_2/features/bookingAppointment/screens/Payment_Method.dart';
-import 'package:cure_team_2/features/bookingAppointment/screens/bookingAppointment.dart';
-import 'package:cure_team_2/features/bookingAppointment/screens/your_appointment.dart';
+import 'package:cure_team_2/features/bookingAppointment/presentation/screens/Payment_Method.dart';
+import 'package:cure_team_2/features/bookingAppointment/presentation/screens/bookingAppointment.dart';
+import 'package:cure_team_2/features/bookingAppointment/presentation/screens/your_appointment.dart';
 import 'package:cure_team_2/features/chat/presentation/pages/chat_detail_screen.dart';
 // Chat
 import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
@@ -11,7 +11,6 @@ import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.da
 // Intro
 import 'package:cure_team_2/features/intro/view/onboarding_screen.dart';
 import 'package:cure_team_2/features/intro/view/splash_screen.dart';
-
 
 // Notifications
 import 'package:cure_team_2/features/notifications/presentation/pages/notification_screen.dart';

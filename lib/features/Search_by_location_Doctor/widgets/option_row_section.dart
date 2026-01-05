@@ -10,18 +10,9 @@ class OptionsRowSection extends StatelessWidget {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        OptionItem(
-          assets: Assets.sort,
-          text: 'Sort',
-        ),
-        OptionItem(
-          assets: Assets.filter,
-          text: 'Filter',
-        ),
-        OptionItem(
-          assets: Assets.map,
-          text: 'map',
-        ),
+        OptionItem(assets: Assets.sort, text: 'Sort'),
+        OptionItem(assets: Assets.filter, text: 'Filter'),
+        OptionItem(assets: Assets.map, text: 'map'),
       ],
     );
   }

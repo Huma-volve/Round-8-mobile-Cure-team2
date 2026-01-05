@@ -13,10 +13,7 @@ class RatingPart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start, // يخليهم في منتصف العرض
         children: [
-          Text(
-            'Your Rate',
-            style: AppTextStyles.georgiaH3,
-          ),
+          Text('Your Rate', style: AppTextStyles.georgiaH3),
           Row(
             children: [
               SvgPicture.asset(
@@ -50,12 +47,9 @@ class RatingPart extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
               Spacer(),
-              Text(
-                "4/5",
-                style: AppTextStyles.georgiaH2,
-              )
+              Text("4/5", style: AppTextStyles.georgiaH2),
             ],
-          )
+          ),
         ],
       ),
     );
