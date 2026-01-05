@@ -28,7 +28,6 @@ class DoctorReviewsSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Center(
-<<<<<<< HEAD
                   child: CircleAvatar(
                     radius: 43,
 
@@ -58,10 +57,8 @@ class DoctorReviewsSection extends StatelessWidget {
                     ),
                   ],
                 ),
-=======
-                  child: SvgPicture.asset(Assets.nabila, fit: BoxFit.cover),
-                ),
               ),
+
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +66,6 @@ class DoctorReviewsSection extends StatelessWidget {
                   Text('Nabila Reyna ', style: AppTextStyles.georgiaSubheading),
                   Text('30 min ago', style: AppTextStyles.montserratSubheading),
                 ],
->>>>>>> saadgawesh
               ),
               Container(
                 height: 25,
@@ -77,11 +73,8 @@ class DoctorReviewsSection extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
                   color: AppColors.warning200.withOpacity(0.5),
-<<<<<<< HEAD
+
                   borderRadius: BorderRadius.circular(8),
-=======
-                  borderRadius: BorderRadius.circular(9),
->>>>>>> saadgawesh
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +85,7 @@ class DoctorReviewsSection extends StatelessWidget {
                       height: 16,
                       fit: BoxFit.contain,
                     ),
-<<<<<<< HEAD
+
                     const SizedBox(width: 3),
                     Text(
                       '4.5',
@@ -100,10 +93,9 @@ class DoctorReviewsSection extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-=======
+
                     const SizedBox(width: 4),
                     Text('4.5', style: AppTextStyles.montserratSubheading),
->>>>>>> saadgawesh
                   ],
                 ),
               ),
