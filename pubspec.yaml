@@ -33,6 +33,8 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.9.0
   pretty_dio_logger: ^1.4.0
+  google_fonts: ^6.3.3
+  image_picker: ^1.2.1
 
 dev_dependencies:
   flutter_test:
