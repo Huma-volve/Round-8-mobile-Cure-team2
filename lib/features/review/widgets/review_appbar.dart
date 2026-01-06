@@ -17,7 +17,8 @@ class ReviewAppBar extends StatelessWidget implements PreferredSizeWidget {
         centerTitle: true,
 
 
-    ));
+    )
+    );
   }
 
   @override

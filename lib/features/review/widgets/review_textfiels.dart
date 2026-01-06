@@ -15,7 +15,7 @@ class ReviewTextFieldPart extends StatelessWidget {
           children: [Text('Your review', style: AppTextStyles.georgiaCaption)],
         ),
 
-        SizedBox(height: 10),
+
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.25,
           width: double.infinity,
@@ -31,6 +31,7 @@ class ReviewTextFieldPart extends StatelessWidget {
               hintText: 'Write your review',
 
               hintStyle: AppTextStyles.montserratRegularSubheading,
+
 
 
             ),
