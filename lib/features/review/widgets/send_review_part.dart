@@ -78,10 +78,9 @@ class SendReviewPart extends StatelessWidget {
           'Send your review',
           textAlign: TextAlign.center,
           style: AppTextStyles.montserratSubheading.copyWith(
-<<<<<<< HEAD
-=======
+
             fontSize: 20,
->>>>>>> a7b006e2af1bf7d9aacb16758475b1c62104516b
+
             color: AppColors.grey100,
           ),
         ),
