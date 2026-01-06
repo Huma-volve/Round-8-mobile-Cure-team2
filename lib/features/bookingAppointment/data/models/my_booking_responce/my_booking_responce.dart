@@ -1,9 +1,9 @@
-import 'datum.dart';
+import 'MyBookingModel.dart';
 
 class MyBookingResponce {
   final bool? status;
   final String? message;
-  final List<Datum>? data;
+  final List<MyBookingModel>? data;
 
   const MyBookingResponce({this.status, this.message, this.data});
 
@@ -13,7 +13,7 @@ class MyBookingResponce {
       message: json['message'] as String?,
       data:
           (json['data'] as List<dynamic>?)
-              ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => MyBookingModel.fromJson(e as Map<String, dynamic>))
               .toList(),
     );
   }

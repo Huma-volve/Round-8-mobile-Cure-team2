@@ -1,11 +1,11 @@
-class CancelMyBooking {
+class CancelMyBookingResponce {
   final bool? status;
   final String? message;
 
-  const CancelMyBooking({this.status, this.message});
+  const CancelMyBookingResponce({this.status, this.message});
 
-  factory CancelMyBooking.fromJson(Map<String, dynamic> json) {
-    return CancelMyBooking(
+  factory CancelMyBookingResponce.fromJson(Map<String, dynamic> json) {
+    return CancelMyBookingResponce(
       status: json['status'] as bool?,
       message: json['message'] as String?,
     );

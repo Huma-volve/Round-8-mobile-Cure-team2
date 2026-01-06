@@ -20,8 +20,8 @@ class FavouriteCubit extends Cubit<FavouriteState> {
       (failure) {
         emit(ErrorState(failure.message));
       },
-      (PostfavouriteEntity) {
-        emit(SuccessState(PostfavouriteEntity as String));
+      (Postfavourite) {
+        emit(SuccesspostFavouriteState(Postfavourite));
       },
     );
   }
@@ -39,8 +39,8 @@ class FavouriteCubit extends Cubit<FavouriteState> {
       (failure) {
         emit(ErrorState(failure.message));
       },
-      (GetfavouriteEntity) {
-        emit(SuccessState(GetfavouriteEntity as String));
+      (Getfavourite) {
+        emit(SuccessgetFavouriteState(Getfavourite));
       },
     );
   }

@@ -1,26 +1,29 @@
-import 'data.dart';
+import 'ReschedualMybookingModel.dart';
 
-class ReschedualMybooking {
-  final bool? status;
-  final String? message;
-  final Data? data;
+class ReschedualMybookingResponce {
+  final bool status;
+  final String message;
+  final ReschedualMybookingModel data;
 
-  const ReschedualMybooking({this.status, this.message, this.data});
+  const ReschedualMybookingResponce({
+    required this.status,
+    required this.message,
+    required this.data,
+  });
 
-  factory ReschedualMybooking.fromJson(Map<String, dynamic> json) {
-    return ReschedualMybooking(
-      status: json['status'] as bool?,
-      message: json['message'] as String?,
-      data:
-          json['data'] == null
-              ? null
-              : Data.fromJson(json['data'] as Map<String, dynamic>),
+  factory ReschedualMybookingResponce.fromJson(Map<String, dynamic> json) {
+    return ReschedualMybookingResponce(
+      status: json['status'] as bool,
+      message: json['message'] as String,
+      data: ReschedualMybookingModel.fromJson(
+        json['data'] as Map<String, dynamic>,
+      ),
     );
   }
 
   Map<String, dynamic> toJson() => {
     'status': status,
     'message': message,
-    'data': data?.toJson(),
+    'data': data.toJson(),
   };
 }
