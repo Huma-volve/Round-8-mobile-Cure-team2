@@ -11,6 +11,11 @@ class ChatModel extends ChatEntity {
   }) : super(participants: participants, lastMessage: lastMessage);
 
   factory ChatModel.fromJson(Map<String, dynamic> json) {
+    final participantsJson = json['participants'] ?? json['users'];
+    final lastMessageJson = json['lastMessage'] ?? json['last_message'];
+    final unreadRaw = json['unreadCount'] ?? json['unread_count'];
+    final unreadCount =
+        unreadRaw is int ? unreadRaw : int.tryParse(unreadRaw.toString()) ?? 0;
     return ChatModel(
       id: json['id'],
       participants:
@@ -24,6 +29,4 @@ class ChatModel extends ChatEntity {
       unreadCount: json['unreadCount'] ?? 0,
     );
   }
-
-  // helper to get logic properties if needed
 }

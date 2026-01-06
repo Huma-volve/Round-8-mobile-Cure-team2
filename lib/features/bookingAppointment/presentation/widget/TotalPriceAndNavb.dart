@@ -4,8 +4,8 @@ import 'package:cure_team_2/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Totalpriceandnavb extends StatelessWidget {
-  const Totalpriceandnavb({
+class TotalPriceAndNavBar extends StatelessWidget {
+  const TotalPriceAndNavBar({
     super.key,
     required this.text,
     required this.onPressed,
@@ -22,7 +22,6 @@ class Totalpriceandnavb extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          /// Price Row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -30,7 +29,7 @@ class Totalpriceandnavb extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(text: 'Price ', style: AppTextStyles.montserratH3),
-                    TextSpan(text: '\\ ', style: AppTextStyles.georgiaCaption),
+                    TextSpan(text: '/ ', style: AppTextStyles.georgiaCaption),
                     TextSpan(
                       text: 'hour',
                       style: AppTextStyles.georgiaCaption.copyWith(
@@ -63,7 +62,6 @@ class Totalpriceandnavb extends StatelessWidget {
 
           SizedBox(height: 12.h),
 
-          /// Button
           AppButton(
             onPressed: onPressed,
             text: text,

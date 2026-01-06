@@ -1,0 +1,53 @@
+import 'package:cure_team_2/core/theme/app_colors.dart';
+import 'package:cure_team_2/features/chat/presentation/pages/chat_list_screen.dart';
+import 'package:cure_team_2/features/profile/presentation/pages/profile_screen.dart';
+import 'package:cure_team_2/features/tabs/screens/booking.dart';
+import 'package:flutter/material.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
+  final List<Widget> listPage = [
+    const Center(child: Text("Home")), // Placeholder for missing HomePageBody
+    const Mybooking(),
+    const ChatListScreen(),
+    const ProfileScreen(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ValueListenableBuilder<int>(
+        valueListenable: currentIndex,
+        builder: (context, value, _) {
+          return listPage[value];
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex.value,
+        onTap: (index) {
+          setState(() {
+            currentIndex.value = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Booking',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: Colors.grey,
+      ),
+    );
+  }
+}

@@ -32,6 +32,7 @@ dependencies:
   iconly: ^1.0.1
   dartz: ^0.10.1
   dio: ^5.9.0
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:

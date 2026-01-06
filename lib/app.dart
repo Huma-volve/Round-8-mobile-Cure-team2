@@ -1,4 +1,5 @@
 import 'package:cure_team_2/core/routing/app_router.dart';
+import 'package:cure_team_2/core/routing/routes.dart';
 import 'package:cure_team_2/core/theme/app_theme.dart';
 import 'package:cure_team_2/features/tabs/navbar.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +20,9 @@ class MyApp extends StatelessWidget {
         right: false,
         left: false,
         child: MaterialApp(
-          title: 'cure_team_1',
-
-          home: const Navbar(),
-
-          // initialRoute:Routes.navbar,
+          title: 'cure_team_2',
+          // home: const DoctorDetailsView(),
+          initialRoute: Routes.splash,
           onGenerateRoute: router.generateRoute,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,

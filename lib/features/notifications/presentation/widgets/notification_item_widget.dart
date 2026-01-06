@@ -28,14 +28,19 @@ class NotificationItemWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      notification.title,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.text,
+                    Expanded(
+                      child: Text(
+                        notification.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.text,
+                        ),
                       ),
                     ),
+                    SizedBox(width: 8.w),
                     Text(
                       _formatTime(notification.timestamp),
                       style: TextStyle(
@@ -81,9 +86,7 @@ class NotificationItemWidget extends StatelessWidget {
         bg = const Color(0xFFEDF7EE);
         break;
       case NotificationType.cancelled:
-        iconData =
-            Icons
-                .calendar_today_outlined; // Needs custom icon really, but this works
+        iconData = Icons.calendar_today_outlined;
         color = const Color(0xFFE53935); // Red
         bg = const Color(0xFFFFEBEE);
         break;
@@ -98,13 +101,20 @@ class NotificationItemWidget extends StatelessWidget {
   }
 
   String _formatTime(DateTime timestamp) {
-    final difference = DateTime.now().difference(timestamp);
-    if (difference.inHours > 0) {
-      return "${difference.inHours}h";
-    } else if (difference.inMinutes > 0) {
-      return "${difference.inMinutes}m";
-    } else {
-      return "Now";
+    final now = DateTime.now();
+    final difference = now.difference(timestamp);
+    final duration =
+        difference.isNegative ? timestamp.difference(now) : difference;
+    if (duration.inDays > 0) {
+      return "${duration.inDays}d";
     }
+    if (duration.inHours > 0) {
+      return "${duration.inHours}h";
+    }
+    if (duration.inMinutes > 0) {
+      return "${duration.inMinutes}m";
+    }
+
+    return "Now";
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:cure_team_2/features/chat/data/models/chat_model.dart';
 import 'package:cure_team_2/features/chat/data/models/message_model.dart';
 import 'package:cure_team_2/features/chat/data/models/user_model.dart';

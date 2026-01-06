@@ -1,12 +1,11 @@
+import 'package:cure_team_2/core/theme/app_colors.dart';
+import 'package:cure_team_2/features/chat/data/datasources/chat_remote_datasource.dart';
+import 'package:cure_team_2/features/chat/data/repositories/chat_repository_impl.dart';
+import 'package:cure_team_2/features/chat/presentation/cubit/chat_detail_cubit.dart';
+import 'package:cure_team_2/features/chat/presentation/widgets/message_bubble_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cure_team_2/core/theme/app_colors.dart';
-
-import 'package:cure_team_2/features/chat/presentation/cubit/chat_detail_cubit.dart';
-import 'package:cure_team_2/features/chat/presentation/widgets/message_bubble_widget.dart';
-import 'package:cure_team_2/features/chat/data/datasources/chat_remote_datasource.dart';
-import 'package:cure_team_2/features/chat/data/repositories/chat_repository_impl.dart';
 
 class ChatDetailScreen extends StatelessWidget {
   final String chatId;
@@ -56,6 +55,20 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
         curve: Curves.easeOut,
       );
     }
+  }
+
+  void _sendMessage() {
+    final text = _messageController.text.trim();
+    if (text.isEmpty) return;
+    context.read<ChatDetailCubit>().sendMessage(widget.chatId, text);
+    _messageController.clear();
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -109,7 +122,12 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
               builder: (context, state) {
                 if (state is ChatDetailLoading) {
                   return const Center(child: CircularProgressIndicator());
+                } else if (state is ChatDetailError) {
+                  return Center(child: Text(state.message));
                 } else if (state is ChatDetailLoaded) {
+                  if (state.messages.isEmpty) {
+                    return const Center(child: Text('No messages yet'));
+                  }
                   return ListView.builder(
                     controller: _scrollController,
                     padding: EdgeInsets.symmetric(vertical: 20.h),
@@ -117,7 +135,13 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                     itemBuilder: (context, index) {
                       final message = state.messages[index];
                       // Determine if me
-                      final isMe = message.senderId == 'current_user';
+                      final isMe =
+                          message.senderId == 'current_user' ||
+                          message.senderId == '213';
+                      // Note: '213' was seen in screenshot as user_id.
+                      // Need a way to get actual current user ID dynamically.
+                      // For now using the mock id 'current_user' or assuming ID logic needs to be robust.
+
                       return MessageBubbleWidget(message: message, isMe: isMe);
                     },
                   );
@@ -140,6 +164,7 @@ class _ChatDetailScreenContentState extends State<_ChatDetailScreenContent> {
                 ),
               ],
             ),
+
             child: Row(
               children: [
                 Expanded(

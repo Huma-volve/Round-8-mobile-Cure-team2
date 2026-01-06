@@ -13,37 +13,41 @@ class RatingPart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start, // يخليهم في منتصف العرض
         children: [
+<<<<<<< HEAD
           Text('Your Rate', style: AppTextStyles.georgiaH3),
+=======
+          Text('Your Rate', style: AppTextStyles.georgiaCaption),
+>>>>>>> a7b006e2af1bf7d9aacb16758475b1c62104516b
           Row(
             children: [
               SvgPicture.asset(
                 Assets.starReview,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 fit: BoxFit.contain,
               ),
               SvgPicture.asset(
                 Assets.starReview,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 fit: BoxFit.contain,
               ),
               SvgPicture.asset(
                 Assets.starReview,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 fit: BoxFit.contain,
               ),
               SvgPicture.asset(
                 Assets.starReview,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 fit: BoxFit.contain,
               ),
               SvgPicture.asset(
                 Assets.starReviewDisabled,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 fit: BoxFit.contain,
               ),
               Spacer(),
