@@ -1,9 +1,9 @@
-import 'data.dart';
+import 'BookingAppointmentsModel.dart';
 
 class BookingAppointmentsResponce {
   final bool? status;
   final String? message;
-  final Data? data;
+  final BookingAppointmentsModel? data;
 
   const BookingAppointmentsResponce({this.status, this.message, this.data});
 
@@ -14,7 +14,7 @@ class BookingAppointmentsResponce {
       data:
           json['data'] == null
               ? null
-              : Data.fromJson(json['data'] as Map<String, dynamic>),
+              : BookingAppointmentsModel.fromJson(json['data'] as Map<String, dynamic>),
     );
   }
 

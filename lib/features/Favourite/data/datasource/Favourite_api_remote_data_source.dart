@@ -6,9 +6,6 @@ import 'package:cure_team_2/features/Favourite/data/models/post_favorite/PostFav
 import 'package:dio/dio.dart';
 
 class FavouriteApiRemoteDataSource implements FavouriteRemoteDataSource {
-  final Dio _dio;
-
-  FavouriteApiRemoteDataSource(this._dio);
   @override
   Future<PostFavouriteResponce> postFavourite({
     int? doctorId,
@@ -19,7 +16,7 @@ class FavouriteApiRemoteDataSource implements FavouriteRemoteDataSource {
         BaseOptions(
           baseUrl: ApiClient.baseUrl,
           headers: {
-            "Accept": ApiClient.headersFavourite,
+            "Accept": ApiClient.headers,
             "Authorization": "Bearer$token",
           },
         ),
@@ -39,6 +36,7 @@ class FavouriteApiRemoteDataSource implements FavouriteRemoteDataSource {
   @override
   Future<getFavouriteResponce> getFavourite() async {
     try {
+      final _dio = Dio(BaseOptions(baseUrl: ApiClient.baseUrl));
       final responce = await _dio.get(ApiClient.getFavourite);
       return getFavouriteResponce.fromJson(responce.data);
     } catch (exception) {

@@ -8,7 +8,7 @@ class ApiClient {
   static const String rescheduleAppointment = "appointments/4/reschedule";
   static const String getFavourite = "favorites";
   static const String postFavourite = "favorites-toggle";
-  static const String headersFavourite = "application/json";
+  static const String headers = "application/json";
   static const String token =
       "186|vQIyHhtNVuB5D0QbFVWMqABzZMCtvoEyMe4leaL9096582e3";
 }

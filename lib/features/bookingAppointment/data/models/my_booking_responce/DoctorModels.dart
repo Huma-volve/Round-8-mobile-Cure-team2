@@ -1,13 +1,13 @@
-class Doctor {
+class DoctorModels {
   final int? id;
   final String? name;
   final String? image;
   final dynamic spec;
   final dynamic address;
 
-  const Doctor({this.id, this.name, this.image, this.spec, this.address});
+  const DoctorModels({this.id, this.name, this.image, this.spec, this.address});
 
-  factory Doctor.fromJson(Map<String, dynamic> json) => Doctor(
+  factory DoctorModels.fromJson(Map<String, dynamic> json) => DoctorModels(
     id: json['id'] as int?,
     name: json['name'] as String?,
     image: json['image'] as String?,
