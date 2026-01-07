@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/bookingAppointment/data/repositories/bookin
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/cancel_booking_entities.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-@LazySingleton()
+@lazySingleton
 class CancelBookingUsecase {
   final BookingRepository _bookingRepository;
 

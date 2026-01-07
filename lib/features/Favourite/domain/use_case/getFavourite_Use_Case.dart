@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/Favourite/domain/entities/getFavouriteEntit
 import 'package:cure_team_2/features/Favourite/domain/repositories/favourite_Repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-@LazySingleton()
+@lazySingleton
 class GetfavouriteUseCase {
   final FavouriteRepository _favouriteRepository;
 

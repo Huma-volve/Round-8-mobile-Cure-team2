@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/bookingAppointment/data/repositories/bookin
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/bookinAppointment_entities.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-@LazySingleton()
+@lazySingleton
 class BookingAppointmentUseCase {
   final BookingRepository _bookingRepository;
 

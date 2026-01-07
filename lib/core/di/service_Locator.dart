@@ -98,8 +98,8 @@ abstract class RegisterModule {
             options.headers['Authorization'] = 'Bearer $token';
           }
 
-          options.headers['Content-Type'] = 'application/json';
-          options.headers['Accept'] = 'application/json';
+          // options.headers['Content-Type'] = 'application/json';
+          // options.headers['Accept'] = 'application/json';
 
           handler.next(options); // لازم في جميع الحالات
         },

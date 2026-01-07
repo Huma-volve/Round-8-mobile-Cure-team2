@@ -17,7 +17,7 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: true, // ممكن تحط false لو عايز تطفيه
+      enabled: false, // ممكن تحط false لو عايز تطفيه
       builder: (context) => MyApp(router: AppRouter()),
     ),
   );

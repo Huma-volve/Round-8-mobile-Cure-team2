@@ -1,5 +1,6 @@
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
@@ -21,9 +22,10 @@ class CustomOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       padding: const EdgeInsets.all(8),
-      width: 160,
-      height: 40,
+      width: 175.w,
+      height: 40.h,
       decoration: BoxDecoration(
         color: bacgroundColor,
         borderRadius: BorderRadius.circular(10),

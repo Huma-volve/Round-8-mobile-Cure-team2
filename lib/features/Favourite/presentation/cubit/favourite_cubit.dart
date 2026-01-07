@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/Favourite/presentation/cubit/favourite_Stat
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable()
+@injectable
 class FavouriteCubit extends Cubit<FavouriteState> {
   FavouriteCubit(this._favouriteRepositoryimpl) : super(InitialState());
   final FavouriteRepositoryimpl _favouriteRepositoryimpl;
