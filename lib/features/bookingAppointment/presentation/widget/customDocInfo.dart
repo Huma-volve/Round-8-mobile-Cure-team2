@@ -1,6 +1,7 @@
 import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
+import 'package:cure_team_2/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 113.h,
+      height: 114.h,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -37,16 +38,16 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
               ),
             ],
           ),
-          SizedBox(width: 12.w),
+          HSpace(12),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Dr. Jessica Turner', style: AppTextStyles.georgiaH3),
-                const SizedBox(height: 4),
+                VSpace(4),
                 Text('Pulmonologist', style: AppTextStyles.montserratCaption),
-                const SizedBox(height: 6),
+                VSpace(6),
                 Row(
                   children: [
                     const Image(
@@ -54,7 +55,7 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
                       width: 14,
                       height: 14,
                     ),
-                    const SizedBox(width: 4),
+                    VSpace(4),
                     Expanded(
                       child: Text(
                         '129, El-Nasr Street, Cairo',
@@ -68,7 +69,7 @@ class _CustomDoctorInfoState extends State<CustomDoctorInfo> {
               ],
             ),
           ),
-          SizedBox(width: 12.w),
+          HSpace(12),
           CircleAvatar(
             radius: 24,
             backgroundColor: AppColors.grey50,

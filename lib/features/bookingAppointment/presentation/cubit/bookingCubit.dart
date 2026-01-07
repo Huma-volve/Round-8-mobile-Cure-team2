@@ -3,7 +3,7 @@ import 'package:cure_team_2/features/bookingAppointment/presentation/cubit/Booki
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable()
+@injectable
 class Bookingcubit extends Cubit<BookingState> {
   Bookingcubit(super.initialState, this._bookingRepository);
   final BookingRepository _bookingRepository;

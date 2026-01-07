@@ -1,4 +1,5 @@
 import 'package:cure_team_2/core/routing/routes.dart';
+import 'package:cure_team_2/features/Favourite/presentation/Screens/add_Favourite.dart';
 import 'package:cure_team_2/features/auth/presentation/pages/login_screen.dart';
 import 'package:cure_team_2/features/bookingAppointment/presentation/screens/bookingAppointment.dart';
 import 'package:cure_team_2/features/chat/presentation/pages/chat_detail_screen.dart';
@@ -118,6 +119,11 @@ class AppRouter {
 
       case Routes.bookappointment:
         return MaterialPageRoute(builder: (_) => const Bookingappointment());
+      case Routes.favoritePage:
+        return MaterialPageRoute(
+          builder: (_) => const AddFavourite(),
+          settings: settings,
+        );
       case Routes.paymentmethod:
         // Placeholder for missing PaymentMethod
         return MaterialPageRoute(

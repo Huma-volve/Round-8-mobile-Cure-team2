@@ -23,7 +23,7 @@ class ApiClient {
       );
       return response;
     } on DioException catch (e) {
-      throw _handleDioError(e);
+      throw handleDioError(e);
     }
   }
 
@@ -42,7 +42,7 @@ class ApiClient {
       );
       return response;
     } on DioException catch (e) {
-      throw _handleDioError(e);
+      throw handleDioError(e);
     }
   }
 
@@ -61,7 +61,7 @@ class ApiClient {
       );
       return response;
     } on DioException catch (e) {
-      throw _handleDioError(e);
+      throw handleDioError(e);
     }
   }
 
@@ -80,11 +80,11 @@ class ApiClient {
       );
       return response;
     } on DioException catch (e) {
-      throw _handleDioError(e);
+      throw handleDioError(e);
     }
   }
 
-  Exception _handleDioError(DioException exception) {
+  Exception handleDioError(DioException exception) {
     String? message;
     message = exception.response?.data["message"];
     throw RemoteException(message ?? "failed to post favourite");
