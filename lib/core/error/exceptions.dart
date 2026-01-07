@@ -1,8 +1,3 @@
-// abstract class AppException implements Exception {
-//   final String message;
-
-//   AppException({required this.message});
-// }
 
 /// Base Exception
 abstract class AppException implements Exception {

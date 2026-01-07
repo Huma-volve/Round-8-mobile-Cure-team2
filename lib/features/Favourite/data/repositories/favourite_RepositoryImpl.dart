@@ -7,7 +7,9 @@ import 'package:cure_team_2/features/Favourite/domain/entities/getFavouriteEntit
 import 'package:cure_team_2/features/Favourite/domain/entities/postFavouriteEntity.dart';
 import 'package:cure_team_2/features/Favourite/domain/repositories/favourite_Repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: FavouriteRepository)
 class FavouriteRepositoryimpl implements FavouriteRepository {
   final FavouriteRemoteDataSource _favouriteRemoteDataSource;
 

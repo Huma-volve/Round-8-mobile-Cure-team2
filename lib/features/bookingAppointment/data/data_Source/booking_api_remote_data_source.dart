@@ -4,7 +4,9 @@ import 'package:cure_team_2/features/bookingAppointment/data/models/booking_appo
 import 'package:cure_team_2/features/bookingAppointment/data/models/cancel_Mybookin/cancel_my_booking.dart';
 import 'package:cure_team_2/features/bookingAppointment/data/models/my_booking_responce/my_booking_responce.dart';
 import 'package:cure_team_2/features/bookingAppointment/data/models/reschedual_mybooking/reschedual_mybooking.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: BookinRemoteDataSource)
 class BookingApiRemoteDataSource implements BookinRemoteDataSource {
   final ApiClient _apiClient;
 
