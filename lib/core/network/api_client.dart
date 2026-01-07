@@ -1,60 +1,12 @@
 import 'dart:async';
 
-import 'package:cure_team_2/core/database/shared_pref_helper.dart';
 import 'package:cure_team_2/core/error/exceptions.dart';
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
   final Dio _dio;
-  // static const String baseUrl =
-  //     "https://round8-cure-php-team-two.huma-volve.com/api/v1/";
-  // static const String bookAppointment = "appointments/book";
-  // static const String mybookings = "appointments/my-bookings";
-  // static const String cancelAppointment = "appointments/4/cancel";
-  // static const String rescheduleAppointment = "appointments/4/reschedule";
-  // static const String getFavourite = "favorites";
-  // static const String postFavourite = "favorites-toggle";
-  // static const String headers = "application/json";
-  // static const String token =
-  //     "186|vQIyHhtNVuB5D0QbFVWMqABzZMCtvoEyMe4leaL9096582e3";
-  ApiClient()
-    : _dio = Dio(
-        BaseOptions(
-          baseUrl: 'https://round8-cure-php-team-two.huma-volve.com/api/v1/',
-          connectTimeout: const Duration(seconds: 10),
-          receiveTimeout: const Duration(seconds: 10),
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-        ),
-      ) {
-    _dio.interceptors.add(
-      PrettyDioLogger(
-        requestHeader: true,
-        requestBody: true,
-        responseBody: true,
-        responseHeader: false,
-        error: true,
-        compact: true,
-        maxWidth: 90,
-      ),
-    );
 
-    // Add Auth Interceptor
-    _dio.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: (options, handler) async {
-          final token = SharedPrefHelper.getString('user_token');
-          if (token != null) {
-            options.headers['Authorization'] = 'Bearer $token';
-          }
-          return handler.next(options);
-        },
-      ),
-    );
-  }
+  ApiClient() : _dio = Dio();
 
   Dio get dio => _dio;
 
@@ -135,7 +87,6 @@ class ApiClient {
   Exception _handleDioError(DioException exception) {
     String? message;
     message = exception.response?.data["message"];
-      throw RemoteException(message ?? "failed to post favourite");
+    throw RemoteException(message ?? "failed to post favourite");
   }
 }
-

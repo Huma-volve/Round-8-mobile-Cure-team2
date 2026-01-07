@@ -11,7 +11,8 @@ import 'package:cure_team_2/features/bookingAppointment/domain/entities/cancel_b
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/my_booking_entites.dart';
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/reschedual_booking_entities.dart';
 import 'package:dartz/dartz.dart';
-
+import 'package:injectable/injectable.dart';
+@LazySingleton(as:BookingRepository )
 class BookingRepositoryimpl implements BookingRepository {
   final BookinRemoteDataSource _bookinRemoteDataSource;
 

@@ -2,7 +2,8 @@ import 'package:cure_team_2/core/network/api_client.dart';
 import 'package:cure_team_2/features/Favourite/data/datasource/Favourite_remote_data_source.dart';
 import 'package:cure_team_2/features/Favourite/data/models/get_favourit/getFavouriteResponce.dart';
 import 'package:cure_team_2/features/Favourite/data/models/post_favorite/PostFavouriteResponce.dart';
-
+import 'package:injectable/injectable.dart';
+@LazySingleton(as:FavouriteRemoteDataSource )
 class FavouriteApiRemoteDataSource implements FavouriteRemoteDataSource {
   final ApiClient _apiClient;
 
@@ -22,4 +23,3 @@ class FavouriteApiRemoteDataSource implements FavouriteRemoteDataSource {
     return getFavouriteResponce.fromJson(responce.data);
   }
 }
- 

@@ -2,6 +2,7 @@ import 'package:cure_team_2/core/constants/assets.dart';
 import 'package:cure_team_2/core/theme/app_colors.dart';
 import 'package:cure_team_2/core/theme/app_text_styles.dart';
 import 'package:cure_team_2/core/widgets/app_button.dart';
+import 'package:cure_team_2/core/widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +32,7 @@ void showCancelDialog(BuildContext context) {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(Assets.warningImage, width: 131.w, height: 131.h),
-                  SizedBox(height: 32.h),
+                  HSpace(32),
                   Text(
                     'Warning!',
                     style: AppTextStyles.georgiaSubheading.copyWith(
@@ -39,7 +40,7 @@ void showCancelDialog(BuildContext context) {
                       color: AppColors.warning,
                     ),
                   ),
-                  SizedBox(height: 32.h),
+                  HSpace(32),
                   Text(
                     'Cancellation must be made at least\n 24 hours in advance to receive a\n refund!',
                     textAlign: TextAlign.center,
@@ -47,7 +48,7 @@ void showCancelDialog(BuildContext context) {
                       color: AppColors.secondary300,
                     ),
                   ),
-                  SizedBox(height: 35.h),
+                  HSpace(35),
                   Text(
                     'Are you sure?',
                     textAlign: TextAlign.center,
@@ -55,7 +56,8 @@ void showCancelDialog(BuildContext context) {
                       color: AppColors.secondary300,
                     ),
                   ),
-                  SizedBox(height: 13.h),
+
+                  HSpace(13),
                   AppButton(
                     text: 'Yes, Cancel',
                     onPressed: () {
