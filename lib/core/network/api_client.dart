@@ -1,22 +1,23 @@
+import 'dart:async';
 
+import 'package:cure_team_2/core/database/shared_pref_helper.dart';
+import 'package:cure_team_2/core/error/exceptions.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:cure_team_2/core/database/shared_pref_helper.dart';
-
 
 class ApiClient {
   final Dio _dio;
- static const String baseUrl =
-      "https://round8-cure-php-team-two.huma-volve.com/api/v1/";
-  static const String bookAppointment = "appointments/book";
-  static const String mybookings = "appointments/my-bookings";
-  static const String cancelAppointment = "appointments/4/cancel";
-  static const String rescheduleAppointment = "appointments/4/reschedule";
-  static const String getFavourite = "favorites";
-  static const String postFavourite = "favorites-toggle";
-  static const String headers = "application/json";
-  static const String token =
-      "186|vQIyHhtNVuB5D0QbFVWMqABzZMCtvoEyMe4leaL9096582e3";
+  // static const String baseUrl =
+  //     "https://round8-cure-php-team-two.huma-volve.com/api/v1/";
+  // static const String bookAppointment = "appointments/book";
+  // static const String mybookings = "appointments/my-bookings";
+  // static const String cancelAppointment = "appointments/4/cancel";
+  // static const String rescheduleAppointment = "appointments/4/reschedule";
+  // static const String getFavourite = "favorites";
+  // static const String postFavourite = "favorites-toggle";
+  // static const String headers = "application/json";
+  // static const String token =
+  //     "186|vQIyHhtNVuB5D0QbFVWMqABzZMCtvoEyMe4leaL9096582e3";
   ApiClient()
     : _dio = Dio(
         BaseOptions(
@@ -131,9 +132,10 @@ class ApiClient {
     }
   }
 
-  Exception _handleDioError(DioException error) {
-    // You can customize error handling here
-    // For simple pass-through or wrapping:
-    return error;
+  Exception _handleDioError(DioException exception) {
+    String? message;
+    message = exception.response?.data["message"];
+      throw RemoteException(message ?? "failed to post favourite");
   }
 }
+

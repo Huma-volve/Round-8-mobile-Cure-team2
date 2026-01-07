@@ -16,7 +16,8 @@ class Bookingcubit extends Cubit<BookingState> {
       time: time,
     );
     result.fold(
-      (Failure) => emit(ErrorBookingState(Failure.message)),
+      // ignore: non_constant_identifier_names
+      (Failure) => emit(ErrorBookingState(Failure.message!)),
 
       // ignore: non_constant_identifier_names
       (bookingAppointment) =>
@@ -32,7 +33,7 @@ class Bookingcubit extends Cubit<BookingState> {
 
     final result = await _bookingRepository.mybookings();
     result.fold(
-      (Failure) => emit(ErrorBookingState(Failure.message)),
+      (Failure) => emit(ErrorBookingState(Failure.message!)),
 
       // ignore: non_constant_identifier_names
       (mybooking) => emit(SuccessMyBookingState(mybooking)),
@@ -46,7 +47,7 @@ class Bookingcubit extends Cubit<BookingState> {
     emit(LoadingBookingState());
     final result = await _bookingRepository.cancelbooking();
     result.fold(
-      (failure) => emit(ErrorBookingState(failure.message)),
+      (failure) => emit(ErrorBookingState(failure.message!)),
 
       // ignore: non_constant_identifier_names
       (cancel) => emit(SuccessCancelBookingState(cancel)),
@@ -66,7 +67,7 @@ class Bookingcubit extends Cubit<BookingState> {
       appointmentTime: appointmentTime,
     );
     result.fold(
-      (failure) => emit(ErrorBookingState(failure.message)),
+      (failure) => emit(ErrorBookingState(failure.message!)),
 
       (reschedual) => emit(SuccessReschedualBookingState(reschedual)),
     );
