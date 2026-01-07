@@ -2,7 +2,6 @@ import 'package:cure_team_2/features/bookingAppointment/domain/entities/bookinAp
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/cancel_booking_entities.dart';
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/my_booking_entites.dart';
 import 'package:cure_team_2/features/bookingAppointment/domain/entities/reschedual_booking_entities.dart';
-import 'package:cure_team_2/features/bookingAppointment/presentation/screens/bookingAppointment.dart';
 
 abstract class BookingState {}
 
